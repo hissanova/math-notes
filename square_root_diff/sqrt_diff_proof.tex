@@ -1,0 +1,78 @@
+% Created 2019-06-22 土 17:05
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{hisanobu-nakamura}
+\date{\textit{<2018-06-20 水>}}
+\title{Square Root Difference Theorem}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+
+
+
+\section{The Problem}
+\label{sec-1}
+Prove the following statetment:
+$\forall n, k (>0) \in \mathbb{N}, \exists N \in \mathbb{N}$ such that
+\begin{equation}
+  \label{eq:main}
+  (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
+\end{equation}
+\begin{equation}
+  \label{eq:main}
+  (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
+\end{equation}
+
+
+\textbf{Proof}
+
+First, let us rephrase the statement in a more tactible way. Take logarithm of the L.H.S.
+\begin{eqnarray*}
+\ln (\sqrt{n + 1} - \sqrt{n})^k &=& k \ln (\frac{1}{\sqrt{n + 1} + \sqrt{n}}) \\
+&=& - k \ln (\sqrt{n + 1} + \sqrt{n})
+\end{eqnarray*}
+Then, with $x = \sqrt{n}$, the logarithm at the last line is equal to $\sinh^{-1}{x}$. So, let us denote $\phi = - \sinh^{-1}{x}$.
+Now, the statement reads that, for $\phi$ such that $\sinh^2 \phi$ is a natural number, prove that $\sinh^2 k \phi$ is also a natural number.
+In fact, $\sinh k \phi$ can be expressed as a polynomial in terms of $\sinh{\phi} = \sqrt{n}$ and $\cosh{\phi} = \sqrt{n + 1}$ with integer coefficients. 
+But in order for $\sinh^2 k \phi$ to be natural, $\sinh k \phi$ must factorize into a natural factor and an irrational factor such as $\sinh{\phi}$, $\cosh{\phi}$ or $\sinh{\phi}\cosh{\phi}$
+The trigonometric-hyperbolic conversion rule:
+\begin{equation}
+  \label{eq:trig-hype}
+  \cos{i \phi} = \cosh{\phi}, \quad \sin{i \phi} = i \sinh{\phi} 
+\end{equation}
+This leads to
+\begin{eqnarray}
+  \label{eq:binomial}
+  (x + y)^{k} &=& \sum_{l + l^{\prime} = k} \binom{k}{l} x^l y^{l^{\prime}}
+\end{eqnarray}
+\begin{eqnarray}
+  \label{eq:binomial-even}
+  (x + y)^{2m} &=& x ^{2m} + \binom{2m}{1} \underline{x^{2m-1}y} + \binom{2m}{2} x^{2m-2}y^2 + \nonumber \\
+               && \dots + \binom{2m}{2m - 2} x^2 y^{2m-2} + \binom{2m}{2m - 1} \underline{x y^{2m-1}} + y^{2m}
+\end{eqnarray}
+\begin{eqnarray}
+  \label{eq:binomial-odd}
+  (x + y)^{2m+1} &=& x ^{2m+1} + \binom{2m+1}{1} \underline{x^{2m}y} + \binom{2m+1}{2} x^{2m-1}y^2 + \nonumber \\
+  && \dots + \binom{2m + 1}{2m - 1} \underline{x^2 y^{2m-1}} + \binom{2m + 1}{2m} x y^{2m} + \underline{y^{2m+1}}
+\end{eqnarray}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}

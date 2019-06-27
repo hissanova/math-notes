@@ -1,0 +1,88 @@
+#+TITLE: Square Root Difference Theorem
+#+DATE: <2018-06-20 水>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: hisanobu_nakamura@snorlax
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+# ---HTML template---
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+LATEX_HEADER:t
+
+
+* The Statement
+Prove the following statetment:
+$\forall n, k (>0) \in \mathbb{N}, \exists N \in \mathbb{N}$ such that
+#+BEGIN_LaTeX
+  \begin{equation}
+    \label{eq:main}
+    (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
+  \end{equation}
+#+END_LaTeX
+
+\begin{equation}
+  \label{eq:main}
+  (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
+\end{equation}
+
+
+*Proof*
+
+First, let us rephrase the statement in a more tactible way. Take logarithm of the L.H.S.
+#+BEGIN_LaTeX
+equation
+\begin{eqnarray*}
+\ln (\sqrt{n + 1} - \sqrt{n})^k &=& k \ln (\frac{1}{\sqrt{n + 1} + \sqrt{n}}) \\
+&=& - k \ln (\sqrt{n + 1} + \sqrt{n})
+\end{eqnarray*}
+#+END_LaTeX
+Then, with $x = \sqrt{n}$, the logarithm at the last line is equal to $\sinh^{-1}{x}$. So, let us denote $\phi = - \sinh^{-1}{x}$.
+Now, the statement reads that, for $\phi$ such that $\sinh^2 \phi$ is a natural number, prove that $\sinh^2 k \phi$ is also a natural number.
+In fact, $\sinh k \phi$ can be expressed as a polynomial in terms of $\sinh{\phi} = \sqrt{n}$ and $\cosh{\phi} = \sqrt{n + 1}$ with integer coefficients. 
+But in order for $\sinh^2 k \phi$ to be natural, $\sinh k \phi$ must factorize into a natural factor and an irrational factor such as $\sinh{\phi}$, $\cosh{\phi}$ or $\sinh{\phi}\cosh{\phi}$
+The trigonometric-hyperbolic conversion rule:
+#+BEGIN_LaTeX
+  \begin{equation}
+    \label{eq:trig-hype}
+    \cos{i \phi} = \cosh{\phi}, \quad \sin{i \phi} = i \sinh{\phi} 
+  \end{equation}
+#+END_LaTeX
+This leads to
+#+BEGIN_LaTeX
+  \begin{eqnarray}
+    \label{eq:binomial}
+    (x + y)^{k} &=& \sum_{l + l^{\prime} = k} \binom{k}{l} x^l y^{l^{\prime}}
+  \end{eqnarray}
+#+END_LaTeX
+#+BEGIN_LaTeX
+  \begin{eqnarray}
+    \label{eq:binomial-even}
+    (x + y)^{2m} &=& x ^{2m} + \binom{2m}{1} \underline{x^{2m-1}y} + \binom{2m}{2} x^{2m-2}y^2 + \nonumber \\
+                 && \dots + \binom{2m}{2m - 2} x^2 y^{2m-2} + \binom{2m}{2m - 1} \underline{x y^{2m-1}} + y^{2m}
+  \end{eqnarray}
+#+END_LaTeX
+#+BEGIN_LaTeX
+\begin{eqnarray}
+  \label{eq:binomial-odd}
+  (x + y)^{2m+1} &=& x ^{2m+1} + \binom{2m+1}{1} \underline{x^{2m}y} + \binom{2m+1}{2} x^{2m-1}y^2 + \nonumber \\
+  && \dots + \binom{2m + 1}{2m - 1} \underline{x^2 y^{2m-1}} + \binom{2m + 1}{2m} x y^{2m} + \underline{y^{2m+1}}
+\end{eqnarray}
+#+END_LaTeX

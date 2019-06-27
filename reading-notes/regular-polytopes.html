@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Notes on "Regular Polytopes" by H.S.M. Coxeter</title>
+<!-- 2019-06-27 木 21:08 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="hisanobu-nakamura" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Notes on "Regular Polytopes" by H.S.M. Coxeter</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. About this note</a></li>
+<li><a href="#sec-2">2. Jargons</a></li>
+<li><a href="#sec-3">3. The Product Of Three Reflections (\(\S\text{3.1}\) p35)</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 2D case in terms of complex numbers \(\mathbb{C}\)</a>
+<ul>
+<li><a href="#sec-3-1-1">3.1.1. Reflections with invariant lines through the origin</a></li>
+<li><a href="#sec-3-1-2">3.1.2. General reflections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> About this note</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This note contains some interpretations, visualisations, comments, etc, from reading "Regular Polytopes, H.S.M. Coxeter"
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Jargons</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+<i>congruent</i>:Two figures are said to be <b><i>congruent</i></b> if the distances between any corresponding pairs of points are equal. Likewise, angles between corresponding pairs of lines are equal. 
+For example, two dihdra (or trihdral solid angles) are congruent if the three face-angles of one are equal to respective face-angles of the other. 
+Two such trihedra are said to be <i>directly</i> (or "superposable") congruent if they have the same sense (right- or left-handed), but <i>enantiomorphous</i> if they have opposite senses. 
+The same distinction can be applied to figures of any kind, byth following device. (To be continued,,,)
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> The Product Of Three Reflections (\(\S\text{3.1}\) p35)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I will prove the following statement in a way more understandable to myself than in the book:
+</p>
+<blockquote>
+<p>
+In the product of three reflections, we can always arrange that one of the reflecting lines shall be perpendicular to both the others.
+</p>
+</blockquote>
+<p>
+Coxeter's proof goes like this:
+</p>
+<blockquote>
+<p>
+The following is perhaps not the simplest proof, but it is one that generalizes easily to any number of dimensions.
+ If we regard a congruent transformation as operating on pencils of parallel rays (instead of operating on points), we can say that a translation has no effect: it leaves every pencil invariant.
+ Since each pencil can be represented by that one of its rays which passes through a fixed point \(O\),
+ any congruent transformation operating on the rays that emanate from \(O\): congruent because of the preservation of angles.
+</p>
+
+<p>
+If the given transformation is opposite, so is the induced transformation.
+ But the latter, leaving \(O\) invariant, can only be a reflection, say a reflection in \(OQ\).
+ This leaves  \(O\) and \(Q\) invariant; therefore the given transformation leaves the <i>direction</i> \(OQ\) invariant.
+ Consider the product of the given transformation with the reflection in any line, \(p\), perpendicular to \(OQ\).
+ This is a direct transformation which reverses the direction \(OQ\); i.e., it is a half-turn with the reflection in \(p\).
+ But the half-turn is the product of reflectios in two perpendicular lines, which may be chosen perpendicular and parallel to \(p\).
+ Thus we have altogether three reflections , of which the last two can be combined to form a translation.
+ The general opposite transformation is now reduced to the product of a reflection and a translation which commutes, the reflecting line being in the direction of translation.
+ This is kind of transformation called  a <i>glide-reflection</i>.
+</p>
+</blockquote>
+<p>
+OK. I think it would be more comprehensive if we add a little bit more explanations to some logical steps hidden between the lines in a modern style. 
+I started to re-prove the theorem in 2 dimension by using a bra and ket vector notation, because it is useful for writing inner products like \(\langle a|b \rangle\), 
+and the "outer" products like \(|a \rangle \langle b|\). A reflection in any dimensions about a plane orthoganal to a normal vector \(|\hat{a}\rangle\) can be expressed using this bra-ket notation as
+</p>
+\begin{equation}
+|x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2 |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
+\end{equation}
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 2D case in terms of complex numbers \(\mathbb{C}\)</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+A line \(\mathcal{L}(\alpha, d) \subset \mathbb{C}\), is defined by a pair of reals, \(0 \le \alpha \le 2\pi\), and \(d \ge 0\), parametrically as follows:
+</p>
+\begin{equation}
+\mathcal{L}(\alpha, d) := \{ e^{i\alpha}t + i \, d e^{i\alpha} \mid t \in \mathbb{R} \}
+\end{equation}
+<p>
+\(\alpha\) is the direction of the line and \(d\) is the perpendicular distance from the origin to the line. So the point \(i d e^{\alpha}\) is the vertical projection of the origin onto \(\mathcal{L}(\alpha, d)\).
+</p>
+</div>
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Reflections with invariant lines through the origin</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+First, a reflection \(\rho_{\alpha}:\mathbb{C} \rightarrow \mathbb{C}\) with a line passing through the origin, \(\mathcal{L}(\alpha, 0)\), as the invariant line is
+</p>
+\begin{equation}
+w = \rho_{\alpha} (z) = e^{i\alpha} \overline{e^{-i\alpha} z} = e^{i2\alpha} \bar{z}
+\end{equation}
+<p>
+Then, the product of <b>two</b> such reflections, say \(\rho_{\alpha_{2}}\) and \(\rho_{\alpha_{1}}\) is, (writing \(\rho_{i} = \rho_{\alpha_{i}}\) for my brevity)
+</p>
+\begin{equation}
+w = \rho_{2} \circ \rho_{1} (z) = e^{i2\alpha_{2}} \overline{e^{i2\alpha_{1}} \bar{z}} = e^{i2(\alpha_{2} - \alpha_{1})} z,
+\end{equation}
+<p>
+which is just a rotation. Now, the product of <b>three</b> reflections is
+</p>
+\begin{equation}
+w = \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) = e^{i2\alpha_{3}} \overline{e^{i2(\alpha_{2} - \alpha_{1})} z} = e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z} = e^{i2\theta} \bar{z},
+\end{equation}
+<p>
+which is <b>another reflection</b> in the line \(\mathcal{L}(\alpha, 0)\) where \(\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}\).<br  />
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> General reflections</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+A more general reflection \(\rho_{\alpha,d}:\mathbb{C} \rightarrow \mathbb{C}\) with the invariant line not passing through the origin \(\mathcal{L}(\alpha, d)\) can be constructed as follows:
+</p>
+<ol class="org-ol">
+<li>Apply a rotation \(e^{-i\alpha}\)
+</li>
+<li>Translate \(-id\)
+</li>
+<li>Appply reflection in real axis, i.e. take conjugate \(z \mapsto \bar{z}\)
+</li>
+<li>Translate back \(id\)
+</li>
+<li>Rotate back \(e^{i\alpha}\).
+</li>
+</ol>
+<p>
+Applying all the transformations, we have, for a general reflection in \(\mathcal{L}(\alpha, d)\), as
+</p>
+\begin{equation}
+w = \rho_{\alpha,d} (z) = e^{i\alpha}\{ \overline{e^{-i\alpha} z - i\,d} + i\,d \} = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}.
+\end{equation}
+<p>
+The product of <b>two</b> such reflections is,
+</p>
+\begin{eqnarray}
+w = \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (z) &=& e^{i2(\alpha_{2} - \alpha_{1})} z - 2i \, ( d_{1} e^{i2\alpha_{2} - \alpha_{1}} - d_{2} e^{i\alpha_{2}})  \nonumber \\
+&=& e^{i2\theta} z - 2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}),
+\end{eqnarray}
+<p>
+where \(\theta = \alpha_{2} - \alpha_{1}\). Now let's look for a fixed point \(c\) of this transformation. Then it must satisfy
+</p>
+\begin{eqnarray}
+c &=&  \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (c) \nonumber \\
+(e^{i2\theta} - 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber  \\
+(e^{i\theta} - 1)(e^{i\theta} + 1)c &=&  2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
+\end{eqnarray}
+<p>
+For \(c\) to have a definite value, \(e^{i\theta} \ne 1\)  and \(e^{i\theta} \ne -1\) have to hold. And those cases are when \(\theta = 0\) or \(\pi\), which means the two reflection lines are parallel.<br  />
+Hence, when \(\alpha = 0\) or \(\pi\), the fixed point of the transformation (the centre of the rotation) is
+</p>
+\begin{equation}
+c =  2i \, e^{i\theta}\frac{( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) }{(e^{i\theta} - 1)(e^{i\theta} + 1)} \nonumber 
+\end{equation}
+<p>
+In the case \(\alpha = 0, \pi\), we have translations: noticing that \(\alpha_{2} = \alpha_{1} = \alpha\) or \(\alpha_{2} = \alpha_{1} + \pi = \alpha\),
+</p>
+\begin{equation}
+w = z \mp 2i \, e^{i\alpha}( d_{1} \mp d_{2}).
+\end{equation}
+<p>
+We can see the direction of the resultant translation is perpendicular to the reflection lines.<br  />
+Next, weproceed to the product of <b>three</b> general reflections. Let the three reflections be \(\rho_{\alpha_{1}, d_{1}}\), \(\rho_{\alpha_{2},d_{2}}\) and \(\rho_{\alpha_{3},d_{3}}\).
+The composition of them is (again, writing \(\rho_{i} = \rho_{\alpha_{i}, d_{i}}\) for my brevity)
+</p>
+\begin{eqnarray}
+w &=& \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) \nonumber \\
+  &=& e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z} + 2i \, ( d_{1} e^{i(2\alpha_{3} - 2\alpha_{2} + \alpha_{1})} - d_{2} e^{i(2\alpha_{3} - \alpha_{2})} + d_{3} e^{i\alpha_{3}})  \nonumber \\
+  &=& e^{i2\theta} \bar{z} + 2i \, e^{i\theta}( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}),
+\end{eqnarray}
+<p>
+where \(\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}\) and \(\theta_{ij} = \alpha_{j} - \alpha_{i}\).<br  />
+According to Coxeter's proof, the product of three reflections is a glide-reflection. So, let us calculate the length by which the gliding occurs.
+The gliding occurs in the same direction as the reflection, which is \(e^{i2\theta}\) appeared in the above equation.
+</p>
+
+<p>
+If a point \(z \in \mathbb{C}\) is on the reflection line, it will be fixed by the reflection and only displaced by the translation. 
+Therefore, its image will be of the form \(z + l e^{i\theta}\) for some \(l \in \mathbb{R}\).
+Equating this with the image \(\rho_{3} \circ \rho_{2} \circ \rho_{1} (z)\) yields
+</p>
+\begin{eqnarray}
+z + l e^{i\theta}  &=& e^{i2\theta} \bar{z} + 2i \, e^{i\theta}( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}) \nonumber \\
+e^{-i\theta} z - e^{i\theta} z  &=& -l + 2i\,( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}). 
+\end{eqnarray}
+<p>
+The L.H.S. of the last equation is a pure imaginary number, so the real part of the R.H.S. must be \(0\). 
+This fixes the value of \(l\) as
+</p>
+\begin{equation}
+l = - 2 \{ d_{1} \sin{\theta_{23}} - d_{2} \sin{\theta_{13}} + d_{3} \sin{\theta_{12}}\}.
+\end{equation}
+<p>
+The meaning of \(l\) is actually the magnitude of the translation (or the gliding part of the glide-reflection).
+Also, remembering the expression of a reflection is \(w = \rho_{\alpha,d} (z) = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}\) with \(d\) being real, 
+we see that the real part of \(( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}})\) is the vertical distance from the origin to the reflection line, namely
+</p>
+\begin{equation}
+d = d_{1} \cos{\theta_{23}} - d_{2} \cos{\theta_{13}} + d_{3} \cos{\theta_{12}}.
+\end{equation}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-06-27 木&gt;</span></span></p>
+<p class="author">Author: hisanobu-nakamura</p>
+<p class="date">Created: 2019-06-27 木 21:08</p>
+<p class="creator">Emacs 25.3.2 (Org mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

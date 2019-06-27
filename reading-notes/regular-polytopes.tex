@@ -1,0 +1,126 @@
+% Created 2019-06-27 木 18:57
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{hisanobu-nakamura}
+\date{\today}
+\title{regular-polytopes}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{About this note}
+\label{sec-1}
+This note contains some interpretations, visualisations, comments, etc, from reading "Regular Polytopes, H.S.M. Coxeter"
+\section{Jargons}
+\label{sec-2}
+\begin{quote}
+\emph{confruent}:Two figures are said to be \textbf{\emph{congruent}} if the distances between any corresponding pairs of points are equal. Likewise, angles between corresponding pairs of lines are equal. 
+For example, two dihdra (or trihdral solid angles) are congruent if the three face-angles of one are equal to respective face-angles of the other. 
+Two such trihdra are said to be \emph{directly} (or "superposable") congruent if they have the same sense (right- or left-handed), but \emph{enantiomorphous} if they have opposite senses. 
+The same distinction can be applied to figures of any kind, byth following device. (To be continued,,,)
+\end{quote}
+\section{The Product Of Three Reflections ($\S\text{3.1}$ p35)}
+\label{sec-3}
+I will prove the following statement in a way more understandable to myself than in the book:
+\begin{quote}
+In the product of thre reflections, we can always arrange that one of the reflecting lines shall be perpendicular to both the others.
+\end{quote}
+Coxeter's proof goes like this:
+\begin{quote}
+The following is perhaps not the simplest proof, but it is one that generalizes easily to any number of dimensions.
+ If we regard a congruent transformation as operating on pencils of parallel rays (instead of operating on points), we can say that a translation has no effect: it leaves every pencil invariant.
+ Since each pencil can be represented by that one of its rays which passes through a fixed point $O$,
+ any congruent transformation operating on the rays that emanate from $O$: congruent because of the preservation of angles.
+
+If the given transformation is opposite, so is the induced transformation.
+ But the latter, leaving $O$ invariant, can only be a reflection, say a reflection in $OQ$.
+ This leaves  $O$ and $Q$ invariant; therefore the given transformation leaves the \emph{direction} $OQ$ invariant.
+ Consider the product of the given transformation with the reflection in any line, $p$, perpendicular to $OQ$.
+ This is a direct transformation which reverses the direction $OQ$; i.e., it is a half-turn with the reflection in $p$.
+ But the half-turn is the product of reflectios in two perpendicular lines, which may be chosen perpendicular and parallel to $p$.
+ Thus we have altogether three reflections , of which the last two can be combined to form a translation.
+ The general opposite transformation is now reduced to the product of a reflection and a translation which commutes, the reflecting line being in the direction of translation.
+ This is kind of transformation called  a \emph{glide-reflection}.
+\end{quote}
+OK. I think it would be more comprehensive if we add a little bit more explanations to some logical steps in a modern style. 
+\begin{quote}
+If the given transformation is opposite, so is the induced transformation.
+ But the latter, leaving $O$ invariant, can only be a reflection, say a reflection in $OQ$.
+\end{quote}
+This part needs an explanation. This means the action of any three reflections on pencils of rays is \textbf{a reflection} in some line. 
+Actually, you can see this fact by viewing the product of the three reflections as a product of a rotation and a reflection (or vice-versa) because a product of two reflections is a rotation. 
+Let us call them rotation $\rho(\theta)$ ($\theta$ is the rotation angle) and $\lambda(\overrightarrow{OQ})$
+\subsection{2D case in terms of complex numbers $\mathbb{C}$}
+\label{sec-3-1}
+A line $\mathcal{L}(\alpha, d) \subset \mathbb{C}$, is defined by a pair of reals, $0 \le \alpha \le 2\pi$, and $d \ge 0$, parametrically as follows:
+\begin{equation}
+\mathcal{L}(\alpha, d) := \{ e^{i\alpha}t + i \, d e^{i\alpha} \mid t \in \mathbb{R} \}
+\end{equation}
+$\alpha$ is the direction of the line and $d$ is the perpendicular distance from the origin to the line. So the point $i d e^{\alpha}$ is the vertical projection of the origin onto $\mathcal{L}(\alpha, d)$.\\
+First, a reflection $\rho_{\alpha}:\mathbb{C} \rightarrow \mathbb{C}$ with a line passing through the origin, $\mathcal{L}(\alpha, 0)$, as the invariant line is
+\begin{equation}
+w = \rho_{\alpha} (z) = e^{i\alpha} \overline{e^{-i\alpha} z} = e^{i2\alpha} \bar{z}
+\end{equation}
+Then, the product of \textbf{two} such reflections is
+\begin{equation}
+w = \rho_{\alpha_{2}} \circ \rho_{\alpha_{1}} (z) = e^{i2\alpha_{2}} \overline{e^{i2\alpha_{1}} \bar{z}} = e^{i2(\alpha_{2} - \alpha_{1})} z,
+\end{equation}
+which is just a rotation. Now, the product of \textbf{three} reflections is
+\begin{equation}
+w = \rho_{\alpha_{3}} \circ \rho_{\alpha_{2}} \circ \rho_{\alpha_{1}} (z) = e^{i2\alpha_{3}} \overline{e^{i2(\alpha_{2} - \alpha_{1})} z} = e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z},
+\end{equation}
+which is \textbf{another reflection} in the line $\mathcal{L}(\alpha, 0)$ where $\alpha = \alpha_{3} - \alpha_{2} + \alpha_{1}$.\\
+A more general reflection $\rho_{\alpha,d}:\mathbb{C} \rightarrow \mathbb{C}$ with the invariant line not passing through the origin $\mathcal{L}(\alpha, d)$ can be constructed as follows:
+\begin{enumerate}
+\item Apply a rotation $e^{-i\alpha}$
+\item Translate $-id$
+\item Appply reflection in real axis, i.e. take conjugate $z \mapsto \bar{z}$
+\item Translate back $id$
+\item Rotate back $e^{i\alpha}$.
+\end{enumerate}
+Applying all the transformations, we have, for a general reflection in $\mathcal{L}(\alpha, d)$, as
+\begin{equation}
+w = \rho_{\alpha,d} (z) = e^{i\alpha}\{ \overline{e^{-i\alpha} z - i\,d} + i\,d \} = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}.
+\end{equation}
+The two product of \textbf{two} such reflections is,
+\begin{eqnarray}
+w = \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (z) &=& e^{i2(\alpha_{2} - \alpha_{1})} z - 2i \, ( d_{1} e^{i2\alpha_{2} - \alpha_{1}} + d_{2} e^{i\alpha_{2}})  \nonumber \\
+&=& e^{i2\alpha} z - 2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}),
+\end{eqnarray}
+where $\alpha = \alpha_{2} - \alpha_{1}$. Now let's look for a fixed point $c$ of this transformation. Then it must satisfy
+\begin{eqnarray}
+c &=&  \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (c) \nonumber \\
+(e^{i2\alpha} - 1)c &=&  2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber  \\
+(e^{i\alpha} - 1)(e^{i\alpha} + 1)c &=&  2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
+\end{eqnarray}
+For $c$ to have a definite value, $e^{i\alpha} \ne 1$  and $e^{i\alpha} \ne -1$ have to hold. And those cases are when $\alpha = 0$ or $\pi$, which means the two reflection lines are parallel.\\
+Hence, when $\alpha = 0$ or $\pi$, the fixed point of the transformation (the centre of the rotation) is
+\begin{equation}
+c =  2i \, e^{i\alpha}\frac{( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) }{(e^{i\alpha} - 1)(e^{i\alpha} + 1)} \nonumber 
+\end{equation}
+In the case $\alpha = 0, \pi$, we have translations: noticing that $\alpha_{2} = \alpha_{1}$ or $\alpha_{2} = \alpha_{1} + \pi$,
+\begin{equation}
+w = e^{i2\alpha} z \mp 2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} \mp d_{2} e^{i\alpha_{1}}).
+\end{equation}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}

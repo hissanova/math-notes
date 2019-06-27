@@ -1,0 +1,23 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/hisanobu_nakamura/Documents/math_notes/sqrt_diff_proof.org
+
+
+* Proof
+:PROPERTIES:
+:ARCHIVE_TIME: 2018-06-20 水 06:46
+:ARCHIVE_FILE: ~/Documents/math_notes/sqrt_diff_proof.org
+:ARCHIVE_OLPATH: The Problem
+:ARCHIVE_CATEGORY: sqrt_diff_proof
+:END:
+First, let us rephrase the statement in a more tactible way. Take logarithm of the L.H.S.
+#+BEGIN_LaTeX
+  \begin{eqnarray*}
+    \ln (\sqrt{n + 1} - \sqrt{n})^k &=& k \ln (\frac{1}{\sqrt{n + 1} + \sqrt{n}}) \\
+                                    &=& - k \ln (\sqrt{n + 1} + \sqrt{n})
+  \end{eqnarray*}
+#+END_LaTeX
+Then, with $x = \sqrt{n}$, the logarithm at the last line is equal to $\sinh^{-1}{x}$. So, let us denote $\phi = - \sinh^{-1}{x}$.
+Now, the statement reads that, for $\phi$ such that $\sinh^2 \phi$ is a natural number, prove that $\sinh^2 k \phi$ is also a natural number.
+$\sinh k \phi$ can be expanded in terms of $\sinh$ and 
