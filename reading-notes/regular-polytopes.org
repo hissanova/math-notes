@@ -49,6 +49,11 @@ If the given transformation is opposite, so is the induced transformation.
 OK. I think it would be more comprehensive if we add a little bit more explanations to some logical steps hidden between the lines in a modern style. 
 I started to re-prove the theorem in 2 dimension by using a bra and ket vector notation, because it is useful for writing inner products like $\langle a|b \rangle$, 
 and the "outer" products like $|a \rangle \langle b|$. A reflection in any dimensions about a plane orthoganal to a normal vector $|\hat{a}\rangle$ can be expressed using this bra-ket notation as
+#+BEGIN_LaTeX
+\begin{equation}
+|x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2 |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
+\end{equation}
+#+END_LaTeX
 \begin{equation}
 |x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2 |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
 \end{equation}
