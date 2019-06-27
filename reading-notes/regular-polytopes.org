@@ -49,20 +49,15 @@ If the given transformation is opposite, so is the induced transformation.
 OK. I think it would be more comprehensive if we add a little bit more explanations to some logical steps hidden between the lines in a modern style. 
 I started to re-prove the theorem in 2 dimension by using a bra and ket vector notation, because it is useful for writing inner products like $\langle a|b \rangle$, 
 and the "outer" products like $|a \rangle \langle b|$. A reflection in any dimensions about a plane orthoganal to a normal vector $|\hat{a}\rangle$ can be expressed using this bra-ket notation as
-#+BEGIN_LaTeX
 \begin{equation}
-|x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2 |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
-\end{equation}
-#+END_LaTeX
-\begin{equation}
-|x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2 |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
+|x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2  |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
 \end{equation}
 ** 2D case in terms of complex numbers $\mathbb{C}$
-A line $\mathcal{L}(\alpha, d) \subset \mathbb{C}$, is defined by a pair of reals, $0 \le \alpha \le 2\pi$, and $d \ge 0$, parametrically as follows:
+A line $\mathcal{L}(\alpha, d) \subset \mathbb{C}$, is defined by a pair of reals, $0 \le \alpha < \pi$, and $d \ge 0$, parametrically as follows:
 \begin{equation}
 \mathcal{L}(\alpha, d) := \{ e^{i\alpha}t + i \, d e^{i\alpha} \mid t \in \mathbb{R} \}
 \end{equation}
-$\alpha$ is the direction of the line and $d$ is the perpendicular distance from the origin to the line. So the point $i d e^{\alpha}$ is the vertical projection of the origin onto $\mathcal{L}(\alpha, d)$.
+$e^{i\alpha}$ is the direction of the line and $d$ is the perpendicular distance from the origin to the line. So the point $i\, d e^{i\alpha}$ is the vertical projection of the origin onto $\mathcal{L}(\alpha, d)$.
 *** Reflections with invariant lines through the origin
 First, a reflection $\rho_{\alpha}:\mathbb{C} \rightarrow \mathbb{C}$ with a line passing through the origin, $\mathcal{L}(\alpha, 0)$, as the invariant line is
 \begin{equation}
@@ -76,7 +71,7 @@ which is just a rotation. Now, the product of *three* reflections is
 \begin{equation}
 w = \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) = e^{i2\alpha_{3}} \overline{e^{i2(\alpha_{2} - \alpha_{1})} z} = e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z} = e^{i2\theta} \bar{z},
 \end{equation}
-which is *another reflection* in the line $\mathcal{L}(\alpha, 0)$ where $\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}$.\\
+which is *another reflection* in the line $\mathcal{L}(\theta, 0)$ where $\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}$.\\
 *** General reflections 
 A more general reflection $\rho_{\alpha,d}:\mathbb{C} \rightarrow \mathbb{C}$ with the invariant line not passing through the origin $\mathcal{L}(\alpha, d)$ can be constructed as follows:
 1. Apply a rotation $e^{-i\alpha}$
@@ -99,14 +94,15 @@ c &=&  \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (c) \nonumber \\
 (e^{i2\theta} - 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber  \\
 (e^{i\theta} - 1)(e^{i\theta} + 1)c &=&  2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
 \end{eqnarray}
-For $c$ to have a definite value, $e^{i\theta} \ne 1$  and $e^{i\theta} \ne -1$ have to hold. And those cases are when $\theta = 0$ or $\pi$, which means the two reflection lines are parallel.\\
+For $c$ to have a definite value, $e^{i\theta} \ne 1$ and $e^{i\theta} \ne -1$ have to hold. And those cases are when $\theta = 0$ or $\pi$ but the latter is impossible because $0 \le \theta < \pi$. 
+This implies the two reflection lines are parallel.\\
 Hence, when $\alpha = 0$ or $\pi$, the fixed point of the transformation (the centre of the rotation) is
 \begin{equation}
 c =  2i \, e^{i\theta}\frac{( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) }{(e^{i\theta} - 1)(e^{i\theta} + 1)} \nonumber 
 \end{equation}
-In the case $\alpha = 0, \pi$, we have translations: noticing that $\alpha_{2} = \alpha_{1} = \alpha$ or $\alpha_{2} = \alpha_{1} + \pi = \alpha$,
+In the case $\alpha = 0$, we have translations: noticing that $\alpha_{2} = \alpha_{1} = \alpha$ 
 \begin{equation}
-w = z \mp 2i \, e^{i\alpha}( d_{1} \mp d_{2}).
+w = z - 2i \,( d_{1} - d_{2}).
 \end{equation}
 We can see the direction of the resultant translation is perpendicular to the reflection lines.\\
 Next, weproceed to the product of *three* general reflections. Let the three reflections be $\rho_{\alpha_{1}, d_{1}}$, $\rho_{\alpha_{2},d_{2}}$ and $\rho_{\alpha_{3},d_{3}}$.
@@ -119,14 +115,13 @@ w &=& \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) \nonumber \\
 where $\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}$ and $\theta_{ij} = \alpha_{j} - \alpha_{i}$.\\
 According to Coxeter's proof, the product of three reflections is a glide-reflection. So, let us calculate the length by which the gliding occurs.
 The gliding occurs in the same direction as the reflection, which is $e^{i2\theta}$ appeared in the above equation.
-
 If a point $z \in \mathbb{C}$ is on the reflection line, it will be fixed by the reflection and only displaced by the translation. 
 Therefore, its image will be of the form $z + l e^{i\theta}$ for some $l \in \mathbb{R}$.
 Equating this with the image $\rho_{3} \circ \rho_{2} \circ \rho_{1} (z)$ yields
 #+NAME: eq:gliding-length
 \begin{eqnarray}
 z + l e^{i\theta}  &=& e^{i2\theta} \bar{z} + 2i \, e^{i\theta}( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}) \nonumber \\
-e^{-i\theta} z - e^{i\theta} z  &=& -l + 2i\,( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}). 
+e^{-i\theta} z - e^{i\theta} \bar{z}  &=& -l + 2i\,( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}). 
 \end{eqnarray}
 The L.H.S. of the last equation is a pure imaginary number, so the real part of the R.H.S. must be $0$. 
 This fixes the value of $l$ as
