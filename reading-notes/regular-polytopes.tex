@@ -1,4 +1,4 @@
-% Created 2019-06-27 木 23:47
+% Created 2019-08-30 金 00:01
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -116,20 +116,21 @@ where $\theta = \alpha_{2} - \alpha_{1}$. Now let's look for a fixed point $c$ o
 \begin{eqnarray}
 c &=&  \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (c) \nonumber \\
 (e^{i2\theta} - 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber  \\
-(e^{i\theta} - 1)(e^{i\theta} + 1)c &=&  2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
+(e^{i\theta} - 1)(e^{i\theta} + 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
 \end{eqnarray}
 For $c$ to have a definite value, $e^{i\theta} \ne 1$ and $e^{i\theta} \ne -1$ have to hold. And those cases are when $\theta = 0$ or $\pi$ but the latter is impossible because $0 \le \theta < \pi$. 
 This implies the two reflection lines are parallel.\\
-Hence, when $\alpha \ne 0$, the fixed point of the transformation (the centre of the rotation) is
+Hence, when $\theta \ne 0$, the fixed point of the transformation (the centre of the rotation) is
 \begin{equation}
 c =  2i \, e^{i\theta}\frac{( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) }{(e^{i\theta} - 1)(e^{i\theta} + 1)} \nonumber 
 \end{equation}
-In the case $\alpha = 0$, we have translations: noticing that $\alpha_{2} = \alpha_{1} = \alpha$ 
+In the case $\theta = 0$, we have translations: noticing that $\alpha_{2} = \alpha_{1} = \alpha$ 
 \begin{equation}
-w = z - 2i \,( d_{1} - d_{2}).
+w = z - 2i \, e^{i\alpha} ( d_{1}  - d_{2}).
 \end{equation}
 We can see the direction of the resultant translation is perpendicular to the reflection lines.\\
-Next, weproceed to the product of \textbf{three} general reflections. Let the three reflections be $\rho_{\alpha_{1}, d_{1}}$, $\rho_{\alpha_{2},d_{2}}$ and $\rho_{\alpha_{3},d_{3}}$.
+
+Next, we proceed to the product of \textbf{three} general reflections. Let the three reflections be $\rho_{\alpha_{1}, d_{1}}$, $\rho_{\alpha_{2},d_{2}}$ and $\rho_{\alpha_{3},d_{3}}$.
 The composition of them is (again, writing $\rho_{i} = \rho_{\alpha_{i}, d_{i}}$ for my brevity)
 \begin{eqnarray}
 w &=& \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) \nonumber \\
