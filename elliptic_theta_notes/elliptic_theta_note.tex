@@ -1,4 +1,4 @@
-% Created 2019-08-31 土 17:19
+% Created 2019-08-31 土 18:44
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,6 +16,7 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \tolerance=1000
+\usepackage[margin=1.0in]{geometry}
 \author{hisanobu-nakamura}
 \date{\textit{<2019-08-31 土>}}
 \title{Elliptic and Theta Functions}
@@ -35,7 +36,7 @@ This note contains notes for Kotan seminar on elliptic and theta functions.
 
 \section{Examples of Elliptic Integrals}
 \label{sec-2}
-Here, we gather some examples varying from pure mathematics to physics
+Here, we gather some examples varying from pure mathematics to physics.
 \subsection{Arc Length of Ellipse}
 \label{sec-2-1}
 Canonical form (標準形):
@@ -76,12 +77,12 @@ $E(k, \varphi )$ is called the \textbf{second incomplete elliptic integral (第2
 \begin{equation}
 s_{total} = 4a E(k) 
 \end{equation}
-Alternatively, putting \$y = \textpm{} b \sqrt\{1 - \frac\{x$^{\text{2}}$\}\{a$^{\text{2}}$\}\}, the length can also be obtained as
+Alternatively, putting $y = \pm b \sqrt{1 - \frac{x^{2}}{a^{2}}}$, the length can also be obtained as
 \begin{eqnarray}
 s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \nonumber
-     &=& a \int_{0}^{u} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{\frac{x^{2}}{a^{2}}}{1 - \frac{x^{2}}{a^{2}}} } \; dx
+     &=& a \int_{0}^{x} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{\frac{x^{2}}{a^{2}}}{1 - \frac{x^{2}}{a^{2}}} } \; dx
 \end{eqnarray}
-Let us substitute further with $z = \frac{x}{a}$, 
+Let us substitute further with $z = \frac{x}{a}$, we have
 \begin{center}
 \begin{tabular}{ll}
 $x$ & $0 \rightarrow a$\\
@@ -89,5 +90,55 @@ $x$ & $0 \rightarrow a$\\
 $z$ & $0 \rightarrow 1$\\
 \end{tabular}
 \end{center}
+
+\begin{eqnarray}
+s &=& a \int_{0}^{z} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{z^{2}}{1 - z^{2}} } \; dx \\ \nonumber
+  &=& a \int_{0}^{z} \sqrt{ \frac{1 -k ^{2} z^{2}}{1 - z^{2}} } \; dx.
+\end{eqnarray}
+\subsection{Arc length of sine curve}
+\label{sec-2-2}
+The arc length of sine curve $y = a \sin{\theta}$ is given by,
+\begin{eqnarray}
+s &=&  \int_{0}^{\theta} \sqrt{ 1  +   a^{2} \cos^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} \int_{0}^{\theta} \sqrt{ 1  -   \frac{a^{2}}{1 +a ^{2}} \sin^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} \int_{0}^{\theta} \sqrt{ 1  -   k^{2} \sin^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} E(k, \theta) \quad with \quad k = \sqrt{\frac{a^{2}}{1+a^{2}}}.
+\end{eqnarray}
+The arc length of a slightly more general form of $y = a \sin{b \theta}$
+\begin{eqnarray}
+s &=&  \int_{0}^{\theta} \sqrt{ 1  +   a^{2} b^{2} \cos^{2}{ b \theta}} \; d\theta \\ \nonumber
+  &=& \frac{\sqrt{1 +(ab)^{2}}}{b} \int_{0}^{\varphi} \sqrt{ 1  -   k^{2} \sin^{2}{\varphi}} \; d\varphi \quad (\varphi = b\theta) \\ \nonumber
+  &=& \frac{\sqrt{1 +(ab)^{2}}}{b} E(k, \varphi) \quad with \quad k = \sqrt{\frac{(ab)^{2}}{1+(ab)^{2}}}
+\end{eqnarray}
+\subsection{Arc length of quadratic curve}
+\label{sec-2-3}
+Although the integral is not of elliptic type, it is interesting to calculate the arc length of a quadratic curve of the form $y=a x^{2}$ .
+\begin{eqnarray}
+s &=&  \int_{0}^{x} \sqrt{ 1  + 4 a^{2} x^{2} } \; dx \\ \nonumber
+  &=& \frac{1}{2a} \int_{0}^{z} \sqrt{ 1  +   z^{2}} \; dz \quad (z = 2ax) \\ \nonumber
+  &=& \frac{1}{2a} \left[ \int_{0}^{z} \frac{dz}{\sqrt{1 + z^{2}}} + \int_{0}^{z} \frac{z^{2}dz}{\sqrt{1 + z^{2}}} \right]  \quad (\text{integration by parts on the 2nd term}) \\ \nonumber
+  &=& \frac{1}{2a} \left[ \ln{\left( \sqrt{1 + z^{2}} + z \right)} + z\sqrt{1 + z^{2}} - \int_{0}^{z} \sqrt{1 + z^{2}} \right]
+\end{eqnarray}
+So
+\begin{eqnarray}
+s &=& \frac{1}{4a} \left[ \ln{\left( \sqrt{1 + z^{2}} + z \right)} + z\sqrt{1 + z^{2}} \right] \\ \nonumber
+  &=& \frac{1}{4a} \left[ \sinh^{-1}{z} + z\sqrt{1 + z^{2}} \right] \\ \nonumber
+  &=& \frac{1}{4a} \left[ \sinh^{-1}{2ax} + 2ax\sqrt{1 + 4a^{2}x^{2}} \right] 
+\end{eqnarray}
+The result is just a combination of "elementary functions".
+\subsection{Arc length of cubic curves}
+\label{sec-2-4}
+Without loss of generality, we can consider the arc length of a cubic curve with the form $y = ax^{3} + bx$.
+\begin{eqnarray}
+s &=&  \int_{0}^{x} \sqrt{ 1  + ( 3a x^{2} + b)^{2}} \; dx \\ \nonumber
+  &=& \int_{0}^{x} \sqrt{P(x)} \; dx
+\end{eqnarray}
+where $P(x) = (3ax +b)^{2}$ is a quadratic polynomial in $x$. This IS actually an elliptic integral. 
+But we have to reduce this to some form so that we can express the integral in terms of three kinds of the elliptic integrals we will define soon (second of which has already defined as $E(k,\varphi)$ ).
+We will hopefully learn how to reduce the general elliptic integral of the form
+\begin{equation}
+\int R(x, y(x)) \; dx
+\end{equation}
+where $y^{2} = P(x)$ is a polynomial in $x$ of degree three or four and $R(x,y)$ is a rational function in $x$ and $y$.
 % Emacs 25.3.2 (Org mode 8.2.10)
 \end{document}

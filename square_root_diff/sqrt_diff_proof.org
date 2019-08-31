@@ -25,7 +25,7 @@
 #+HTML_LINK_UP:
 #+HTML_MATHJAX:
 #+INFOJS_OPT:
-#+LATEX_HEADER:t
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
 
 
 * The Statement

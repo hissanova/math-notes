@@ -1,4 +1,4 @@
-% Created 2019-06-22 土 17:05
+% Created 2019-08-31 土 18:46
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,6 +16,7 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \tolerance=1000
+\usepackage[margin=1.0in]{geometry}
 \author{hisanobu-nakamura}
 \date{\textit{<2018-06-20 水>}}
 \title{Square Root Difference Theorem}
@@ -28,8 +29,7 @@
 \maketitle
 
 
-
-\section{The Problem}
+\section{The Statement}
 \label{sec-1}
 Prove the following statetment:
 $\forall n, k (>0) \in \mathbb{N}, \exists N \in \mathbb{N}$ such that
@@ -37,6 +37,7 @@ $\forall n, k (>0) \in \mathbb{N}, \exists N \in \mathbb{N}$ such that
   \label{eq:main}
   (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
 \end{equation}
+
 \begin{equation}
   \label{eq:main}
   (\sqrt{n+1} - \sqrt{n})^k = \sqrt{N+1} -\sqrt{N}
@@ -46,6 +47,7 @@ $\forall n, k (>0) \in \mathbb{N}, \exists N \in \mathbb{N}$ such that
 \textbf{Proof}
 
 First, let us rephrase the statement in a more tactible way. Take logarithm of the L.H.S.
+equation
 \begin{eqnarray*}
 \ln (\sqrt{n + 1} - \sqrt{n})^k &=& k \ln (\frac{1}{\sqrt{n + 1} + \sqrt{n}}) \\
 &=& - k \ln (\sqrt{n + 1} + \sqrt{n})

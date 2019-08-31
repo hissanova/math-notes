@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Elliptic and Theta Functions</title>
-<!-- 2019-08-31 土 17:24 -->
+<!-- 2019-08-31 土 18:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="hisanobu-nakamura" />
@@ -188,6 +188,9 @@ for the JavaScript code in this tag.
 <li><a href="#sec-2">2. Examples of Elliptic Integrals</a>
 <ul>
 <li><a href="#sec-2-1">2.1. Arc Length of Ellipse</a></li>
+<li><a href="#sec-2-2">2.2. Arc length of sine curve</a></li>
+<li><a href="#sec-2-3">2.3. Arc length of quadratic curve</a></li>
+<li><a href="#sec-2-4">2.4. Arc length of cubic curves</a></li>
 </ul>
 </li>
 </ul>
@@ -207,7 +210,7 @@ This note contains notes for Kotan seminar on elliptic and theta functions.
 <h2 id="sec-2"><span class="section-number-2">2</span> Examples of Elliptic Integrals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Here, we gather some examples varying from pure mathematics to physics
+Here, we gather some examples varying from pure mathematics to physics.
 </p>
 </div>
 <div id="outline-container-sec-2-1" class="outline-3">
@@ -264,7 +267,7 @@ E(k) &:=& E(k,  \pi/2 )
 s_{total} = 4a E(k) 
 \end{equation}
 <p>
-Alternatively, putting $y = &plusmn; b \sqrt{1 - \frac{x<sup>2</sup>}{a<sup>2</sup>}}, the length can also be obtained as
+Alternatively, putting \(y = \pm b \sqrt{1 - \frac{x^{2}}{a^{2}}}\), the length can also be obtained as
 </p>
 \begin{eqnarray}
 s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \nonumber
@@ -301,12 +304,82 @@ s &=& a \int_{0}^{z} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{z^{2}}{1 - z^{2}} }
 \end{eqnarray}
 </div>
 </div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Arc length of sine curve</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The arc length of sine curve \(y = a \sin{\theta}\) is given by,
+</p>
+\begin{eqnarray}
+s &=&  \int_{0}^{\theta} \sqrt{ 1  +   a^{2} \cos^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} \int_{0}^{\theta} \sqrt{ 1  -   \frac{a^{2}}{1 +a ^{2}} \sin^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} \int_{0}^{\theta} \sqrt{ 1  -   k^{2} \sin^{2}{\theta}} \; d\theta \\ \nonumber
+  &=& \sqrt{1 +a^{2}} E(k, \theta) \quad with \quad k = \sqrt{\frac{a^{2}}{1+a^{2}}}.
+\end{eqnarray}
+<p>
+The arc length of a slightly more general form of \(y = a \sin{b \theta}\)
+</p>
+\begin{eqnarray}
+s &=&  \int_{0}^{\theta} \sqrt{ 1  +   a^{2} b^{2} \cos^{2}{ b \theta}} \; d\theta \\ \nonumber
+  &=& \frac{\sqrt{1 +(ab)^{2}}}{b} \int_{0}^{\varphi} \sqrt{ 1  -   k^{2} \sin^{2}{\varphi}} \; d\varphi \quad (\varphi = b\theta) \\ \nonumber
+  &=& \frac{\sqrt{1 +(ab)^{2}}}{b} E(k, \varphi) \quad with \quad k = \sqrt{\frac{(ab)^{2}}{1+(ab)^{2}}}
+\end{eqnarray}
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Arc length of quadratic curve</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Although the integral is not of elliptic type, it is interesting to calculate the arc length of a quadratic curve of the form \(y=a x^{2}\) .
+</p>
+\begin{eqnarray}
+s &=&  \int_{0}^{x} \sqrt{ 1  + 4 a^{2} x^{2} } \; dx \\ \nonumber
+  &=& \frac{1}{2a} \int_{0}^{z} \sqrt{ 1  +   z^{2}} \; dz \quad (z = 2ax) \\ \nonumber
+  &=& \frac{1}{2a} \left[ \int_{0}^{z} \frac{dz}{\sqrt{1 + z^{2}}} + \int_{0}^{z} \frac{z^{2}dz}{\sqrt{1 + z^{2}}} \right]  \quad (\text{integration by parts on the 2nd term}) \\ \nonumber
+  &=& \frac{1}{2a} \left[ \ln{\left( \sqrt{1 + z^{2}} + z \right)} + z\sqrt{1 + z^{2}} - \int_{0}^{z} \sqrt{1 + z^{2}} \right]
+\end{eqnarray}
+<p>
+So
+</p>
+\begin{eqnarray}
+s &=& \frac{1}{4a} \left[ \ln{\left( \sqrt{1 + z^{2}} + z \right)} + z\sqrt{1 + z^{2}} \right] \\ \nonumber
+  &=& \frac{1}{4a} \left[ \sinh^{-1}{z} + z\sqrt{1 + z^{2}} \right] \\ \nonumber
+  &=& \frac{1}{4a} \left[ \sinh^{-1}{2ax} + 2ax\sqrt{1 + 4a^{2}x^{2}} \right] 
+\end{eqnarray}
+<p>
+The result is just a combination of "elementary functions".
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Arc length of cubic curves</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Without loss of generality, we can consider the arc length of a cubic curve with the form \(y = ax^{3} + bx\).
+</p>
+\begin{eqnarray}
+s &=&  \int_{0}^{x} \sqrt{ 1  + ( 3a x^{2} + b)^{2}} \; dx \\ \nonumber
+  &=& \int_{0}^{x} \sqrt{P(x)} \; dx
+\end{eqnarray}
+<p>
+where \(P(x) = (3ax +b)^{2}\) is a quadratic polynomial in \(x\). This IS actually an elliptic integral. 
+But we have to reduce this to some form so that we can express the integral in terms of three kinds of the elliptic integrals we will define soon (second of which has already defined as \(E(k,\varphi)\) ).
+We will hopefully learn how to reduce the general elliptic integral of the form
+</p>
+\begin{equation}
+\int R(x, y(x)) \; dx
+\end{equation}
+<p>
+where \(y^{2} = P(x)\) is a polynomial in \(x\) of degree three or four and \(R(x,y)\) is a rational function in \(x\) and \(y\).
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-31 土&gt;</span></span></p>
 <p class="author">Author: hisanobu-nakamura</p>
-<p class="date">Created: 2019-08-31 土 17:24</p>
+<p class="date">Created: 2019-08-31 土 18:43</p>
 <p class="creator">Emacs 25.3.2 (Org mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
