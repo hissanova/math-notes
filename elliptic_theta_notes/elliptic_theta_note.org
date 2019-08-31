@@ -1,0 +1,73 @@
+#+TITLE: Elliptic and Theta Functions
+#+DATE: <2019-08-31 土>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+* About this note
+This note contains notes for Kotan seminar on elliptic and theta functions.
+
+* Examples of Elliptic Integrals
+Here, we gather some examples varying from pure mathematics to physics
+** Arc Length of Ellipse
+Canonical form (標準形):
+\begin{equation}
+\frac{x^{2}}{a^{2}} +\frac{y^{2}}{b^{2}}=1 \quad with \; a \ge b.
+\end{equation}
+ 
+Parametric form
+\begin{equation}
+\mathbf{p} =\left(
+\begin{array}{c}
+ x \\
+ y
+\end{array} \right)
+=\left(
+\begin{array}{c}
+ a \sin{\varphi} \\
+ b \cos{\varphi}
+\end{array} \right)
+\;, where \; 0 \le \varphi < 2 \pi
+\end{equation}
+The length of a curve $\mathbf{p}(t) = (x(t), y(t))$ is
+\begin{eqnarray}
+s(u) &=& \int_{0}^{u} \left| \frac{d \mathbf{p}}{d t} \right| dt  \\ \nonumber
+     &=& \int_{0}^{u} \sqrt{ \left( \frac{d x}{d t} \right)^{2} +  \left( \frac{d x}{d t} \right)^{2} } \; dt
+\end{eqnarray}
+For the ellipse's case, we have
+\begin{eqnarray}
+s(\varphi) &=& \int_{0}^{\varphi} \sqrt{ a^{2} \cos^{2}{\varphi} +  b^{2}  \sin^{2}{\varphi}} \; d\varphi \\ \nonumber
+     &=& a \int_{0}^{u} \sqrt{ 1 -  k^{2}  \sin^{2}{\varphi}} \; d\varphi 
+\end{eqnarray}
+where we defined $k = \sqrt{\frac{a^2 - b^2}{a^2}}$.
+\begin{eqnarray}
+E(k, \varphi ) &:=& \int_{0}^{u} \sqrt{ 1 -  k^{2}  \sin^{2}{\varphi}} \; d\varphi \\
+E(k) &:=& E(k,  \pi/2 )
+\end{eqnarray}
+$E(k, \varphi )$ is called the *second incomplete elliptic integral (第2種不完全楕円積分)* and $E(k)$ the *second complete elliptic integral (第2種完全楕円積分)*. The total length $s_{total}$ of the ellipse is given by 
+\begin{equation}
+s_{total} = 4a E(k) 
+\end{equation}
+Alternatively, putting $y = \pm b \sqrt{1 - \frac{x^{2}}{a^{2}}}, the length can also be obtained as
+\begin{eqnarray}
+s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \nonumber
+     &=& a \int_{0}^{x} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{\frac{x^{2}}{a^{2}}}{1 - \frac{x^{2}}{a^{2}}} } \; dx
+\end{eqnarray}
+Let us substitute further with $z = \frac{x}{a}$, we have
+| $x$ | $0 \rightarrow a$ |
+|-----+-------------------|
+| $z$ | $0 \rightarrow 1$ |
+
+\begin{eqnarray}
+s &=& a \int_{0}^{z} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{z^{2}}{1 - z^{2}} } \; dx \\ \nonumber
+  &=& a \int_{0}^{z} \sqrt{ \frac{1 -k ^{2} z^{2}}{1 - z^{2}} } \; dx.
+\end{eqnarray}
