@@ -39,6 +39,15 @@ Parametric form
 \end{array} \right)
 \;, where \; 0 \le \varphi < 2 \pi
 \end{equation}
+
+# For html
+#+NAME: fig:generic_ellipse
+#+CAPTION: An ellipse $\frac{x^{2}}{a^{2}} +\frac{y^{2}}{b^{2}}=1$.
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./ellipse_generic.png]] \\
+
 The length of a curve $\mathbf{p}(t) = (x(t), y(t))$ is
 \begin{eqnarray}
 s(u) &=& \int_{0}^{u} \left| \frac{d \mathbf{p}}{d t} \right| dt  \\ \nonumber
@@ -64,6 +73,7 @@ s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \n
      &=& a \int_{0}^{x} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{\frac{x^{2}}{a^{2}}}{1 - \frac{x^{2}}{a^{2}}} } \; dx
 \end{eqnarray}
 Let us substitute further with $z = \frac{x}{a}$, we have
+#+CAPTION: Range correspondence between $x$ and $z$.
 | $x$ | $0 \rightarrow a$ |
 |-----+-------------------|
 | $z$ | $0 \rightarrow 1$ |

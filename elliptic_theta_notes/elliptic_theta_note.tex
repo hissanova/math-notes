@@ -1,4 +1,4 @@
-% Created 2019-08-31 土 18:44
+% Created 2019-09-01 日 23:00
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -58,6 +58,13 @@ Parametric form
 \end{array} \right)
 \;, where \; 0 \le \varphi < 2 \pi
 \end{equation}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=70mm]{./ellipse_generic.png}
+\caption{An ellipse $\frac{x^{2}}{a^{2}} +\frac{y^{2}}{b^{2}}=1$.}
+\end{figure} \\
+
 The length of a curve $\mathbf{p}(t) = (x(t), y(t))$ is
 \begin{eqnarray}
 s(u) &=& \int_{0}^{u} \left| \frac{d \mathbf{p}}{d t} \right| dt  \\ \nonumber
@@ -83,13 +90,15 @@ s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \n
      &=& a \int_{0}^{x} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{\frac{x^{2}}{a^{2}}}{1 - \frac{x^{2}}{a^{2}}} } \; dx
 \end{eqnarray}
 Let us substitute further with $z = \frac{x}{a}$, we have
-\begin{center}
+\begin{table}[htb]
+\caption{Range correspondence}
+\centering
 \begin{tabular}{ll}
 $x$ & $0 \rightarrow a$\\
 \hline
 $z$ & $0 \rightarrow 1$\\
 \end{tabular}
-\end{center}
+\end{table}
 
 \begin{eqnarray}
 s &=& a \int_{0}^{z} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{z^{2}}{1 - z^{2}} } \; dx \\ \nonumber
