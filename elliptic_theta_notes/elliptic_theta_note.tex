@@ -1,4 +1,4 @@
-% Created 2019-09-01 日 23:48
+% Created 2019-09-18 水 00:18
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -91,7 +91,7 @@ s &=& \int_{0}^{x} \sqrt{ 1  +  \left( \frac{d x}{d t} \right)^{2} } \; dx \\ \n
 \end{eqnarray}
 Let us substitute further with $z = \frac{x}{a}$, we have
 \begin{table}[htb]
-\caption{Range correspondence between $x$ and $z$.}
+\caption{\label{table:x-z_range_correspondence}Range correspondence between $x$ and $z$.}
 \centering
 \begin{tabular}{ll}
 $x$ & $0 \rightarrow a$\\
@@ -103,9 +103,14 @@ $z$ & $0 \rightarrow 1$\\
 \begin{eqnarray}
 s &=& a \int_{0}^{z} \sqrt{ 1  +   \frac{b^{2}}{a^{2}} \frac{z^{2}}{1 - z^{2}} } \; dx \\ \nonumber
   &=& a \int_{0}^{z} \sqrt{ \frac{1 -k ^{2} z^{2}}{1 - z^{2}} } \; dx.
-\end{eqnarray}
+  \end{eqnarray}
 \subsection{Arc length of sine curve}
 \label{sec-2-2}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=70mm]{./sine_curve_generic.png}
+\caption{\label{fig:generic_sine_curve}A sine curve $y = a \sin{\theta}$.}
+\end{figure} \\
 The arc length of sine curve $y = a \sin{\theta}$ is given by,
 \begin{eqnarray}
 s &=&  \int_{0}^{\theta} \sqrt{ 1  +   a^{2} \cos^{2}{\theta}} \; d\theta \\ \nonumber
@@ -149,5 +154,36 @@ We will hopefully learn how to reduce the general elliptic integral of the form
 \int R(x, y(x)) \; dx
 \end{equation}
 where $y^{2} = P(x)$ is a polynomial in $x$ of degree three or four and $R(x,y)$ is a rational function in $x$ and $y$.
+\subsection{Arc length of lemniscate}
+\label{sec-2-5}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=70mm]{./cassini_generic_point.png}
+\caption{\label{fig:generic_cassini}A sine curve $r_{1} r_{2} = a^{2}$.}
+\end{figure} \\
+A curve of Cassini is defined as a collection of points $P(x,y)$ whose product of the distances from two given points $F_1, F_2$ , called foci, is a constant $a^2$. For simplicity, let us suppose $F_1 = (p,0), F_2 = (-p, 0)$ for some $p>0$ and let $r_1 = \overline{PF_1}, r_2 = \overline{PF_2}$, then
+\begin{equation}
+r_1 r_2 = a^2.
+\end{equation}
+Squaring both sides, we have
+\begin{eqnarray}
+((x - p)^{2} + y^{2})((x + p)^{2} + y^{2}) & = &  a^{4} \\ \nonumber
+(x^{2} + y^{2})^{2} -2p^{2} (x^{2} -y^{2}) & = & a^{4} - p^{4}
+\end{eqnarray}
+In polar coordinates $(x, y) = (r\cos{\theta}, r\sin{\theta})$ , we have
+\begin{eqnarray}
+r_{1,2} &=&  \sqrt{(x \mp p)^{2} +y} = \sqrt{r^{2} \pm 2pr \cos{\theta} + p^{2}} \\ \nonumber
+r_{1} r_{2} &=&  \sqrt{(r^{2}  + p^{2})^{2} - 4p^{2}r^{2} \cos^{2}{\theta}} \\ \nonumber
+r^{4} + 2p^{2}r^{2} ( 1 - 2 \cos^{2}{\theta}) &=& a^{4} - p^{4} \\ \nonumber
+r^{4} - 2p^{2}r^{2}  \cos{2\theta} &=& a^{4} - p^{4} 
+\end{eqnarray}
+When $a=p$, we have the \textbf{lemniscate}
+\begin{equation}
+r^{2} = 2p^{2} \cos{2\theta} 
+\end{equation}
+and in coordinates
+\begin{equation}
+(x^{2} + y^{2})^{2} = 2p^{2} (x^{2} -y^{2})
+\end{equation}
 % Emacs 25.3.2 (Org mode 8.2.10)
 \end{document}
