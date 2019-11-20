@@ -1,0 +1,141 @@
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancybox}
+%\usepackage{epsfig}
+\usepackage[dvipdfm]{graphicx}  % graphic
+\usepackage{tabularx}
+\usepackage{bm}
+\usepackage{enumerate}
+\numberwithin{equation}{section}
+%\newtheorem{def}{Definition}[section]
+\newtheorem{exa}{Example}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{prop_non}{Proposition}
+\newtheorem{Def}{Definition}[section]
+\newtheorem{formula}{Formula}[section]
+%%%%%%%%%%% constants
+\newcommand{\half}{\frac{1}{2}}  % a half
+%%%%%%%%%%% boldtype-settings
+%%%%%% Roman Alphabet
+%%% Just Plain type
+\newcommand{\tr}{\text{tr}} % trace of a matrix
+%%% MathBB 
+\newcommand{\Z}{\mathbb Z}  % Integer
+\newcommand{\R}{\mathbb R}  % Real num
+\newcommand{\C}{\mathbb C}  % Complex num
+%%% Bold Capitals
+\newcommand{\E}{\textbf E} %bold E
+\newcommand{\B}{\textbf B} %bold B
+\newcommand{\V}{\textbf V} %bold V
+%%% bold small 
+\newcommand{\x}{\textbf x}  % small bold x
+\newcommand{\y}{\textbf y}  % small bold y
+\newcommand{\bj}{\textbf j}  % small bold j
+\newcommand{\bk}{\textbf k}  % small bold k
+\newcommand{\bp}{\textbf p}  % small bold p
+\newcommand{\bq}{\textbf q}  % small bold q
+%%%%%% Greek Alphabet
+%%% small greeks
+\newcommand{\bgamma}{\mbox{ \boldmath $\gamma$}}  % bold-type gamma
+\newcommand{\bsigma}{\mbox{ \boldmath $\sigma$}}  % bold-type sigma
+\newcommand{\btilsigma}{\mbox{ \boldmath $\tilde \sigma$}}  % bold-type sigma with tilder
+%%%%%%%%%%% Operators
+\newcommand{\OpA}{\widehat A}
+\newcommand{\OpB}{\widehat B}
+\newcommand{\OpC}{\widehat C}
+\newcommand{\OpH}{\widehat H}
+\newcommand{\OpQ}{\widehat Q}
+\newcommand{\OpP}{\widehat P}
+\newcommand{\Opphi}{\widehat \varphi}
+\newcommand{\Oppi}{\widehat \pi}
+\newcommand{\Ope}[1]{\widehat{#1}}  % operator with hat
+%%%%%%%%%%% bras & kets,commutation
+\newcommand{\bra}[1]{\langle{#1}|}  % bra-vector
+\newcommand{\ket}[1]{|{#1}\rangle}  % ket-vector
+\newcommand{\inn}[2]{\langle{#1}|{#2}\rangle}   % inner product of braket
+\newcommand{\Expect}[3]{\langle {#1}|{#2}|{#3} \rangle}   % expectation value (sandwiched btw bra & ket)
+\newcommand{\dev}[2]{\langle (\Delta {#1})^2 \rangle _{{#2}}}   % deviation of Ope
+\newcommand{\commut}[2] {\left[ {#1},{#2} \right]}  % commutation bracket (square parenthesis)
+\newcommand{\Acommut}[2] {\left\{ {#1},{#2} \right\}} % Anti-commutation bra (round parenthesis)
+%%%%%%%%%%% Differentiation
+\newcommand{\PDiff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\PDeriv}[2]{\frac{\partial #1}{\partial #2}}
+%%%%%%%%%%% sub & superscripted characters
+\newcommand{\sgm}[1]{\sigma_{#1}}
+\newcommand{\sgmOp}[1]{\hat{\sigma}_{#1}}
+\newcommand{\hfangle}[1]{{\frac{#1}{2}}}
+%%%%%%%%%%% vectors & matrices
+\newcommand{\VecBase}[3] {\left( \frac{\partial}{\partial {#1}^{#2}} \right)_{#3}  }
+\newcommand{\clmnV}[2]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\clmnVsan}[3]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+			 {#3}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\MatTwo}[4]
+	{\left(
+		\begin{matrix}
+		 {#1} & {#2} \\
+		 {#3} & {#4} \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\MatThree}[9]
+	{\left(
+		\begin{matrix}
+		 {#1} & {#2} & {#3} \\
+		 {#4} & {#5} & {#6} \\
+		 {#7} & {#8} & {#9} \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\IDTwo}
+	{\left(
+		\begin{matrix}
+		 1 & 0 \\
+		 0 & 1 \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\PauliOne}
+	{\left(
+		\begin{matrix}
+		 0 & 1 \\
+		 1 & 0 \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\PauliTwo}
+	{\left(
+		\begin{matrix}
+		 0 & -i \\
+		 i & 0 \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\PauliThree}
+	{\left(
+		\begin{matrix}
+		 1 & 0 \\
+		 0 & -1 \\
+		\end{matrix}
+	\right)
+	}
+%%%%%%%%%%%%%%%%% Sets%%%%%%%%%%%%%
+\newcommand{\defset}[2]{ \left\{ {#1} \big| {#2} \right\} }
+%%%%%%%%%%%%%%%%% Names of persons %%%%%%%%%%%%%%%
+\newcommand{\Poincare}{Poincar$\acute{\text{e}}$ }
