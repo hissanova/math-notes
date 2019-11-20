@@ -24,7 +24,6 @@ Canonical form (標準形):
 \begin{equation}
 \frac{x^{2}}{a^{2}} +\frac{y^{2}}{b^{2}}=1 \quad with \; a \ge b.
 \end{equation}
- 
 Parametric form
 \begin{equation}
 \mathbf{p} =\left(
@@ -123,7 +122,7 @@ Without loss of generality, we can consider the arc length of a cubic curve with
 s &=&  \int_{0}^{x} \sqrt{ 1  + ( 3a x^{2} + b)^{2}} \; dx \\ \nonumber
   &=& \int_{0}^{x} \sqrt{P(x)} \; dx
 \end{eqnarray}
-where $P(x) = (3ax +b)^{2}$ is a quadratic polynomial in $x$. This IS actually an elliptic integral. 
+where $P(x) = 1 + (3ax^{2} +b)^{2}$ is a quartic polynomial in $x$. This IS actually an elliptic integral. 
 But we have to reduce this to some form so that we can express the integral in terms of three kinds of the elliptic integrals we will define soon (second of which has already defined as $E(k,\varphi)$ ).
 We will hopefully learn how to reduce the general elliptic integral of the form
 \begin{equation}
