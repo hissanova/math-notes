@@ -17,8 +17,17 @@
 
 * Generalized Cassinian Curves, Surfaces and Hypersurfaces
 ** The Curves of Cassini in 2D Plane
-Curves of Cassini, or Cassinian curevs, in $\R^2$ are defined as follows: given two poins $p_1, p_2 \in \R^2$, called focus, and a real number $a \in \R$, 
-/the Cassinian curve/ with the focses $p_{1},p_{2}$ is the set of points $x \in \R^2$ whose product of the Euclidean distances $r_i = \sqrt{|x-p_i|}, \; (i=1,2)$ are always constant $a^2$:
+#+BEGIN_LaTeX latex
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6cm]{cassini_generic_point.png}
+\caption{}
+\label{ }
+\end{center}
+\end{figure}
+#+END_LaTeX
+The /curves of Cassini/, or /Cassinian curevs/, in $\R^2$ are defined as follows: given two poins $p_1, p_2 \in \R^2$, called focus, and a real number $a \in \R$, 
+the Cassinian curve with the focses $p_{1},p_{2}$ is the set of points $x \in \R^2$ whose product of the Euclidean distances $r_i = \sqrt{|x-p_i|}, \; (i=1,2)$ are always constant $a^2$:
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{ }
@@ -36,9 +45,9 @@ They were first introduced by Cassini as orbits of the heavenly bodies, but late
 \end{figure}
 #+END_LaTeX
 ** Generalisations
-There are two obvious ways of generalising the definition of Cassinian curves: (i) by increasing the number $n$ of foci or/and (ii) by increasing the dimensionality $D$ of the ambient space $\R^{D}$. 
-Let us denote a generic point in the ambient space $\R^{D}$ by $x =(x^1, x^2, \cdots, x^D)$ and $n$ distinct fixed points by $p_i \in \R^D, \; (i=1,\cdots, n)$. 
-We call the values of the distances $r_i := |x-p_i|$, where $|x|$ is the usual $D$-dimensional Euclidean distance, /the multipolar coordinates/ of the point $x$.
+There are two immediate generalisations of the definition of Cassinian curves: (i) increase the number $n$ of foci or/and (ii) increase the dimensionality $D$ of the ambient space $\R^{D}$. 
+Let us denote a generic point in the ambient space $\R^{D}$ by $x =(x^1, x^2, \cdots, x^D)$, $n$ distinct fixed points by $p_i \in \R^D, \; (i=1,\cdots, n)$ 
+and the values of the distances by $r_i := |x-p_i|$, where $|x|$ is the usual $D$-dimensional Euclidean distance.
  Then define 
 #+BEGIN_LaTeX latex
 \begin{equation}
@@ -46,14 +55,14 @@ We call the values of the distances $r_i := |x-p_i|$, where $|x|$ is the usual $
 F(p_1,\cdots,p_n;x):=\prod_{i=1}^{n} r_i.
 \end{equation}
 #+END_LaTeX
-(D-1)-dimensional Cassinian hypersurface associated with $p_i$'s is defined as the set of points $x\in \R^D$, the product of whose distances is equal to a constant $a^2$:
+(D-1)-dimensional Cassinian hypersurface associated with $p_i$'s is defined as the set of points $x\in \R^D$, the product of whose distances from $x$ is equal to a constant $a^2$:
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{ }
 C(p_1,\cdots,p_n;a) :=\defset{x\in \R^D}{F(p_1,\cdots,p_n;x) = a^2 }.
 \end{equation}
 #+END_LaTeX
-We will often use the abbreviation of the notation, $C(P;a)=C(p_1,\cdots,p_n;a)$ in the sequel. 
+We will often use the abbreviation, $C(P;a)=C(p_1,\cdots,p_n;a)$ in the sequel. 
 A further generalisation with arbitrary exponentials can be carried out to obtain /the weighted n-Cassinian curves/, which are defined by:
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
@@ -84,10 +93,17 @@ r_1r_2 = \sqrt{(x^1-p)^2 + (x^2)^2 + \cdots + (x^D)^2}\sqrt{(x^1+p)^2 + (x^2)^2 
 with $R^2 = (x^2)^2 + \cdots + (x^D)^2$. Hence, ($D-1$)-dimensional Cassinian hypersurface with two foci is like a lemniscate with its $y$-axes replaced by a $(D-2)$-sphere $S_R^{D-2}$ of radius $R$.
 
 ** Polar Coordinates and Compatibility Conditions
-We can think of the list $(r_1,\cdots,r_n)$ as a point in $R^n$.
- Every point $x \in R^D$ has a correspondence in the multipolar coordinate space $R^n$ defining a map $\phi:R^D \rightarrow R^n$.
- However, the image $\phi(R^D)$ inside $R^n$ is restricted in a certain region bounded by a $(n-1)$-dimensional surface defined by certain polynomials in $r_i$ and $r_{ij}$.
- When $D > n$, $\phi$ is not surjective, so a point in $R^n$ corresponds to a set of points. However, there are some inequalities to be satisfied due to geometric constraints (positivity of volume). In the case $D=n$, a point $r \in (r_1, \cdots,r_n)$ specifies two points in $R^D$ which are symmetrical about the hyperplane containing the foci $p_i \;(i=1,\cdots,D)$. When $D<n$, we should have $n-D$ independent algebraic relations among $r_i$, which can be obtained by geometrical consideration. Let us call them compatibility conditions. Usually, we can construct such expressions more than required, so we need to choose out some suitable set of independent ones. Once such a set of equations are chosen, they define a $D$ dimensional surface $S$ in $n$-tuple polar coordinate space $r_1:\cdots:r_n \in \R_{pol}^n$, which represents the points in the original Euclidean space $\R^D$. Then, if we also plot a surface $C(p,a)$ defined by $r_1\cdots r_n = a^2$ in the multipolar space $\R_{pol}^n$, the intersection $C(p,a) \cap S$ is the set corresponding to a Cassinian surface and for sufficiently small $a$, there are several disconnected components in general. Observations in 2 and 3 dimensional spaces tell us that there seem to be $n-1$ disconnected components with $n$ foci in $D=2$ but $n$ components for certain values of $a$ in 3 dimensional space. We have not figured out how it really works yet. So, the following is some observations in low dimensions for small $n$.
+We can compose a list of the data $r_i := |x-p_i|$ and think of the list $(r_1,\cdots,r_n)$ as a point in $\R^n$. 
+We call $(r_1,\cdots,r_n)$ /the multipolar coordinates/ of the point $x$. 
+Every point $x \in \R^D$ has a correspondence in the multipolar coordinate space $\R^n$ defining a map $\phi:\R^D \rightarrow \R^n$. 
+When $D>n$, $\phi$ is not surjective, so a point in $\R^n$ corresponds to a $(D-n)$-dimensional hypersurface in $\R^{D}$. 
+When $D=n$, a point $r \in (r_1, \cdots,r_n)$ specifies two points in $\R^D$ which are symmetrical about the hyperplane containing the foci $p_i \;(i=1,\cdots,D)$. 
+When $D<n$, the image $\phi(\R^D) \subset \R^n$ is a $D$-dimensional hypersurface, which can be specified by some polynomials in $r_i$ and $r_{ij}:=|p_{i}-p_{j}|$. 
+Let us call those polynomials compatibility conditions. Usually, we can construct such expressions more than required, so we need to choose out some suitable set of independent ones. 
+Once such a set of equations are chosen, they define a $D$ dimensional surface $S$ in $n$-tuple polar coordinate space $r_1:\cdots:r_n \in \R_{pol}^n$, which represents the points in the original Euclidean space $\R^D$. 
+Then, if we also plot a surface $C(P;a)$ defined by $r_1\cdots r_n = a^2$ in the multipolar space $\R_{pol}^n$, the intersection $C(P;a) \cap S$ is the set corresponding to a Cassinian surface and for sufficiently small $a$, there are several disconnected components in general. 
+Observations in 2 and 3 dimensional spaces tell us that there seem to be $n-1$ disconnected components with $n$ foci in $D=2$ but $n$ components for certain values of $a$ in 3 dimensional space. 
+We have not figured out how it really works yet. So, the followings are some observations in low dimensions for small $n$.
 
 ** The 2D Plane Case
  First, let us consider the case $D=2$. For $n=2$, the bipolar coordinates $r_1 :r_2$ with $|p_1 -p_2| =2p$ have to satisfy the compatibility conditions, which are, in this case, just triangle inequalities,
@@ -178,7 +194,7 @@ F_3(r_1,r_2,r_3)  & = & F_3(r_2,r_3,r_4)   =  0
 #+END_LaTeX
 And then other two relations which involve the other diagonal must be redundant.
 
-In general, compatibility conditions for $n \ge 3 $ points $p_i, (i=1,\cdots,n)$ can be written as
+In general, compatibility conditions for $n \ge 3$ points $p_i, (i=1,\cdots,n)$ can be written as
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{}
@@ -187,7 +203,7 @@ F_3(r_1,r_2,r_3) =  F_3(r_2,r_3,r_4) = \cdots = F_3(r_{n-3},r_{n-2},r_{n-1})= F_
 #+END_LaTeX
 
 ** The Case in 3D
- When $D=3$, in the cases $n=2$ and $n=3$, the singularities appear in the plane the focuses lie. 
+ When $D=3$, in the cases $n=2$ and $n=3$, the singularities appear in the plane where the focuses lie. 
 So the first non-trivial appearance of the singularities occurs when we have $n=4$ non-coplanar foci, which can be seen as the vertices of a tetrahedron. 
 Th analogy with triangle will lead us to the similar argument for the construction of the compatibility condition for the quadripolar coordinates. 
 That is to divide the tetrahedron $\triangle ABCD$ into four sub-tetrahedra $\triangle xABC$, $\triangle xACD$, $\triangle xABD$ and $\triangle xBCD$ and calculate the solid angles subtended by the vertex $x$, and then eliminate them by using the condition that they must sum up to $4\pi$. 
