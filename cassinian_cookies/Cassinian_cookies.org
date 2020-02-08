@@ -1,5 +1,5 @@
 #+TITLE: Cassinian Cookies
-#+DATE: <2019-11-20 水>
+# #+DATE: <2019-11-20 水>
 #+AUTHOR: hisanobu-nakamura
 #+EMAIL: hisanobu_nakamura@snorlax
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
@@ -343,7 +343,7 @@ But, the fact is, this is not just good enough to tell you all the components to
 \begin{minipage}{.5\hsize}
 \begin{center}
 \includegraphics[width=6cm]{images/tetrahedral_cassini.eps}
-\caption{Cassian surface with foci at vertices of a regular tetrahedron.}
+\caption{Cassinian surface with foci at vertices of a regular tetrahedron.}
 \label{}
 \end{center}
 \end{minipage}
@@ -351,7 +351,7 @@ But, the fact is, this is not just good enough to tell you all the components to
 \begin{minipage}{0.5\hsize}
 \begin{center}
 \includegraphics[width=6cm]{images/icosahedral_cassini.eps}
-\caption{Cassian surface with foci at vertices of a regular icosahedron.}
+\caption{Cassinian surface with foci at vertices of a regular icosahedron.}
 \label{}
 \end{center}
 \end{minipage}
