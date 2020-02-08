@@ -20,7 +20,7 @@
 #+BEGIN_LaTeX latex
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=6cm]{cassini_generic_point.png}
+\includegraphics[width=6cm]{images/cassini_generic_point.png}
 \caption{}
 \label{ }
 \end{center}
