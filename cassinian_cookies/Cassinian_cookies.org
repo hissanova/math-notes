@@ -59,7 +59,7 @@ F(p_1,\cdots,p_n;x):=\prod_{i=1}^{n} r_i.
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{ }
-C(p_1,\cdots,p_n;a) :=\defset{x\in \R^D}{F(p_1,\cdots,p_n;x) = a^2 }.
+C(p_1,\cdots,p_n;a) :=\DefSet{x\in \R^D}{F(p_1,\cdots,p_n;x) = a^2 }.
 \end{equation}
 #+END_LaTeX
 We will often use the abbreviation, $C(P;a)=C(p_1,\cdots,p_n;a)$ in the sequel. 
@@ -67,17 +67,17 @@ A further generalisation with arbitrary exponentials can be carried out to obtai
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
 F(P;k;x) & := & \prod_{i=1}^{n} r_i^{k_i} \nonumber\\
-C(P;k;a) &:=&\defset{x\in \R^D}{F(P;k;x) = a^2 }
+C(P;k;a) &:=&\DefSet{x\in \R^D}{F(P;k;x) = a^2 }
 \end{eqnarray}
 #+END_LaTeX
-An example of a weighted Cassinian curve is illustrated in Figure \ref{fig:weited_2_cass}.
+An example of a weighted Cassinian curve is illustrated in Figure \ref{fig:weighted_2_cass}.
 #+BEGIN_LaTeX latex
 %--- DIAGRAM: weighted 2-cassinian ---%
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{images/cassini2_weighted.eps}
 \caption{Weighted 2-Cassinian curve: $r_1 r_2^2 = a^2$}
-\label{fig:weited_2_cass}
+\label{fig:weighted_2_cass}
 \end{center}
 \end{figure}
 #+END_LaTeX
@@ -305,7 +305,7 @@ Let $p_i, (i=1,\cdots,n)$ be distinct points in $\R^D$. Then, for sufficiently s
 #+END_LaTeX
 #+BEGIN_LaTeX latex
 \begin{proof}
-Let $r_{\min}:= \min_{i,j}\left\{r_{ij}\right\}$, $\delta < \frac{r_{\min}}{2}$ and $B(p_i;\delta):= \defset{x\in \R^D}{\delta >|x-p_i|}$. Let us denote the minimum pair $r_{ab}=r_{\min}$. Then $B(p_i;\delta)\cap B(p_j;\delta) = \emptyset, (\forall i\ne j)$.  We are only interested in their relative positions. So, by multiplying all the coordinates with a suitable constant, we can assume $r_{\min}>2$ so that $\delta <1$. Now, consider the inverse image $C(p_1,\cdots,p_n;\delta)$. Because we have assumed $r_{\min}>2$ and $\delta <1$, for $x\in B(p_a;\delta)$, we have $r_i = |x-p_i|>1, (i\ne a)$. 
+Let $r_{\min}:= \min_{i,j}\left\{r_{ij}\right\}$, $\delta < \frac{r_{\min}}{2}$ and $B(p_i;\delta):= \DefSet{x\in \R^D}{\delta >|x-p_i|}$. Let us denote the minimum pair $r_{ab}=r_{\min}$. Then $B(p_i;\delta)\cap B(p_j;\delta) = \emptyset, (\forall i\ne j)$.  We are only interested in their relative positions. So, by multiplying all the coordinates with a suitable constant, we can assume $r_{\min}>2$ so that $\delta <1$. Now, consider the inverse image $C(p_1,\cdots,p_n;\delta)$. Because we have assumed $r_{\min}>2$ and $\delta <1$, for $x\in B(p_a;\delta)$, we have $r_i = |x-p_i|>1, (i\ne a)$. 
 \begin{equation}
 \label{eq:inequality_radius}
 r_a < r_a\prod_{i\ne a}r_i =F(p;x).
@@ -543,7 +543,7 @@ for some $r$.
  We can see that the level cruves at $z=\pm r$ have $n-1$ crossings and for $z \in (-r,r)$ split into the outer curve $F^{-1}(\sqrt{r^2-z^2})$ and the inner $n$ curves $F^{-1}(-\sqrt{r^2-z^2})$.
 \end{proof}
 #+END_LaTeX
-CONSIDERATION: Suppose $F:\R^2 \rightarrow \R $ has $n-1$ crossings (the number of critical points may be less than the number of crossings), say $\{p_{i}\}$, and every inverse image $F^{-1}(a)$ for $a\in F(\R^2)$ is closed and denote $z_i=F(p_i)$ and set $M:= \max\{z_i\}$ and $ m :=\min \{z_i\}$. For $a>M$, $F^{-1}(a)$ is connected(?),and does $F^{-1}(a<m)$ have $n$ components? ANSWER: In general, $F^{-1}(a>M)$ is not connected, but if $F^{-1}(a)$ is connected for $a>M$, then .\\
+CONSIDERATION: Suppose $F:\R^2 \rightarrow \R$ has $n-1$ crossings (the number of critical points may be less than the number of crossings), say $\{p_{i}\}$, and every inverse image $F^{-1}(a)$ for $a\in F(\R^2)$ is closed and denote $z_i=F(p_i)$ and set $M:= \max\{z_i\}$ and $ m :=\min \{z_i\}$. For $a>M$, $F^{-1}(a)$ is connected(?),and does $F^{-1}(a<m)$ have $n$ components? ANSWER: In general, $F^{-1}(a>M)$ is not connected, but if $F^{-1}(a)$ is connected for $a>M$, then .\\
 Question: If $F^{-1}(a>M)$ is connected , by suitably adjusting the constant, we can assume $M=0$. If we pick up a $r< m-M, \; r \in F(\R^2)$ , then a surface defined by
 #+BEGIN_LaTeX latex
 \begin{equation}
@@ -551,8 +551,7 @@ Question: If $F^{-1}(a>M)$ is connected , by suitably adjusting the constant, we
 F(x,y)^2 + (r^2 - z^2) = 0
 \end{equation}
 #+END_LaTeX
-has genus $n$?
-%---SUBSESCTION: EXAMPLES OF COOKIES
+has genus $n$ ?
 ** Examples of Cassinian Cookies
 #+BEGIN_LaTeX latex
 \begin{figure}[H]
