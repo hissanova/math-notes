@@ -1,7 +1,7 @@
 Title: A Proof for Arithmetic Mean and Geometric Mean Formula
 Date: 2020-02-10
 Category: math
-Tags: math, AM-GM formula
+Tags: math
 
 # Arithmetic Mean and Geometric Mean Formula
 
@@ -14,7 +14,7 @@ Here is the arithmetic and geometric formula
 \frac{a_1 + \cdots + a_n}{n} \ge \sqrt[n]{a_1\cdots a_n},
 \end{equation*}
 
-where $\forall i \; a_i > 0$ .
+where for all $i$, $a_i > 0$ .
 
 ## Proof of the Statement
 
@@ -38,7 +38,7 @@ where $\alpha_i=\sqrt[n]{a_1\overset{i}{\breve{\cdots}} a_{n+1}}$ (Here, $\overs
 
 So, if we can show the following proposition, we are done.  
 ***Lemma***:
- If $b_1, \cdots, b_{n+1} >0$, $\exists i$ such that $\;b_i \ne 1$ and $b_1 \cdots b_{n+1} = 1$, then
+ If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 
 \begin{equation}
 \label{AM_GM_normalised}
@@ -55,7 +55,7 @@ a_1 + \cdots + a_{n+1} & = &  \sqrt[n+1]{a_1\cdots a_{n+1}} \left( \sqrt[n+1]{\f
 ## Proof of the Lemma
 
 ***Lemma***:
- If $b_1, \cdots, b_{n+1} >0$, $\exists i$ such that $\;b_i \ne 1$ and $b_1 \cdots b_{n+1} = 1$, then
+ If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 
 \begin{equation}
 \label{AM_GM_normalised}
@@ -63,8 +63,10 @@ b_1 + \cdots + b_{n+1} \ge n+1
 \end{equation}
 
 ***Proof***:
- Let us prove by induction. Notice that the assumuption that $\exists i$ such that $b_{i} > 1$ implies that $\exists j$ such that $b_{j} < 1$.   
-So, for $n=1$, we can assume that $b_1 = 1-c_1$ with $0 < c_1 <1$. Then
+ First, if $b_1 = \cdots = b_{n+1} =1$, then the equality holds.
+We notice that $\exists i$ such that $b_{i} > 1$ implies that $\exists j$ such that $b_{j} < 1$.
+So, let us assume the condition and proceed to prove the statement by induction. 
+For $n=1$, we can assume that $b_1 = 1-c_1$ with $0 < c_1 <1$. Then
 
 \begin{equation*}
 \label{ }
@@ -82,7 +84,7 @@ If we can say
 
 \begin{equation*}
 \label{ }
-b_1 + \cdots + b_{n-1} + (b_n + b_{n+1}) \ge b_1 + \cdots b_{n-1} + (b_n b_{n+1} + 1),
+b_1 + \cdots + b_{n-1} + (b_n + b_{n+1}) \ge \text{or} > b_1 + \cdots b_{n-1} + (b_n b_{n+1} + 1),
 \end{equation*}
 
 then the inequality follows. But
@@ -96,5 +98,5 @@ Hence, it follows that
 
 \begin{equation*}
 \label{ }
-b_1 + \cdots + b_{n-1} + b_n + b_{n+1} \ge b_1 + \cdots + b_{n-1} + b_n b_{n+1} + 1 \ge n + 1
+b_1 + \cdots + b_{n-1} + b_n + b_{n+1} > b_1 + \cdots + b_{n-1} + b_n b_{n+1} + 1 \ge n + 1
 \end{equation*}

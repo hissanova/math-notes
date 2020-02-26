@@ -1,4 +1,4 @@
-% Created 2020-02-16 日 13:26
+% Created 2020-02-24 月 22:49
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -32,8 +32,7 @@
 Title: A Proof for Arithmetic Mean and Geometric Mean Formula
 Date: 2020-02-10
 Category: math
-Tags: math, AM-GM formula
-
+Tags: math
 
 \section{Arithmetic Mean and Geometric Mean Formula}
 \label{sec-1}
@@ -44,7 +43,7 @@ Here is the arithmetic and geometric formula
 \label{ }
 \frac{a_1 + \cdots + a_n}{n} \ge \sqrt[n]{a_1\cdots a_n},
 \end{equation*}
-where $\forall i \; a_i > 0$ .
+where $\forall i \; a_i > 0$.
 
 \subsection{Proof of the Statement}
 \label{sec-1-2}
@@ -64,7 +63,7 @@ where $\alpha_i=\sqrt[n]{a_1\overset{i}{\breve{\cdots}} a_{n+1}}$ (Here, $\overs
 \end{equation*}
 So, if we can show the following proposition, we are done.\\
 \textbf{\emph{Lemma}}:
- If $b_1, \cdots, b_{n+1} >0$, $\exists i$ such that $\;b_i \ne 1$ and $b_1 \cdots b_{n+1} = 1$, then
+ If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 \begin{equation}
 \label{AM_GM_normalised}
 b_1 + \cdots + b_{n+1} \ge n+1
@@ -85,14 +84,16 @@ $\qed$
 \subsection{Proof of the Lemma}
 \label{sec-1-3}
 \textbf{\emph{Lemma}}:
- If $b_1, \cdots, b_{n+1} >0$, $\exists i$ such that $\;b_i \ne 1$ and $b_1 \cdots b_{n+1} = 1$, then
+ If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 \begin{equation}
 \label{AM_GM_normalised}
 b_1 + \cdots + b_{n+1} \ge n+1
 \end{equation}
 \textbf{\emph{Proof}}:
- Let us prove by induction. Notice that the assumuption that $\exists i$ such that $b_{i} > 1$ implies that $\exists j$ such that $b_{j} < 1$. \\
-So, for $n=1$, we can assume that $b_1 = 1-c_1$ with $0 < c_1 <1$. Then
+ First, if $b_1 = \cdots = b_{n+1} =1$, then the equality holds.
+We notice that $\exists i$ such that $b_{i} > 1$ implies that $\exists j$ such that $b_{j} < 1$.
+So, let us assume the condition and proceed to prove the statement by induction. 
+For $n=1$, we can assume that $b_1 = 1-c_1$ with $0 < c_1 <1$. Then
 \begin{equation*}
 \label{ }
 b_1 + b_2 = b_1 + \frac{1}{b_1} = 1 - c_1 + \frac{1}{1-c_1} \ge 1-c_1 + 1 + c_1 = 2.
@@ -105,7 +106,7 @@ Now, let us suppose that (\ref{AM_GM_normalised}) holds true for all the natural
 If we can say
 \begin{equation*}
 \label{ }
-b_1 + \cdots + b_{n-1} + (b_n + b_{n+1}) \ge b_1 + \cdots b_{n-1} + (b_n b_{n+1} + 1),
+b_1 + \cdots + b_{n-1} + (b_n + b_{n+1}) \ge \text{or} > b_1 + \cdots b_{n-1} + (b_n b_{n+1} + 1),
 \end{equation*}
 then the inequality follows. But
 \begin{equation*}
@@ -115,7 +116,7 @@ b_n + b_{n+1} - (b_n b_{n+1} + 1) = -c_n c_{n+1} > 0.
 Hence, it follows that 
 \begin{equation*}
 \label{ }
-b_1 + \cdots + b_{n-1} + b_n + b_{n+1} \ge b_1 + \cdots + b_{n-1} + b_n b_{n+1} + 1 \ge n + 1
+b_1 + \cdots + b_{n-1} + b_n + b_{n+1} > b_1 + \cdots + b_{n-1} + b_n b_{n+1} + 1 \ge n + 1
 \end{equation*}
 \begin{right}
 $\qed$\\
