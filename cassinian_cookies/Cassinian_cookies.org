@@ -669,6 +669,6 @@ But we also have $\theta_{BAC} + \theta_{CAD} + \theta_{DAB} = 2\pi$ for each ve
 \bibitem{Hirsch}
   Morris W. Hirsch, Differential Topology, Springer Verlag, 1976
 \bibitem{Cayley}
-  A. Cayley, The Cambridge Mathematical Journal, vol. II, 267-271
+  A. Cayley, The Cambridge Mathematical Journal, vol. II, 267-271, 1841
 \end{thebibliography}
 #+END_LaTeX

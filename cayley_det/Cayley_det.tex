@@ -1,0 +1,124 @@
+% Created 2020-02-26 水 21:45
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[margin=1.0in]{geometry}
+\usepackage{mymacros}
+\usepackage{amsmath,amssymb,amsthm}
+\author{hisanobu-nakamura}
+\date{\textit{<2020-02-26 水>}}
+\title{Cayley-Menger Determinants}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+Title: Cayley-Menger Determinants
+Date: 2020-02-26
+Category: math
+Tags: math, Cayley-Menger
+
+
+\section{Cayley's determinants and the Volume of n-Simplex}
+\label{sec-1}
+Cayley uses the multiplication formula for the determinants of two matrices $A=(a_{ij})_{1\le i,j\le n}$ and $B=(b_{ij})_{1\le i,j\le n}$.
+\begin{equation}
+\label{}
+\det{AB} = \det{A}\det{B}
+\end{equation}
+to deduce relations between distances of points in various situation, such as those of 5 points in three dimensional space, 4 points on a sphere, etc.
+ For example, consider 5 points $\bp_i = (x_i,y_i,z_i,w_i) \in \R^4$ in 4 dimensional Euclidean space, and form the following two $6\times 6$ matrices
+\begin{equation}
+\label{}
+A  =   \left(\begin{array}{ccc}|\bp_1|^2 &  -2\bp_1 & 1 \\|\bp_2|^2 & -2\bp_2 & 1 \\|\bp_3|^2 & -2\bp_3 & 1 \\|\bp_4|^2 & -2\bp_4 & 1 \\|\bp_5|^2 & -2\bp_5 &  1 \\1 & \textbf 0 & 0\end{array}\right), \quad
+B  =  \left(\begin{array}{ccc}1 &  \bp_1 & |\bp_1|^2 \\1 & \bp_2 & |\bp_2|^2 \\1 & \bp_3 & |\bp_3|^2 \\1 & \bp_4 & |\bp_4|^2 \\1 & \bp_5 & |\bp_5|^2 \\0 & \textbf 0 & 1\end{array}\right)
+\end{equation}
+Then, take the determinant of the product of the two matrices
+\begin{eqnarray}
+W&:=&\det{AB}\nonumber\\
+ &=& \det{A}\det{B} \nonumber\\
+ & = &  \det{A}\det{B^t} \nonumber\\
+ & = &  \det{AB^t} \nonumber\\
+ & = &  \left|\begin{array}{cccccc}0 & r_{12}^2 & r_{13}^2 & r_{14}^2 & r_{15}^2 & 1 \\r_{21}^2 & 0 & r_{23}^2 & r_{24}^2 & r_{25}^2 & 1 \\r_{31}^2 & r_{32}^2 & 0 & r_{34}^2 & r_{35}^2 & 1 \\r_{41}^2 & r_{42}^2 & r_{43}^2 & 0 & r_{45}^2 & 1 \\r_{51}^2 & r_{52}^2 & r_{53}^2 & r_{54}^2 & 0 & 1 \\1 & 1 & 1 & 1 & 1 & 0  \end{array}\right|
+\end{eqnarray}
+Then, he set $w_i=0, (i=1,\cdots,5)$ so that the determinant becomes zero and hence obtained a relation among $r_{ij}=|\bp_{i} - \bp_{j}|$.
+ This amounts to restricting the positions of the points $\bp_i, (i=1\cdots,5)$ in the 3-dimensional hyperplane defined by $w_i=0$. However, we can give a more general meaning to the condition $W=0$.
+ That is, if $W=0$, then $\bp_i$ are in a 3-D hyperplane. We can see it by recognising $W$ as a constant multipple of the 4 dimensional volume of the parallelochoron formed by $\bp_i$. Indeed
+\begin{eqnarray}
+\det A & = &  \left|\begin{array}{cc}  -2\bp_1 & 1 \\ -2\bp_2 & 1 \\ -2\bp_3 & 1 \\ -2\bp_4 & 1 \\ -2\bp_5 &  1 \end{array}\right|
+=\left|\begin{array}{cc}  -2(\bp_1-\bp_5) & 0 \\ -2(\bp_2-\bp_5) & 0 \\ -2(\bp_3-\bp_5) & 0 \\ -2(\bp_4 -\bp_5) & 0 \\ -2\bp_5 &  1 \\
+\end{array}\right| \nonumber\\
+ & = & 16\left|\begin{array}{c}  \bp_{15}  \\ \bp_{25} \\ \bp_{35} \\ \bp_{45} 
+\end{array}\right| 
+=16V_4
+\end{eqnarray}
+where we defined $\bp_{ij} = \bp_i -\bp_j$. Similarly, $\det B = V$. Then we have
+\begin{equation}
+\label{eq:vol_det}
+16V_4^2 = \left|\begin{array}{cccccc}0 & r_{12}^2 & r_{13}^2 & r_{14}^2 & r_{15}^2 & 1 \\r_{21}^2 & 0 & r_{23}^2 & r_{24}^2 & r_{25}^2 & 1 \\r_{31}^2 & r_{32}^2 & 0 & r_{34}^2 & r_{35}^2 & 1 \\r_{41}^2 & r_{42}^2 & r_{43}^2 & 0 & r_{45}^2 & 1 \\r_{51}^2 & r_{52}^2 & r_{53}^2 & r_{54}^2 & 0 & 1 \\1 & 1 & 1 & 1 & 1 & 0  \end{array}\right|
+\end{equation}
+which gives the volume of the parallelochoron in terms of the lengths of the edges. So, its volume being zero means $\bp_{i5},(i\ne5)$ are linearly dependent i.e. contained in a 3-D hyperplane.
+ The generalisation to higher dimensions is straightforward. Given that
+\begin{equation}
+\label{}
+A_{n}  =   \left(\begin{array}{ccc}|\bp_1|^2 &  -2\bp_1 & 1 \\ |\bp_2|^2 &  -2\bp_2 & 1 \\ \vdots & \vdots & \vdots \\ |\bp_n|^2 & -2\bp_n & 1 \\ 1 & \textbf 0 & 0\end{array}\right), \quad
+B_n  =  \left(\begin{array}{ccc} 1 &  \bp_1 & |\bp_1|^2 \\ 1 & \bp_2 & |\bp_2|^2 \\ \vdots & \vdots & \vdots \\ 1 & \bp_n & |\bp_n|^2 \\ 0 & \textbf 0 & 1\end{array}\right)
+\end{equation}
+The volume $V_{n}$ of the n-simplex spanned by $\bp_{i}\;(i=1,\cdots,n)$.
+\begin{eqnarray}
+(-2)^nV_n^2 &=& \det{A_{n}B_{n}^t} \\
+&=& \left|\begin{array}{cccccc}
+0        & r_{12}^2 &r_{13}^2   & \cdots  & r_{1n}^{2} & 1 \\
+r_{21}^2 & 0        & r_{23}^2  & \cdots  & r_{2n}^{2} & 1 \\
+r_{31}^2 & r_{32}^2 & 0         & \cdots  & r_{3n}^{2} & 1 \\
+\vdots   & \vdots   & \vdots    & \ddots  & \vdots     & 1 \\
+r_{n1}^2 & r_{n2}^2 & r_{n3}^{2}& \cdots  & 0          & 1 \\
+1        & 1        & 1         & \cdots  & 1      & 0
+\end{array}\right|
+\end{eqnarray}
+Note that 2-D version of the (\ref{eq:vol_det}) gives the famous Heron's fromula for the area of a triangle, so this can be considered as the extension of the Heron's formula to higher dimensions.
+\section{Five points in a plane}
+\label{sec-2}
+For five points in a 2-D plane, we have
+\begin{equation}
+\label{}
+\left|\begin{array}{ccccc}
+0 &  r_{13}^2 & r_{14}^2 & r_{15}^2 & 1 \\
+r_{31}^2 &  0 & r_{34}^2 & r_{35}^2 & 1 \\
+r_{41}^2 &  r_{43}^2 & 0 & r_{45}^2 & 1 \\
+r_{51}^2 &  r_{53}^2 & r_{54}^2 & 0 & 1 \\
+ 1 & 1 & 1 & 1 & 0  
+\end{array}\right|=
+\left|\begin{array}{ccccc}
+0 &  r_{12}^2 & r_{13}^2 & r_{14}^2 & 1 \\
+r_{21}^2 &  0 & r_{23}^2 & r_{24}^2 & 1 \\
+r_{31}^2 &  r_{32}^2 & 0 & r_{34}^2 & 1 \\
+r_{41}^2 &  r_{42}^2 & r_{43}^2 & 0 & 1 \\
+ 1 & 1 & 1 & 1 & 0  
+\end{array}\right|=0
+\end{equation} 
+
+\section{References}
+\label{sec-3}
+\begin{enumerate}
+\item A. Cayley, The Cambridge Mathematical Journal, vol. II, 267-271, 1841 \url{https://books.google.co.jp/books/about/The_Cambridge_mathematical_journal.html?id=o9xEAAAAcAAJ&redir_esc=y}
+\item \url{http://mathworld.wolfram.com/Cayley-MengerDeterminant.html}
+\end{enumerate}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}
