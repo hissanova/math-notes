@@ -61,7 +61,7 @@ f(j,k) := \sqrt{k(2j - k +1)} \;,1\le k \le 2j
 #+ATTR_ORG: :width 100
 #+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
 #+ATTR_LATEX: :width 80mm
-[[./ladder_coeff.png]] \\
+[[./images/ladder_coeff.png]] \\
 # --------- Figure of f(j,k) ---------- #
 We also have
 \begin{equation}
@@ -85,6 +85,14 @@ and $F(j,0)=1$
 \label{}
 \ket{j_1j_2 JM} = \sum_{m_1,m_2} \ket{j_1 j_2m_1m_2}\inn{j_1 m_1j_2m_2}{JM}
 \end{equation}
+# --------- Figure ---------- #
+#+NAME: fig:j-grids
+#+CAPTION: Correspondence between the tensor product $j_{1}\otimes j_{2}$ and $J$ ($j_{1}=3,j_{2}=2$).
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 80mm
+[[./images/j_grids.png]]\\
+# --------- Figure ---------- #
 Apply $J_+ = j_{1+} + j_{2+}$ take inner product with $\bra{j_1j_2m_1m_2}$
 \begin{eqnarray}
 &&\sqrt{J(J+1) - M(M+1)}\inn{j_1 m_1j_2m_2}{JM+1}  \nonumber\\
