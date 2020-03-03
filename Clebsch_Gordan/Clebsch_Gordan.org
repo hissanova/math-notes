@@ -346,13 +346,14 @@ The resultant angular momenta are $J = 0, 1,2$.
 \end{eqnarray}
 # ---Appendix--- #
 \appendix
-* Binomial Coefficients
-The addition theorem for binomial coefficients
+* Addition of Binomial Coefficients
+The addition formula for binomial coefficients is given as
 \begin{equation}
 \label{eq:addition-theorem}
-\sum_{s} \binom{x}{s} \binom{y}{z-s} = \binom{x+y}{z}
+\sum_{s} \binom{x}{s} \binom{y}{z-s} = \binom{x+y}{z}.
 \end{equation}
-Putting $x = a-b$, $y=b$, $z=a-c$, we have
+This formula can be derived by comparing the coefficients of the polynomials on the both sides of $(X+Y)^{x+y}=(X+Y)^{x}(X+Y)^{y}$.
+Putting $x = a-b$, $y=b$, $z=a-c$ in (\ref{eq:addition-theorem}), we have
 \begin{equation}
 \label{fml:triple-formula}
 \frac{a!}{b!c!}= \sum_{s} \frac{(a-b)!(a-c)!}{s!(a-b-s)!(a-c-s)!(b+c-a+s)!}.
@@ -386,6 +387,17 @@ The following formula is referenced in \cite{Messiah} due to Racah, but I have n
 \label{eq:general_binomial_coeff}
 \sum_{s} \frac{(a+s)!(b-s)!}{(c+s)!(d-s)!} = \frac{(a+b+1)!(a-c)!(b-d)!}{(c+d)!(a+b-c-d+1)!}.
 \end{equation}
+The following formula 
+\begin{equation}
+\label{eq:fractional-delta}
+\sum_{s} \frac{(-1)^{s}}{(a+s)!(b-s)!} = (-1)^{a} \delta(a, -b)
+\end{equation}
+is a slight generalisation of a simple binomial coefficients formula
+\begin{equation}
+\label{eq:}
+(X-Y)^{K} = \sum_{l=0}^{K} (-1)^{l} \binom{K}{l} X^{K-l}Y^{l}
+\end{equation}
+(\ref{eq:fractional-delta}) is obtained when we set $X=Y=1$.
 # -----------  Bibliography ---------------- #
 \begin{thebibliography}{10}
 \bibitem{Messiah}
