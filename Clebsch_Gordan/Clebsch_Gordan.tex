@@ -1,4 +1,4 @@
-% Created 2020-03-03 火 23:34
+% Created 2020-03-04 水 10:42
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -155,7 +155,7 @@ Writing
 \end{eqnarray}
 Or, substituting  $d = j_1+j_2 -J$, this can be written as
 \begin{eqnarray}
-G_i(j_1,j_2,j_1+j_2 -J) & = & (-1)^i\sqrt{\frac{((j_1+j_2 -J)!)^2}{(j_1+j_2-J-i)!i!}\frac{(j_2+J-j_1)!(j_1+J-j_2)!}{(j_2+J-j_1 -i)!(2j_1  - i)!}}. \nonumber
+G_i(j_1,j_2,j_1+j_2 -J) & = & (-1)^i\sqrt{\frac{((j_1+j_2 -J)!)^2}{(j_1+j_2-J-i)!i!}\frac{(-j_1+j_2+J)!(j_1+J-j_2)!}{(-j_1+j_2+J -i)!(2j_1  - i)!}}. \nonumber
 \end{eqnarray}
 In terms of these $G_i$'s, the coefficients $a_i$ become
 \begin{equation}
@@ -221,38 +221,53 @@ furthermore. Putting $k = j_1- m_1$, $d= j_1 + j_2 -J$ back, we have
 \end{eqnarray}
 and the sum in the last line is taken over all the values of $l$ with which all the factrial terms containing $l$ makes sense. In order to do so, we are going to use the following formula
 \begin{equation}
-\label{}
+\label{eq:factorial-triad}
 \frac{a!}{b!c!}= \sum_{s} \frac{(a-b)!(a-c)!}{s!(a-b-s)!(a-c-s)!(b+c-a+s)!}.
 \end{equation}
 Now
 \begin{eqnarray}
+\label{eq:2-var-sum}
 & &\sum_{\substack{l}} (-1)^{j_1 -m_1 -l} \frac{(j_1+m_1+l)!(j_2+J-m_1-l)!}{l!(j_1-m_1-l)!(j_2-J+m_1+l)!(J-M-l)!}   \nonumber\\
 & = &  \sum_{\substack{l}} (-1)^{j_1 -m_1 -l} \frac{(j_1+m_1+l)!}{l!(j_2-J+m_1+l)!}\cdot\frac{(j_2+J-m_1-l)!}{(J-M-l)!(j_1-m_1-l)!} \nonumber\\
-& = &  \sum_{\substack{l,l_1}} (-1)^{j_1 -m_1 -l} \frac{(j_1+m_1+l)!}{l!(j_2-J+m_1+l)!}\cdot\frac{(j_2+m_2)!(j_2+J-j_1)!}{l_1!(j_2+m_2-l_1)!(j_2+J-j_1-l_1)!(j_1-j_2-M-l+l_1)!} \nonumber\\
-& = &  \sum_{\substack{l,l_1, l_2}} (-1)^{j_1 -m_1 -l} \frac{(j_1+m_1)! (j_1 - j_2 +J)!}{l_2!(j_1+m_1-l_2)! (j_1-j_2+J-l_2)! (j_2-J-j_1+l+l_2)!}  \nonumber\\
-& & \cdot \frac{1}{(j_1-j_2-M+l_1-l)!} \frac{(j_2+m_2)!(j_2+J-j_1)!}{l_1!(j_2+m_2-l_1)!(j_2+J-j_1-l_1)!} \nonumber\\
+& = &  \sum_{\substack{l,l_1}} (-1)^{j_1 -m_1 -l} \frac{(j_1+m_1+l)!}{l!(j_2-J+m_1+l)!}\cdot\frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(-j_1+j_2+J-l_1)!(j_1-j_2-M-l+l_1)!} \nonumber\\
 \end{eqnarray}
-Racah uses the following formula to further simplify the expression,
+From the last euqation (\ref{eq:2-var-sum}), Racah uses the following formula to proceed with the calculation,
 \begin{equation}
-\label{}
+\label{eq:alternating-factorial}
 \sum_{s} (-1)^{s}\frac{(t-s)!}{s!(x-s)!(z-s)!}= \frac{(t-x)!(t-z)!}{x!z!(t-x-z)!}.
 \end{equation}
-To use the above formula, we first change the summation variable. Substitute $l^{\prime} =j_1-j_2 - M +l_1 - l$, and we have
+To use the above formula, we change the summation variable $l \rightarrow l^{\prime} =j_1-j_2 - M +l_1 - l$, and we have
 \begin{eqnarray}
 j_1+m_1+l & = & 2j_1 - j_2 - m_2 + l_1 - l^{\prime} \nonumber\\
 j_2-J+m_1+l & = & j_1 - J - m_2 + l_1 - l^{\prime}.  \nonumber
 \end{eqnarray}
-Going back to the main expression,
+Putting these terms to (\ref{eq:2-var-sum}), we get
 \begin{eqnarray}
-& &  \sum_{\substack{l^{\prime},l_1}} (-1)^{-j_2 - m_2 +l_1 -l^{\prime}} \frac{(2j_1 - j_2 - m_2 + l_1 - l^{\prime} )!}{l^{\prime}!(j_1 - J - m_2 + l_1 - l^{\prime} )!(j_1-j_2-M+l_1-l^{\prime})!}\cdot\frac{(j_2+m_2)!(j_2+J-j_1)!}{l_1!(j_2+m_2-l_1)!(j_2+J-j_1-l_1)!} \nonumber\\
-&=&  \sum_{\substack{l_1}} (-1)^{j_2 + m_2 -l_1} \frac{(j_1+m_1)!(j_1+J-j_2)!}{(j_1 - J - m_2 + l_1)!(j_1 - j_2 - M + l_1)!(J + M - l_1)!}\cdot\frac{(j_2+m_2)!(j_2+J-j_1)!}{l_1!(j_2+m_2-l_1)!(j_2+J-j_1-l_1)!} \nonumber
+& &  \sum_{\substack{l^{\prime},l_1}} (-1)^{-j_2 - m_2 +l_1 -l^{\prime}} \frac{(2j_1 - j_2 - m_2 + l_1 - l^{\prime} )!}{l^{\prime}!(j_1 - J - m_2 + l_1 - l^{\prime} )!(j_1-j_2-M+l_1-l^{\prime})!}\cdot\frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(j_2-j_1+J-l_1)!} \nonumber\\
+&=&  \sum_{\substack{l_1}} (-1)^{j_2 + m_2 -l_1} \frac{(j_1+m_1)!(j_1-j_2+J)!}{(j_1 - J - m_2 + l_1)!(j_1 - j_2 - M + l_1)!(J + M - l_1)!}\cdot\frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(j_2-j_1+J-l_1)!} \nonumber
 \end{eqnarray}
-Putting $t=j_2 + m_2 -l_1$ (\cite{Racah}), we obtain
+In another method that the author found, (\ref{eq:2-var-sum}) can be further transformed into the following expression by using (\ref{eq:factorial-triad})
+\begin{eqnarray}
+\sum_{\substack{l,l_1, l_2}} (-1)^{j_1 -m_1 -l} & & \frac{(j_1+m_1)! (j_1 - j_2 +J)!}{l_2!(j_1+m_1-l_2)! (j_1-j_2+J-l_2)! (j_2-J-j_1+l_{2} + l)!}  \nonumber\\
+                                                & & \times \frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(j_2-j_1+J-l_1)!(j_1-j_2-M+l_1-l)!}  \nonumber \\
+=\sum_{\substack{l,l_1, l_2}} (-1)^{j_1 -m_1} & & \frac{(-1)^{-l}}{ (j_1-j_2-M+l_1-l)! (-j_{1}+j_2-J+l_{2} + l)!}  \nonumber\\
+                                             & & \times \frac{(j_1+m_1)! (j_1 - j_2 +J)!}{l_2!(j_1+m_1-l_2)! (j_1-j_2+J-l_2)! } \cdot \frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(-j_1+j_{2}+J-l_1)!}. \nonumber \\
+\end{eqnarray}
+Then, by the use of the formula (see Appendix)
+\begin{equation}
+\label{eq:fractional-delta}
+\sum_{s} \frac{(-1)^{s}}{(a+s)!(b-s)!} = (-1)^{a} \delta(a, -b)
+\end{equation}
+(\ref{eq:2-var-sum}) now also becomes
+\begin{eqnarray}
+\sum_{\substack{l_1}} (-1)^{j_2 + m_2 -l_1} \frac{(j_1+m_1)!(j_1-j_2+J)!}{(j_1 - J - m_2 + l_1)!(j_1 - j_2 - M + l_1)!(J + M - l_1)!}\cdot\frac{(j_2+m_2)!(-j_1+j_2+J)!}{l_1!(j_2+m_2-l_1)!(-j_1+j_2+J-l_1)!} \nonumber.
+\end{eqnarray}
+In either way, putting $t=j_2 + m_2 -l_1$ (\cite{Racah}), we obtain
 \begin{eqnarray}
 &&\sum_{\substack{k=h+l\\0\le h \le d\\0\le l \le L}}  (-1)^h \frac{(2j_1-h)!(2j_2-d+h)!}{h!(d-h)!l!(L-l)!} \nonumber\\
-&=& \sum_{\substack{t}} (-1)^t \frac{(j_1+m_1)!(j_2+m_2)!(j_1+J-j_2)!(j_2+J-j_1)!}{t!(j_1 + j_2 -J - t)!(j_1 - m_1 - t)!(j_2 +m_2 -t)!(J-j_2 +m_1+t)!(J-j_1 -m_2 +t)!} \nonumber
+&=& \sum_{\substack{t}} (-1)^t \frac{(j_1+m_1)!(j_2+m_2)!(j_1-j_2+J)!(-j_1+j_2+J)!}{t!(j_1 + j_2 -J - t)!(j_1 - m_1 - t)!(j_2 +m_2 -t)!(J-j_2 +m_1+t)!(J-j_1 -m_2 +t)!} \nonumber,
 \end{eqnarray}
-And then we obtain
+and then the final formula
 \begin{eqnarray}
 \inn{j_1j_2m_1m_2}{JM} & = & \sqrt{(2J+1)}\sqrt{\Delta(j_1j_2J)}\sqrt{(j_1 + m_1)!(j_1-m_1)!(j_2+m_2 )!(j_2-m_2)!(J+M)!(J-M)!}  \nonumber\\
  & \times &  \sum_{\substack{t}} (-1)^t \frac{1}{t!(j_1 + j_2 -J - t)!(j_1 - m_1 - t)!(j_2 +m_2 -t)!(J-j_2 +m_1+t)!(J-j_1 -m_2 +t)!} \nonumber\\
