@@ -1,4 +1,4 @@
-% Created 2020-03-04 水 10:42
+% Created 2020-03-13 金 13:24
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -33,8 +33,11 @@
 
 
 
-\section{Angular Momentum Operators and $\mathfrak{su}(2)$ Representation}
+\section{Introduction}
 \label{sec-1}
+This is a review of Racah's proof of the formula of the Clebsch-Gordan coefficients or Wigner's 3j-symbol and 6j-symbol.
+\section{Angular Momentum Operators and $\mathfrak{su}(2)$ Representation}
+\label{sec-2}
 $J_x,J_y,J_z \in \mathfrak{su}(2)$
 \begin{equation}
 \label{}
@@ -48,14 +51,18 @@ The Casimir operator $J ^2 = J_x^2 + J_y^2 + J_z^2$ and the ladder operators $J_
 J^2 & = & J_-J_+ +J_z^2 + J_z \\
     &=& J_+J_- +J_z^2 - J_z 
 \end{eqnarray}
-Let $V$ be a finite dimensional vector space over $\C$ and $\varphi:\mathfrak{su}(2) \rightarrow \mathbf{End}(V)$ be its associated representation. Simultaneous eigenvector $\ket{jm}$:
+Let $V$ be a finite dimensional vector space over $\C$ and $\varphi:\mathfrak{su}(2) \rightarrow \mathbf{End}(V)$ be its associated representation.
+The Casimir operator $J ^2$ and $J_{z}$ commute, so there are simultaneous egenvectors of the operators. 
+It can be shown that, by the finiteness of the dimension $V$, $J_{z}$ has a maximal eigenvalue $j$, which is called the \textbf{spin} of the representation.
+So it is plausible to denote the representation space as $V_{j}$. And it can be shown that the simultaneous eigenvalue of $J ^2$ is $j(j+1)$ and invariant of the eigenvalue of $J_{z}$.
+ Let us write an eigenvector of $J_{z}$ with the eigenvalue $m$ as $\ket{jm} \in V_{j}$. Then, in summary, we have
 \begin{equation}
 \label{}
-J^2\ket{jm} = j(j+1)\ket{jm}, \quad J_z\ket{jm} = m\ket{jm}
+J^2\ket{jm} = j(j+1)\ket{jm}, \quad J_z\ket{jm} = m\ket{jm}.
 \end{equation}
 
 \section{The ladder operators' coefficients}
-\label{sec-2}
+\label{sec-3}
 \begin{eqnarray}
 J_{+}\ket{jm} & = & \sqrt{j(j+1) - m(m+1)}\ket{jm+1} \\
 & = & \sqrt{(j- m)(j+ m +1)}\ket{jm+1}\\
@@ -94,32 +101,38 @@ F(j,k)  & = & \sqrt{k(2j+1 - k)(k-1)(2j+1 -(k-1))\times \cdots \times 2\cdotp (2
 \end{eqnarray}
 and $F(j,0)=1$
 \section{Recursion Relations for Clebsch-Gordan coefficients}
-\label{sec-3}
+\label{sec-4}
+The tensor product of two representation space $V_{j_{1}} \otimes V_{{j_{2}}$ decomposes into the direct sum of irreducible representations $V_{J}$ where $|j_{1} - j_{2}| \le J \le j_{1} +j_{2}$ as
 \begin{equation}
-\label{}
-\ket{j_1j_2 JM} = \sum_{m_1,m_2} \ket{j_1 j_2m_1m_2}\inn{j_1 m_1j_2m_2}{JM}
+V_{j_{1}} \otimes V_{j_{2}} = V_{|j_{1} - j_{2}|} \oplus \cdots \oplus V_{j_{1} +j_{2}}
 \end{equation}
 \begin{figure}[htb]
 \centering
 \includegraphics[width=80mm]{./images/j_grids.png}
-\caption{\label{fig:j-grids}Correspondence between the tensor product $j_{1}\otimes j_{2}$ and $J$ ($j_{1}=3,j_{2}=2$).}
+\caption{\label{fig:j-grids}Correspondence between the tensor product $V_{j_{1}}\otimes V_{j_{2}}$ and $V_{J}$ ($j_{1}=3,j_{2}=2$).}
 \end{figure}\\
+One of the elements in $\ket{j_1j_{2}JM} \in V_{J}$ is expandable by the tensor basis of $\ket{j_1 j_2 m_1 m_2} := \ket{j_1 m_1} \otimes \ket{j_2 m_2} \in V_{j_{1}} \otimes V_{j_{2}}$ as
+\begin{equation}
+\label{}
+\ket{j_1j_2 JM} = \sum_{m_1,m_2} \ket{j_1 j_2m_1m_2}\inn{j_1j_2m_1m_2}{JM}.
+\end{equation}
+The coefficients $\inn{j_1j_2m_1m_2}{JM}$ are called \textbf{Clebsch-Gordan coefficients} and they can be recursively calculated by the following formulae:
 Apply $J_+ = j_{1+} + j_{2+}$ take inner product with $\bra{j_1j_2m_1m_2}$
 \begin{eqnarray}
-&&\sqrt{J(J+1) - M(M+1)}\inn{j_1 m_1j_2m_2}{JM+1}  \nonumber\\
-&&=  \sqrt{j_1(j_1+1) - m_1(m_1-1)}\inn{j_1 m_1-1j_2m_2}{JM} +   \sqrt{j_2(j_2+1) - m_2(m_2-1)}\inn{j_1 m_1j_2m_2-1}{JM}\nonumber\\
+&&\sqrt{J(J+1) - M(M+1)}\inn{j_1 j_2 m_1 m_2}{JM+1}  \nonumber\\
+&&=  \sqrt{j_1(j_1+1) - m_1(m_1-1)}\inn{j_1 j_2 m_1-1 m_2}{JM} +   \sqrt{j_2(j_2+1) - m_2(m_2-1)}\inn{j_1 j_2 m_1 m_2-1}{JM}\nonumber\\
 \end{eqnarray}
 and $J_- = j_{1-} + j_{2-}$ 
 \begin{eqnarray}
-&&\sqrt{J(J+1) - M(M-1)}\inn{j_1 m_1j_2m_2}{JM-1}  \nonumber\\
-&&=  \sqrt{j_1(j_1+1) - m_1(m_1+1)}\inn{j_1 m_1+1j_2m_2}{JM} +   \sqrt{j_2(j_2+1) - m_2(m_2+1)}\inn{j_1 m_1j_2m_2+1}{JM}\nonumber\\
+&&\sqrt{J(J+1) - M(M-1)}\inn{j_1 j_2 m_1 m_2}{JM-1}  \nonumber\\
+&&=  \sqrt{j_1(j_1+1) - m_1(m_1+1)}\inn{j_1 j_2 m_1+1 m_2}{JM} +   \sqrt{j_2(j_2+1) - m_2(m_2+1)}\inn{j_1 j_2 m_1 m_2+1}{JM}\nonumber\\
 \end{eqnarray}
 
 \section{Explicit formulae for Clebsch-Gordan coefficinets}
-\label{sec-4}
+\label{sec-5}
 \subsection{$\inn{j_1j_2m_1m_2}{JM}$}
-\label{sec-4-1}
-Define $d=j_1+j_2 -J$, ($j_1 > j_2$ and $0\le d \le 2j_2$), and $L = J-M$. Let us determine the coefficients of the top spin state
+\label{sec-5-1}
+Define $d=j_1+j_2 -J$, ($j_1 \ge j_2$ and $0\le d \le 2j_2$), and $L = J-M$. Let us determine the coefficients of the top spin state
 \begin{eqnarray}
 \ket{JJ}  &=&  a_0\ket{j_1j_1}\ket{j_2j_2-d} + a_1\ket{j_1j_1-1}\ket{j_2j_2-d+1} + \cdots + a_d\ket{j_1j_1-d}\ket{j_2j_2} \nonumber\\
  & = & \sum_{i=0}^{d} a_i\ket{j_1j_1-i}\ket{j_2j_2-d+i}
@@ -136,8 +149,8 @@ which means
        & = & (-1)^i\frac{F(j_2,d)}{F(j_1,i)F(j_2,d-i)} a_{0} 
 \end{eqnarray}
 Here $F(j_2,0)=1$.
-\subsection{Normalisation}
-\label{sec-4-2}
+\subsection{Derivation of Racah's formula}
+\label{sec-5-2}
 Normalisation condition $\inn{JJ}{JJ}=1$ yields
 \begin{eqnarray}
  \frac{1}{a_{0}^2} & = & \sum_{i=0}^{d}\frac{F(j_2,d)^2}{F(j_1,i)^2F(j_2,d-i)^2}\\
@@ -277,16 +290,16 @@ Here, notice that the sum tkaes place in the range
 \label{}
 \max \left\{0,-(J-j_2 +m_1),-(J-j_1 -m_2)\right\} \le t \le \min \left\{j_1 + j_2 -J,j_1 - m_1,j_2 +m_2\right\}
 \end{equation}
-By making the substitution $z=a+b-c-t$ in the sum, we have
+By making the substitution $t^{\prime}=j_{1}+j_{2}-J-t$ in the sum, we have
 \begin{equation}
 \label{}
-\inn{j_1j_2m_1m_2}{JM} = (-1)^{a+b-c}\inn{j_2j_1m_2m_1}{JM}
+\inn{j_1j_2m_1m_2}{JM} = (-1)^{j_{1}+j_{2}-J}\inn{j_2j_1m_2m_1}{JM}
 \end{equation}
 \\
-The Racah symbol
+The Wigner 3j-symbol
 \begin{equation}
 \label{ }
-(-1)^{a-b-c}\threej{a}{b}{c}{\alpha}{\beta}{\gamma} := \frac{(-1)^{c-\gamma}}{\sqrt{2c+1}}\inn{ab\,\alpha\beta}{c\,-\gamma}
+\threej{a}{b}{c}{\alpha}{\beta}{\gamma} := \frac{(-1)^{a-b-\gamma}}{\sqrt{2c+1}}\inn{ab\,\alpha\beta}{c\,-\gamma}
 \end{equation} 
 The Racah formula
 \begin{eqnarray}
@@ -296,9 +309,9 @@ The Racah formula
 \end{eqnarray}
 
 \subsection{Some Examples}
-\label{sec-4-3}
+\label{sec-5-3}
 \subsubsection{$J=j_1+j_2$}
-\label{sec-4-3-1}
+\label{sec-5-3-1}
 \begin{eqnarray}
 \ket{JJ} & = & \ket{j_1j_1}\ket{j_2j_2} \\
 (J_{-})^k\ket{JJ} & = &(J_{1-}+J_{2-})^k \ket{j_1j_1}\ket{j_2j_2} \\ 
@@ -315,7 +328,7 @@ Rewrite it using $M= J-k= j_1 +j_2 -k$, $m_1 = j_1 - i$, $m_2= j_2 - (k-i) = -j_
                                                                 & = & \sqrt{\frac{(2j_1)!(2j_2)! }{(2J)!} \frac{(J+M)!(J-M)!}{(j_1+m_1)!(j_1-m_1)!(j_2+m_2)!(j_2-m_2)!}} 
 \end{eqnarray}
 \subsubsection{$j_1 = j, \;j_2=\mathbf{1}$}
-\label{sec-4-3-2}
+\label{sec-5-3-2}
 We have three possibilities; $J = j+1, \;j,\;j-1$. Note that any $\ket{J \;M}$ is expanded by $\ket{j\;M+1}\ket{\mathbf{1} \; -1}$, $\ket{j \; M}\ket{\mathbf{1}\;0}$, $\ket{j \;M-1}\ket{\mathbf{1}\;1}$.\\
  The case $J = j+1$.
 \begin{eqnarray}
@@ -339,11 +352,11 @@ We have three possibilities; $J = j+1, \;j,\;j-1$. Note that any $\ket{J \;M}$ i
 \end{table*}
 
 \section{$6j$-symbol}
-\label{sec-5}
+\label{sec-6}
 It is defined as a coupling coefficient of three angular momentum
 \begin{eqnarray}
-&  &\ket{(j_1,(j_2,j_3)j_{23})J}  \nonumber \\
- & = & \sum_{j_{12}} [(2j_{12}+1)(2j_{23}+1)]^{\frac{1}{2}}(-1)^{j_1+j_2+j_3+J}\sixj{j_1}{j_2}{j_{12}}{j_3}{J}{j_{23}} \ket{((j_1,j_2)j_{12},j_3)J}
+&  &\ket{(j_1,(j_2,j_3)j_{23})JM}  \nonumber \\
+ & = & \sum_{j_{12}} [(2j_{12}+1)(2j_{23}+1)]^{\frac{1}{2}}(-1)^{j_1+j_2+j_3+J}\sixj{j_1}{j_2}{j_{12}}{j_3}{J}{j_{23}} \ket{((j_1,j_2)j_{12},j_3)JM}
 \end{eqnarray}
 $6j$-symbol in terms of $3j$-symbols
 \begin{eqnarray}
@@ -372,7 +385,7 @@ The resultant angular momenta are $J = 0, 1,2$.
 \end{eqnarray}
 \appendix
 \section{Addition of Binomial Coefficients}
-\label{sec-6}
+\label{sec-7}
 The addition formula for binomial coefficients is given as
 \begin{equation}
 \label{eq:addition-theorem}
@@ -389,6 +402,7 @@ If $y < 0$,
 \label{sub:negative-y}
 \binom{y}{z-s} = (-1)^{z-s} \binom{z-s-y-1}{z-s}.
 \end{equation}
+This can be obtained by using $(X+Y)^{y}=X^{y}(1+\frac{Y}{X})^{y}$ and Taylor-expanding $(1+\frac{Y}{X})^{y}$ around $\frac{Y}{X}=0$.
 Then (\ref{eq:addition-theorem}) can be transformed into
 \begin{equation}
 \label{eq:negative-y1}
@@ -408,11 +422,17 @@ Putting $y=z-t-1$, (\ref{eq:negative-y1}) and (\ref{eq:negative-y2}) become
 \label{}
 \sum_{s} (-1)^{s}\frac{(t-s)!}{s!(x-s)!(z-s)!}= \frac{(t-x)!(t-z)!}{x!z!(t-x-z)!}, \; (t \ge x,z \ge 0).
 \end{equation}
-The following formula is referenced in \cite{Messiah} due to Racah, but I have not succeeded in finding out a proof or any mention to this formula so far in \cite{Racah}. It still needs to be verified somehow.
+The following formula is referenced in \cite{Messiah},\cite{Racah}. It can be obtained by letting $y <0$ and $x<0$ in (\ref{eq:addition-theorem}):
 \begin{equation}
 \label{eq:general_binomial_coeff}
 \sum_{s} \frac{(a+s)!(b-s)!}{(c+s)!(d-s)!} = \frac{(a+b+1)!(a-c)!(b-d)!}{(c+d)!(a+b-c-d+1)!}.
 \end{equation}
+This can be verified by applying (\ref{sub:negative-y}) on both sides of (\ref{eq:addition-theorem}). Then we will have
+\begin{equation}
+\label{eq:}
+\sum_{s} \binom{a+s}{c+s}\binom{b-s}{d-s} = \binom{a+b+1}{c+d}
+\end{equation}
+after a change of summation variable, and this is just (\ref{eq:general_binomial_coeff}).\\
 The following formula 
 \begin{equation}
 \label{eq:fractional-delta}

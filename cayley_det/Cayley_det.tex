@@ -1,4 +1,4 @@
-% Created 2020-02-26 水 21:45
+% Created 2020-03-05 木 18:38
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -35,8 +35,115 @@ Category: math
 Tags: math, Cayley-Menger
 
 
-\section{Cayley's determinants and the Volume of n-Simplex}
+\section{Cayley-Menger determinants and the Volume of n-Simplex}
 \label{sec-1}
+Cayley uses the multiplication formula for the determinants of two matrices $A=(a_{ij})$ and $B=(b_{ij})$.
+\begin{equation}
+\label{}
+\det{AB} = \det{A}\det{B}
+\end{equation}
+to deduce the volume of simplexes in n dimensions. Given that $\bp_i \in \R^n \; (n=0, \dots,n)$
+\begin{equation}
+\label{}
+A_{n}  =   \left(\begin{array}{ccc}
+ |\bp_0 |^2 &  -2\bp_0 & 1 \\
+ |\bp_2 |^2 &  -2\bp_1 & 1 \\
+ \vdots & \vdots & \vdots \\
+ |\bp_n|^2 & -2\bp_n & 1 \\
+ 1 & \textbf 0 & 0\end{array}\right), \quad
+B_n  =  \left(\begin{array}{ccc}
+ 1 &  \bp_0 & |\bp_0|^2 \\
+ 1 & \bp_1 & |\bp_1|^2 \\
+ \vdots & \vdots & \vdots \\
+ 1 & \bp_n & |\bp_n|^2 \\ 0 & \textbf 0 & 1\end{array}\right)
+\end{equation}
+
+\begin{eqnarray}
+\det{A_{n}B_{n}}
+ &=& \det{A_{n}}\det{B_{n}} \nonumber\\
+ & = &  \det{A_{n}}\det{B_{n}^t} \nonumber\\
+ & = &  \det{A_{n}B_{n}^t} \nonumber\\
+&=& \left|\begin{array}{ccccccc}
+0        & r_{01}^2 &r_{02}^2   & \cdots  & \cdots         & r_{0n}^{2}    & 1 \\
+r_{10}^2 & 0        & r_{12}^2  & \cdots  & \cdots         & r_{1n}^{2}    & 1 \\
+r_{20}^2 & r_{21}^2 & 0         & \cdots  & \cdots         & r_{2n}^{2}    & 1 \\
+\vdots   & \vdots   & \vdots    & \ddots  &                & \vdots        & \vdots \\
+\vdots   & \vdots   & \vdots    &         & 0              & r_{n-1,n}^{2} & 1 \\
+r_{n0}^2 & r_{n1}^2 & r_{n2}^{2}& \cdots  & r_{n,n-1}^{2}  & 0             & 1 \\
+1        & 1        & 1         & \cdots  & 1              & 1             & 0
+\end{array}\right|
+\end{eqnarray}
+\begin{eqnarray}
+\det A_{n} & = &  \left|\begin{array}{cc}
+ -2\bp_0 & 1 \\
+ -2\bp_1 & 1 \\
+ \vdots & \vdots \\
+ -2\bp_{n} &  1 \end{array}\right|
+=(-2)^n\left|\begin{array}{cc}
+ \bp_0  & 1 \\
+ \bp_1-\bp_{0} & 0 \\
+ \vdots & \vdots \\
+ \bp_{n} - \bp_{0} &  0 \\
+\end{array}\right| \nonumber\\
+ & = & (-2)^n\left|\begin{array}{c}
+  \bp_{10}  \\ \bp_{20} \\ \vdots \\ \bp_{n0} 
+\end{array}\right| 
+=(-2)^n n! V_n
+\end{eqnarray}
+\begin{equation}
+B_{n} = n! V_{n}
+\end{equation}
+where $V_{n}$ is the volume  of the n-simplex spanned by $\bp_{i0}\;(i=1,\cdots,n)$. So
+\begin{equation}
+\label{eq:volume-det}
+V_n^2 &=& \frac{1}{(-2)^n(n!)^{2}}\det{A_{n}B_{n}^t}
+\end{equation}
+
+\section{Heron's Formula}
+\label{sec-2}
+Note that 2-D version of the (\ref{eq:volume-det}) gives the famous Heron's fromula for the area of a triangle, so this can be considered as the extension of the Heron's formula to higher dimensions.
+Indeed, putting $a=r_{01},b=r_{02},c=r_{12}$,
+\begin{eqnarray}
+\det{A_{2}B_{2}}
+&=& \left|\begin{array}{cccc}
+0        & a^2 & b^2   & 1 \\
+a^2 & 0        & c^2  & 1 \\
+b^2 & c^2 & 0         & 1 \\
+1        & 1        & 1         & 0
+\end{array}\right|\\
+&=& \left|\begin{array}{ccc}
+a^2 & -2a^{2}  & -a^{2} -b^{2} + c^2   \\
+b^2 & -a^{2} -b^{2} + c^2 & -2b^{2}    \\
+1        & 0    & 0
+\end{array}\right|\\
+&=& -(a^2 + b^2 -c^2)^2 + 4 a^2 b^2 \\
+&=& (a + b + c)(-a +b+c)(a-b+c)(a+b-c)
+\end{eqnarray}
+yielding the famous Heron's formula for the area of a triangle with side lengths $a,b,c$
+\begin{equation}
+V_{2} = \sqrt{s(s-a)(s-b)(s-c)}
+\end{equation}
+where $s=\frac{a+b+c}{2}$.
+\section{Volume of a Tetrahedron}
+\label{sec-3}
+\begin{eqnarray}
+\det{A_{3}B_{3}}
+&=& \left|\begin{array}{ccccc}
+0        & a^2 & b^2  & d^{2} & 1 \\
+a^2 & 0        & c^2  & e^{2} &1 \\
+b^2 & c^2 & 0         & f^{2} &1 \\
+d^{2} & e^{2} & f^{2} &0 & 1 \\
+1        & 1        & 1  &1      & 0
+\end{array}\right|\\
+&=& \left|\begin{array}{ccc}
+ -2a^{2}             & -a^{2} -b^{2} + c^2    & -a^{2} -d^{2} + e^2   \\
+ -a^{2} -b^{2} + c^2 & -2b^{2}                & -b^{2} -d^{2} + f^2 \\
+ -a^{2} -d^{2} + e^2 & -b^{2} - d^{2} + f^{2} & -2d^{2}  \\
+\end{array}\right|\\
+&=&
+\end{eqnarray}
+\section{Examples}
+\label{sec-4}
 Cayley uses the multiplication formula for the determinants of two matrices $A=(a_{ij})_{1\le i,j\le n}$ and $B=(b_{ij})_{1\le i,j\le n}$.
 \begin{equation}
 \label{}
@@ -51,8 +158,8 @@ B  =  \left(\begin{array}{ccc}1 &  \bp_1 & |\bp_1|^2 \\1 & \bp_2 & |\bp_2|^2 \\1
 \end{equation}
 Then, take the determinant of the product of the two matrices
 \begin{eqnarray}
-W&:=&\det{AB}\nonumber\\
- &=& \det{A}\det{B} \nonumber\\
+\det{AB}
+ & = & \det{A}\det{B} \nonumber\\
  & = &  \det{A}\det{B^t} \nonumber\\
  & = &  \det{AB^t} \nonumber\\
  & = &  \left|\begin{array}{cccccc}0 & r_{12}^2 & r_{13}^2 & r_{14}^2 & r_{15}^2 & 1 \\r_{21}^2 & 0 & r_{23}^2 & r_{24}^2 & r_{25}^2 & 1 \\r_{31}^2 & r_{32}^2 & 0 & r_{34}^2 & r_{35}^2 & 1 \\r_{41}^2 & r_{42}^2 & r_{43}^2 & 0 & r_{45}^2 & 1 \\r_{51}^2 & r_{52}^2 & r_{53}^2 & r_{54}^2 & 0 & 1 \\1 & 1 & 1 & 1 & 1 & 0  \end{array}\right|
@@ -74,27 +181,10 @@ where we defined $\bp_{ij} = \bp_i -\bp_j$. Similarly, $\det B = V$. Then we hav
 16V_4^2 = \left|\begin{array}{cccccc}0 & r_{12}^2 & r_{13}^2 & r_{14}^2 & r_{15}^2 & 1 \\r_{21}^2 & 0 & r_{23}^2 & r_{24}^2 & r_{25}^2 & 1 \\r_{31}^2 & r_{32}^2 & 0 & r_{34}^2 & r_{35}^2 & 1 \\r_{41}^2 & r_{42}^2 & r_{43}^2 & 0 & r_{45}^2 & 1 \\r_{51}^2 & r_{52}^2 & r_{53}^2 & r_{54}^2 & 0 & 1 \\1 & 1 & 1 & 1 & 1 & 0  \end{array}\right|
 \end{equation}
 which gives the volume of the parallelochoron in terms of the lengths of the edges. So, its volume being zero means $\bp_{i5},(i\ne5)$ are linearly dependent i.e. contained in a 3-D hyperplane.
- The generalisation to higher dimensions is straightforward. Given that
-\begin{equation}
-\label{}
-A_{n}  =   \left(\begin{array}{ccc}|\bp_1|^2 &  -2\bp_1 & 1 \\ |\bp_2|^2 &  -2\bp_2 & 1 \\ \vdots & \vdots & \vdots \\ |\bp_n|^2 & -2\bp_n & 1 \\ 1 & \textbf 0 & 0\end{array}\right), \quad
-B_n  =  \left(\begin{array}{ccc} 1 &  \bp_1 & |\bp_1|^2 \\ 1 & \bp_2 & |\bp_2|^2 \\ \vdots & \vdots & \vdots \\ 1 & \bp_n & |\bp_n|^2 \\ 0 & \textbf 0 & 1\end{array}\right)
-\end{equation}
-The volume $V_{n}$ of the n-simplex spanned by $\bp_{i}\;(i=1,\cdots,n)$.
-\begin{eqnarray}
-(-2)^nV_n^2 &=& \det{A_{n}B_{n}^t} \\
-&=& \left|\begin{array}{cccccc}
-0        & r_{12}^2 &r_{13}^2   & \cdots  & r_{1n}^{2} & 1 \\
-r_{21}^2 & 0        & r_{23}^2  & \cdots  & r_{2n}^{2} & 1 \\
-r_{31}^2 & r_{32}^2 & 0         & \cdots  & r_{3n}^{2} & 1 \\
-\vdots   & \vdots   & \vdots    & \ddots  & \vdots     & 1 \\
-r_{n1}^2 & r_{n2}^2 & r_{n3}^{2}& \cdots  & 0          & 1 \\
-1        & 1        & 1         & \cdots  & 1      & 0
-\end{array}\right|
-\end{eqnarray}
-Note that 2-D version of the (\ref{eq:vol_det}) gives the famous Heron's fromula for the area of a triangle, so this can be considered as the extension of the Heron's formula to higher dimensions.
+
+
 \section{Five points in a plane}
-\label{sec-2}
+\label{sec-5}
 For five points in a 2-D plane, we have
 \begin{equation}
 \label{}
@@ -115,7 +205,7 @@ r_{41}^2 &  r_{42}^2 & r_{43}^2 & 0 & 1 \\
 \end{equation} 
 
 \section{References}
-\label{sec-3}
+\label{sec-6}
 \begin{enumerate}
 \item A. Cayley, The Cambridge Mathematical Journal, vol. II, 267-271, 1841 \url{https://books.google.co.jp/books/about/The_Cambridge_mathematical_journal.html?id=o9xEAAAAcAAJ&redir_esc=y}
 \item \url{http://mathworld.wolfram.com/Cayley-MengerDeterminant.html}
