@@ -93,20 +93,22 @@ r_1r_2 = \sqrt{(x^1-p)^2 + (x^2)^2 + \cdots + (x^D)^2}\sqrt{(x^1+p)^2 + (x^2)^2 
 with $R^2 = (x^2)^2 + \cdots + (x^D)^2$. Hence, ($D-1$)-dimensional Cassinian hypersurface with two foci is like a lemniscate with its $y$-axes replaced by a $(D-2)$-sphere $S_R^{D-2}$ of radius $R$.
 
 ** Polar Coordinates and Compatibility Conditions
-We can compose a list of the data $r_i := |x-p_i|$ and think of the list $(r_1,\cdots,r_n)$ as a point in $\R^n$. 
+We can compose a list of the data $r_i := |x-p_i|$ and think of the list $(r_1,\cdots,r_n)$ as a point in $\R^n_{\ge0}:= \left\{r=(r_{1},\dots,r_{n}) \in \R^{n}\mid r_{i}\ge0\right\}$. 
 We call $(r_1,\cdots,r_n)$ /the multipolar coordinates/ of the point $x$. 
-Every point $x \in \R^D$ has a correspondence in the multipolar coordinate space $\R^n$ defining a map $\phi:\R^D \rightarrow \R^n$. 
-When $D>n$, $\phi$ is not surjective, so a point in $\R^n$ corresponds to a $(D-n)$-dimensional hypersurface in $\R^{D}$. 
+Every point $x \in \R^D$ has a correspondence in the multipolar coordinate space $\R^n_{\ge0}$ defining a map $\phi:\R^D \rightarrow \R^n_{\ge0}$ by $x \mapsto (r_{1},\dots,r_{n})$. 
+When $D>n$, $\phi$ is not injective, so a point in $\R^n_{\ge0}$ corresponds to a $(D-n)$-dimensional hypersurface in $\R^{D}$. 
 When $D=n$, a point $r \in (r_1, \cdots,r_n)$ specifies two points in $\R^D$ which are symmetrical about the hyperplane containing the foci $p_i \;(i=1,\cdots,D)$. 
 When $D<n$, the image $\phi(\R^D) \subset \R^n$ is a $D$-dimensional hypersurface, which can be specified by some polynomials in $r_i$ and $r_{ij}:=|p_{i}-p_{j}|$. 
-Let us call those polynomials compatibility conditions. Usually, we can construct such expressions more than required, so we need to choose out some suitable set of independent ones. 
+Let us call those polynomials /compatibility conditions/. Usually, we can construct such expressions more than required, so we need to choose out some suitable set of independent ones. 
 Once such a set of equations are chosen, they define a $D$ dimensional surface $S$ in $n$-tuple polar coordinate space $r_1:\cdots:r_n \in \R_{pol}^n$, which represents the points in the original Euclidean space $\R^D$. 
 Then, if we also plot a surface $C(P;a)$ defined by $r_1\cdots r_n = a^2$ in the multipolar space $\R_{pol}^n$, the intersection $C(P;a) \cap S$ is the set corresponding to a Cassinian surface and for sufficiently small $a$, there are several disconnected components in general. 
 Observations in 2 and 3 dimensional spaces tell us that there seem to be $n-1$ disconnected components with $n$ foci in $D=2$ but $n$ components for certain values of $a$ in 3 dimensional space. 
 We have not figured out how it really works yet. So, the followings are some observations in low dimensions for small $n$.
 
 ** The 2D Plane Case
- First, let us consider the case $D=2$. For $n=2$, the bipolar coordinates $r_1 :r_2$ with $|p_1 -p_2| =2p$ have to satisfy the compatibility conditions, which are, in this case, just triangle inequalities,
+ First, let us consider the case $D=2$ with $n=2$ foci. Without loss of generality, we can assume the foci are of the form $p_{1}=(p,0),P_{2}=(-p,0)$.
+ Then the bipolar coordinates $r_1 :r_2$ with $|p_1 -p_2| =2p$ have to satisfy the compatibility conditions,
+ which are, in this case, just triangle inequalities,
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
  r_1 + r_2 & \ge & 2p \\
@@ -114,14 +116,14 @@ We have not figured out how it really works yet. So, the followings are some obs
  r_2 +2p  & \ge & r_1 .
 \end{eqnarray}
 #+END_LaTeX
-Here, there is no redundancy. Hence, we only have inequalities, which result in a 2-dimensional region in $\R^2$, the bipolar coordinates plane.
+ These inequalities specify a region in $\R^2_{\ge0}$ which is the image $\phi(\R^{2})$ (Figure \ref{fig:bipolar-allowed-region}).
 #+BEGIN_LaTeX latex
 %%% FIGURE: for 2Cassinian %%%
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{images/2cass_bipo.eps}
 \caption{The diagram for the reality region and the cassinian $r_1r_2=a^2$ in bipolar coordinates. Only the portions of the curves intersecting with the shaded region are realised in $\R^2$}
-\label{ }
+\label{fig:bipolar-allowed-region}
 \end{center}
 \end{figure}
 #+END_LaTeX
@@ -129,10 +131,23 @@ Note that the boudary of the shaded region corresponds to the line joining the t
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{}
-( r_1 + r_2 + r_{12})(r_1 + r_2 - r_{12})(r_1 - r_2 + r_{12})(-r_1 + r_2 + r_{12}) = 0.
+(r_1 + r_2 - r_{12})(r_1 - r_2 + r_{12})(-r_1 + r_2 + r_{12}) \ge 0.
 \end{equation}
 #+END_LaTeX
-This is actually proportional to the square of area as l.h.s. is the inside of the square root of the Heron's formula. We can generalise this inequality to higher dimensions by using a formula by Cayley
+Multiplying both sides by $(r_{1} + r_{2} + r_{12})$, which is greater than zero, we get
+#+BEGIN_LaTeX latex
+\begin{equation}
+\label{eq:compat-2D}
+(r_1 + r_2 + r_{12})(r_1 + r_2 - r_{12})(r_1 - r_2 + r_{12})(-r_1 + r_2 + r_{12}) \ge 0.
+\end{equation}
+#+END_LaTeX
+The l.h.s. of this inequality is actually related to the area $A$ of the triangle whose side lengths are $r_{1},r_{2},r_{12}$ by the Heron's formula:
+#+BEGIN_LaTeX latex
+\begin{equation}
+A = \sqrt{s(s - r_{1})(s-r_{2})(s-r_{12})}, \quad s=\frac{r_1 + r_2 + r_{12}}{2}
+\end{equation}
+#+END_LaTeX
+So (\ref{eq:compat-2D}) is equivalent to $16A^{2} \ge 0$. Furthermore, the Heron's formula can be obtained by the so-called Cayley-Menger determinant defined as follows:
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{}
@@ -142,10 +157,12 @@ W_2(r_1,r_2;r_{12}) :=   \left|
 r_1^2 & 0 & r_{12}^2 & 1\\
 r_2^2 & r_{12}^2 & 0 & 1 \\
 1 & 1 & 1 & 0
-\end{array}\right|=0
+\end{array}\right| = 16A^{2}
 \end{equation}
 #+END_LaTeX
- For the case $n=3$, the situation becomes already a bit messy, but there are some useful results known from the classical times. Using the cosine rule for angles $\alpha = \angle BxC, \beta =\angle CxA, \gamma = \angle AxB$, 
+ We will use this formula to obtain compatibility conditions in higher dimensions later.
+ For the case $n=3$, we have a redundancy in the number of variables $r_{i}$, so one degree of freedom needs to be eliminated by some equation.
+ To obtain such an equation, we can naively use the cosine rule for angles $\alpha = \angle BxC, \beta =\angle CxA, \gamma = \angle AxB$, 
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
 f_{23} & := & r_2^2 + r_3^2 - r_{23}^2 = 2r_2r_3\cos{\alpha}\\
@@ -154,16 +171,15 @@ f_{12} & := & r_1^2 + r_2^2 - r_{12}^2 = 2r_1r_2\cos{\gamma}\\
 f_{123} & := & r_1^2 r_2^2 r_3^2,
 \end{eqnarray}
 #+END_LaTeX
-where $r_{ij}:=|p_i-p_j|$ and the fact that $\alpha + \beta + \gamma = 2\pi$ to eliminate cosines, we obtain the compatibility condition for the tripolars;
+where $r_{ij}:=|p_i-p_j|$ and the fact that $\alpha + \beta + \gamma = 2\pi$ to eliminate cosines, we obtain the compatibility condition for the tripolar coordinates $r_{1}:r_{2}:r_{3}$;
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{eq:tri_compat}
 F_3(r_1,r_2,r_3;r_{12},r_{23},r_{31}) := f_{23}^2 r_1^2 + f_{31}^2 r_2^2 + f_{12}^2 r_3^2 - 4 f_{123} - f_{23} f_{31} f_{12} = 0.
 \end{equation}
 #+END_LaTeX
-
 Figure \ref{fig:compat_tripol} shows a plot of the compatibility surface in the tripolar coordinates space. Note also that the region inside the purple surface corresponds to two points symmetric in the plane which contains the three foci in the original Euclidean 3 dimensional space. \\
-The above compatibility condition can also be stated geometrically: the volume of the tetrahedron formed with the 4 points $p, p_1, p_2, p_3$ is zero i.e. they are coplanar. 
+The above compatibility condition can also be stated geometrically: the volume of the tetrahedron formed with the the 6 sides of the lengths $(r_1,r_2,r_3;r_{12},r_{23},r_{31})$ is zero i.e. the vertices of the tetrahedron are all in the same 2D plane. 
 #+BEGIN_LaTeX latex
 \begin{equation}
 \label{}
@@ -186,14 +202,14 @@ r_{3}^2 &  r_{31}^2 & r_{32}^2 & 0 & 1 \\
 \end{center}
 \end{figure}
 #+END_LaTeX
-For $n=4$ or quadrilateral case, the compatibility condition can be expressed as a pair of simultaneous equations. For example, if we calculate one of the diagonal length $l_1$, then we have two compatibility conditions for the two triangles
+For $n=4$ or quadrilateral case, the compatibility condition can be expressed as a pair of simultaneous equations.
+ For example, if we calculate one of the diagonal length $l_1$, then we have two compatibility conditions for the two triangles
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
-F_3(r_1,r_2,r_3)  & = & F_3(r_2,r_3,r_4)   =  0   
+W_3(r_1,r_2,r_3;r_{12},r_{23},r_{31})  & = & W_3(r_2,r_3,r_4;r_{23},r_{34},r_{42})   =  0   
 \end{eqnarray}
 #+END_LaTeX
 And then other two relations which involve the other diagonal must be redundant.
-
 In general, compatibility conditions for $n \ge 3$ points $p_i, (i=1,\cdots,n)$ can be written as
 #+BEGIN_LaTeX latex
 \begin{equation}
