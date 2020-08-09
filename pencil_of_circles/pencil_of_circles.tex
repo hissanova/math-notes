@@ -1,0 +1,229 @@
+\documentclass[a4j,12pt]{jarticle}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancybox}
+\usepackage[dvips,final]{graphicx}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\numberwithin{equation}{section}
+\newtheorem{example}{Example}[section]
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\bra}[1]{\langle{#1}|}
+\newcommand{\ket}[1]{|{#1}\rangle}
+\newcommand{\Expect}[3]{\langle {#1}|{#2}|{#3} \rangle}
+\newcommand{\dev}[2]{\langle (\Delta {#1})^2 \rangle _{{#2}}}
+\newcommand{\sgm}[1]{\sigma_{#1}}
+\newcommand{\sgmOp}[1]{\hat{\sigma}_{#1}}
+\newcommand{\hfangle}[1]{{\frac{#1}{2}}}
+\newcommand{\clmnV}[2]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\clmnVsan}[3]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+			 {#3}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\mtrx}[4]
+	{\left(
+		\begin{matrix}
+		 {#1} & {#2} \\
+		 {#3} & {#4} \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\inn}[2]{\langle{#1}|{#2}\rangle}
+\newtheorem{thm}{定理}[section]
+\newtheorem{prop}[thm]{proposition}
+
+
+\begin{document}
+\title{二つの円の交点を通る円と束の概念}
+\author{中村仁宣}
+%\date{}
+\maketitle
+%%%%%%%%%%%%%
+%　イントロダクソン、要見直し
+%%%%%%%%%%%%%
+
+\section*{Introduction}
+　
+
+
+\section{問題設定}
+二つの円$C_1 : f(x,y) = (x-a_1)^2 + (y-a_2)^2 - r_1^2 =0$と$C_2:g(x,y) = (x-b_1)^2 + (y-b_2)^2 - r_2^2 =0$が交点を持つ時,それらの交点を通る円の族(直線は無限遠点に原点を持つ円)の方程式は,あるパラメータ$k \in \R$によって
+\begin{equation}
+F_k(x,y) := f(x,y) + k g(x,y) = 0
+\end{equation}
+と書けるという事実は高校数学の問題でも使われるよく知られたテクニックだ.典型的な問題としては、与えられた2つの円の交点を通り,またある別の1点を通る円の方程式を求めると言ったものがある.\\
+確かに、$f(x,y)=0$と$g(x,y)=0$を同時に満たすような点があれば、それは$F_k(x,y)=0$を満たすから$C_3:F_k(x,y)=0$という円上にある事はすぐにわかる.\\
+しかし、別に$C_1, C_2$に交わりがなくても，適当な$k$の値に対して$F_k(x,y)=0$を満たす円または直線が存在する事はある. \\
+ここで自然に次の疑問が思い浮かぶ：$k$をパラメーターとして見た時,2つの円$C_1,C_2$が与えられたとして,どのような$k$の値に対して$F_k(x,y)=0$を満たす円が存在し,それらはどんな意味,もしくは$C_1,C_2$との関係性を持っているのであろうか？\\
+以下はこの疑問に関する考察である.\par
+一般に平行移動と回転で2つの円の相対的な位置関係は代わらないので、適当な移動と回転により$C_1 : f(x,y) = (x-a)^2 + y^2 - r_1^2 =0$と$C_2:g(x,y) = (x+a)^2 + y^2 - r_2^2 =0$となるようにできる。さらに、$f(x,y)=0,g(x,y)=0$という点しか考えないので、任意のゼロでない定数を同時にかけることは、ただ単に拡大収縮してるだけなので点同士の相対的な位置関係は変わらない。よって、それぞれに$1/a$をかけて$C_1 : f(x,y) = (x-1)^2 + y^2 - r_1^2 =0$と$C_2:g(x,y) = (x+１)^2 + y^2 - r_2^2 =0$とおいて考察することにする。
+まずは、$C_1,C_2$の交点を出す為に差$f-g$をとると
+\begin{equation}
+  x =  \frac{r_1^2  - r_2^2}{4} = vw
+\end{equation}
+ここで$v = \frac{r_1  + r_2}{2}$,$w = \frac{r_1  - r_2}{2}$とおいた。なので、$y$は
+\begin{eqnarray}
+  y &=& \pm \sqrt{ r_1^2  - (vw + 1)^2 } = \pm \sqrt{ (v+w)^2  - (vw + 1)^2 } \nonumber\\
+    &=& \pm \sqrt{ v^2 + w^2  - v^2w^2  -1 }= \pm \sqrt{ (v^2 -1)( 1-w^2 ) }
+\end{eqnarray}
+よって、$C_1,C_2$が交点をもつi.e.上の式で$y$座標が実数になる範囲は
+\begin{equation}
+\begin{cases}
+      & 1= |v| \text{ かつ } |w|= 1, \\
+      &   1 < |v| \text{ かつ } |w| < 1, \\
+      &   1 > |v| \text{ かつ } |w| > 1
+\end{cases}
+\end{equation}
+の３つの場合である。１番目は,円が接している場合,2番目は、半径の和が中心の距離より大きく、且つ、その差が2以下であるという場合,３番目は,半径の和が中心の距離よりも小さく且つその差が2以上であるという条件であるが,これは$r_1, r_2>0$のため不可能である.よって、2円$C_1,C_2$の交点の座標は$(x,y)=(vw,\pm\sqrt{ (v^2 -1)( 1-w^2 ) })$であることがわかった.\\
+次に$F_k(x,y)$の式を具体的に計算してみよう.
+\begin{eqnarray}
+     f(x,y) + k g(x,y) &=& (1+k)x^2 + 2(k-1) x + (1+k) + (1+k)y^2  - r_1^2  - kr_2^2  \nonumber \\
+      &=&  (1+k)\left[ x^2 + 2\frac{k-1}{1+k} x + 1 + y^2  -\frac{ r_1^2  + kr_2^2}{1+k} \right]\nonumber\\
+      &=&  (1+k)\left[ \left(x + \frac{k-1}{1+k} \right)^2 + y^2  -\frac{ -4k +(1+k)(r_1^2  + kr_2^2)}{(1+k)^2} \right]\nonumber\\
+      &=&  (1+k)\left[ \left(x + \frac{k-1}{1+k} \right)^2 + y^2  -\frac{ r_2^2k^2  + (r_1^2+r_2^2 -4)k + r_1^2}{(1+k)^2} \right]\nonumber\\
+\end{eqnarray}
+この式で最後の項の分子$r_2^2k^2  + (r_1^2+r_2^2 -4)k + r_1^2$が正になるような$k$の値で$F_k(x,y)=0$を満たす円が存在する事になる.しかし,これではまだ式が煩雑で扱いづらい.よってパラメータを変えてもう少し扱い易い式に変形する事を考える.\par
+そこで,パラメータ$k\in \R$の変わりに$(s,t)\ne(0,0)$を使ってより一般的な形$s f(x,y)+t g(x,y)$を考えよう. $(s,t)$を考える事がパラメータ$k$だけを考える事をふくんでいる事は,$s\ne 0 $のとき,
+\begin{eqnarray}
+F_{s,t}(x,y) := s f(x,y) + t g(x,y) &=& 0 \nonumber\\
+ f(x,y) + \frac{t}{s} g(x,y) &=& 0 \nonumber
+\end{eqnarray}
+となり,$F_k(x,y)=0$と同じである事がわかる. また,$t\ne0$のときは,
+\begin{eqnarray}
+s f(x,y) + t g(x,y) &=& 0 \nonumber\\
+ \frac{s}{t}f(x,y) +  g(x,y) &=& 0 \nonumber
+\end{eqnarray}
+となり,$hf(x,y) + g(x,y) =0 $と同じであり,別々に考えなければならなかった場合をいっぺんに扱える.\\
+ここでさらに$a\ne$に対し,$F_{s,t}(x,y)=0$を満たす点$(x,y)$は$aF_{s,t}(x,y)=F_{as,at}(x,y)=0$も満たすので,パラメータの組として$(s,t)$と$(as,at)$を考える事は同じ事である（要するに$(s,t)\in \mathbb{P}^1$を考える.）.これを利用してパラメータの組として$s+t=1$を満たすようにすれば$F_{s,t}(x,y)$の2次の項の係数が1となりすっきりとした形になる.そこで,新たなパラメータ$u$を使って$s=\frac{1+u}{2}, t=\frac{1-u}{2}$と置く事にする．すると,このパラメータの下で
+\begin{equation}
+F_u(x,y) := s f(x,y) + t g(x,y) = x^2 + 2u x + 1 + y^2  - \frac{r_1^2  +r_2^2}{2} -\frac{u}{2}(r_1^2  -r_2^2) = 0
+\end{equation}
+となりさらに計算して行くと
+\begin{eqnarray}
+     F_u(x,y) &=& x^2 + 2u x + 1 + y^2  - \frac{r_1^2  +r_2^2}{2} -\frac{u}{2}(r_1^2  -r_2^2) \nonumber\\
+      &=&  (x + u )^2  + y^2  +1 - u^2 - \frac{r_1^2  +r_2^2}{2} -\frac{u}{2}(r_1^2  -r_2^2) \nonumber\\
+      &=&  (x + u )^2  + y^2  - (u^2 +(2vw)u  + v^2 + w^2  -1) \nonumber\\
+      &=&  (x + u )^2  + y^2  - ((u + vw)^2  + v^2 - v^2w^2 + w^2  -1)\nonumber\\
+      &=&  (x + u )^2  + y^2  - ((u + vw)^2  + K(v,w))\nonumber\\
+      &=&  (x + u )^2  + y^2  - P(u;v,w)\nonumber\\
+\end{eqnarray}
+という式が得られる. ここで $P(u;v,w) = (u + vw)^2  + K(v,w)$, $K(v,w) = (v^2 - 1)(1 - w^2) $とおいた. $F_{1}(x,y)=f(x,y)$,$F_{-1}(x,y)=g(x,y)$であることは定義より明らかである. $F_u(x,y)=0$は, $P(u;v,w) \ge 0$ の時,円を与えるが、$v,w$ の値によっては $P(u;v,w)<0$ となるような$u$が存在し、$F_u(x,y)=0$ は何も定義しないことになる.以下にその場合分けを行う.
+\begin{itemize}
+  \item $K(v,w) > 0$ の場合、常に$P(u;v,w) >0$なので全ての$u$に対し,$F_u(x,y)=0$を満たす円が存在し,全てのそのような円は2点$(x,y)=(vw,\pm\sqrt{K(v,w)})$を通る.
+  \item $K(v,w) = 0$ の場合、常に$P(u;v,w) \ge 0$なので,$u = -vw$の時に点$(x,y)=(vw,0)$を与え、他の全ての$u$に対し,$F_u(x,y)=0$は円を与える.またそのような円は必ず点$(vw,0)$を通る.
+  \item $K(v,w) < 0$ の場合、$u_{\pm}:=-vw\pm\sqrt{-K(v,w)}$とおくと$u_- < u < u_+$の時に,常に$P(u;v,w) < 0$なので,$F_u(x,y)=0$を満たす$(x,y)$は存在せず,$u = u_\pm$の時は,それぞれ点$(x,y)=(-u_\pm,0)$を与える. それ以外の範囲$u < u_-, u_+<u$ では$F_u(x,y)=0$は円を与える.またそのような円は,中心$(\frac{u_++u_-}{2},0)$, 半径を$\sqrt{\frac{u_+-u_-}{2}}$とする円 $C_0: (x-\frac{u_++u_-}{2})^2+y^2=\left(\frac{u_+ - u_-}{2}\right)^2$と直行している.実際,$F_u(x,y)=0$と$C_0$ の中心の距離$u+vw$とそれぞれの半径の3つの数はピタゴラスの定理の関係を満たしている.
+\end{itemize}
+\section{放物面の切り口}
+上で得られた式を
+\begin{equation}
+\label{}
+z = F_u(x,y) = (x + u )^2  + y^2  - ((u + 2vw)^2  + K(v,w))
+\end{equation}
+とおいて、パラメータ$u$に関する$\R^3$ 内の曲面の族として捉えると,$u$を動かす事によって,頂点が$xz$平面内の放物線$(x,y,z) = (-u, 0, -(u + 2vw)^2  - K(v,w))$上を動くような下に凸な放物面の集まりである事がわかる. $C_1,C_2$はそれぞれ$u=\frac{1}{2},-\frac{1}{2}$という値に対応する放物面と$xy$平面との交わる円になっている.　この放物線の頂点が$xy$平面より上にあると,ある範囲の$u$で放物面と$xy$平面は交わらない.(図を挿入予定)
+\section{M\"obius変換との関係}
+パラメータ$u$を動かした時の円の動きとある種のM\"obius変換に対応している.　2つの円$C_1,C_2$が交わっているとき,２つの交点の中点を中心とし、これらの交点を通る球をRiemann sphere $S$とすると,$u$を動かした時の円の動きは,$S$上の極を通る大円を,交点を通る直線$l$を軸とするように回した(ellipticなM\"obius変換)ときのstereographic projection の像になっている.\\
+Riemann sphere $S=\{(x,y,z)\in \mathbb{R}^3| x^2 +y^2+z^2 = 1\}$\\
+$y$軸に垂直なベクトル$(\cos{\phi},0,\sin{\phi})$を法線ベクトルとする平面$\pi = \{(x,y,z)\in \mathbb{R}^3|\cos{\phi}\;x+\sin{\phi}\;z=0\}$との交円$C_{\phi}$の北極$N=(0,0,1)$からのstereographic写像での像\\
+\begin{equation}
+\label{}
+P_{N}:(x,y,z)\in \mathbb{R}^3 \mapsto X+iY = \frac{x}{1-z} + i\frac{y}{1-z}
+\end{equation}
+$x=-\tan{\phi}z$, $y^2=1-x^2-z^2 = 1-\sec^2{\phi}\;z^2$を代入すると
+\begin{equation}
+\label{}
+P_{N}(C_{\phi}) = \left\{-\frac{z}{1-z} \tan{\phi} \pm i\frac{\sqrt{1-\sec^2{\phi}\;z^2}}{1-z}|-\cos{\phi}\le z \le \cos{\phi}\right\}
+\end{equation}
+$X^2+Y^2=\frac{1+z}{1-z}=aX+b$とおくと、$b=1$,$a=-2\cot{\phi}$.よって$P_{N}(C_{\phi})$ の点は
+\begin{equation}
+\label{}
+(X+\cot{\phi})^2 + Y^2 = \csc^2{\phi}
+\end{equation}
+を満たし,任意の$\phi$に対し,点$\pm i$は常にこれらの円上にある.そしてこれは確かに上で$r_1=\sqrt{2},r_2=\sqrt{2}$とした時の$F_u(x,y)=0$と$u=\tan{\phi}$としたものと一致している.\\
+証明：複素平面内の円はstereographic写像によりRiemann sphere上の円と一対一に写り合う。各$u$に対して$F_u(X,Y)=0$で与えられる円は$f=0$,$g=0$の交点を通るがこれは球上では極になっている.極を通る球面内の円は大円である.よって$F_u(X,Y)=0$で与えられる円が$u$とともに動くときRiemann sphere上では、交点を通る直線を軸とする大円の回転に対応している.\\
+$R_{y}(\phi)$: $S$の$y$軸に関する角度$\phi$の反時計周りの回転に対応するM\"obius変換。
+\begin{equation}
+\label{}
+R_{y}(\phi) = \left(\begin{array}{cc}\cos{\frac{\phi}{2}} & -\sin{\frac{\phi}{2}} \\ \sin{\frac{\phi}{2}} & \cos{\frac{\phi}{2}}\end{array}\right)  
+\end{equation}
+$R_{y}(\phi) : \mathbb{C} \rightarrow \mathbb{C}$は
+\begin{equation}
+\label{}
+w = R_{y}(\phi)(z) = \frac{\cos{\frac{\phi}{2}} \; z -\sin{\frac{\phi}{2}}}{\sin{\frac{\phi}{2}} \; z+ \cos{\frac{\phi}{2}}}
+\end{equation}
+で与えられる.\\
+また,2つの円が交わっていないとき,円の動きは$C_1,C_2$から決まるある2点を焦点とするようなhyperbolic なM\"obius変換になっている.\\
+証明の方針：$F_u(x,y)$の形から定まる、ある2つの頂点がありそれらを極とするRiemann sphere $S$ を考える。$S$と$xy$-平面との交円と円$C:F_u(x,y)=0$が常に直行している事を示せばよい。\\
+hyperbolic なM\"obius変換：\\
+$D(k):z \mapsto kz$ $k\in \mathbb{R}$:Dilation(伸縮)
+$u_+ \mapsto \infty$, $u_- \mapsto 0$, $\frac{u_+ + u_-}{2} \mapsto 1$ であるような M\"obius変換 $\phi:\C^2 \rightarrow \C^2$ でhyperbolic な変換を合成する
+\begin{equation}
+  \phi(z) = \frac{z - u_-}{z - u_+} \frac{\frac{u_+ + u_-}{2} - u_+}{\frac{u_+ + u_-}{2} - u_-} = \frac{-z + u_-}{z - u_+}
+\end{equation}
+\begin{eqnarray}
+  \phi^{-1} \circ D(k) \circ \phi & = &
+  \frac{1}{u_+ - u_-}
+  \left(\begin{array}{cc} -u_+ & -u_- \\ -1 & -1 \end{array}\right)  
+  \left(\begin{array}{cc}k^{\frac{1}{2}} & 0 \\0 & k^{-\frac{1}{2}}\end{array}\right) 
+  \left(\begin{array}{cc} -1 & u_- \\ 1 & -u_+ \end{array}\right) \nonumber\\
+  & = &
+  \frac{1}{u_+ - u_-}
+  \left(\begin{array}{cc} -u_+ & -u_- \\ -1 & -1 \end{array}\right)  
+  \left(\begin{array}{cc}-k^{\frac{1}{2}} &  k^{\frac{1}{2}}u_- \\  k^{-\frac{1}{2}} & -k^{-\frac{1}{2}} u_+\end{array}\right)  \nonumber\\
+  & = &
+  \frac{1}{u_+ - u_-}
+  \left(\begin{array}{cc}u_+k^{\frac{1}{2}} -  u_-k^{-\frac{1}{2}} & -u_+u_-(k^{\frac{1}{2}} -  k^{-\frac{1}{2}}) \\ k^{\frac{1}{2}} -  k^{-\frac{1}{2}} & -u_-k^{\frac{1}{2}} +  u_+k^{-\frac{1}{2}} \end{array}\right)  \nonumber\\
+\end{eqnarray}
+\section{M\"obius変換の円への作用}
+M\"obius変換 $w = \varphi(z) = \frac{az+b}{cz+d}$ $a,b,c,d \in \R$ が円$|z-p|^2=r^2, \; p,r\in\R$をどのような図形へ変換するのかを見てみよう.
+\begin{equation}
+\label{}
+|w-p|^2 = \left| \frac{az+b}{cz+d} - p \right|^2 = r^2
+\end{equation}
+なので
+\begin{eqnarray}
+  &&|(a+pc)z+(b-pd)|^2 = r^2|cz+d|^2  \nonumber\\
+  &&(a-pc)^2|z|^2+(a-pc)(b-pd)(z+\overline{z}) + (b-pd)^2 = r^2(c^2|z|^2+2cd(z+\overline{z}) +d^2) \nonumber\\
+  &&((a-pc)^2 - r^2c^2)|z|^2+((a-pc)(b-pd) - r^2cd)(z+\overline{z}) + (b-pd)^2 - r^2d^2= 0 \nonumber\\
+  &&((a-pc)^2 - r^2c^2)|z|^2+\frac{1}{2}((a-pc + rc)(b-pd+rd) + (a-cp-rc)(b-pd-rd))(z+\overline{z}) \nonumber\\
+  && \quad + (b-pd)^2 - r^2d^2= 0 \nonumber\\
+  &&((a-pc)^2 - r^2c^2)\left(|z|^2+\frac{1}{2}\left(\frac{b-d(p-r)}{a-c(p+r)} + \frac{b-d(p+r)}{a-c(p-r)}\right)(z+\overline{z})\right) + (b-pd)^2 - r^2d^2= 0 \nonumber\\
+  &&\left|z+\frac{1}{2}\left(\frac{b-d(p-r)}{a-c(p+r)} + \frac{b-d(p+r)}{a-c(p-r)}\right)\right|^2 -\frac{1}{4}\left(\frac{b-d(p-r)}{a-c(p+r)} + \frac{b-d(p+r)}{a-c(p-r)}\right)^2 + \frac{(b-pd)^2 - r^2d^2}{(a-pc)^2 - r^2c^2}= 0 \nonumber\\
+  &&\left|z+\frac{1}{2}\left(\frac{b-d(p-r)}{a-c(p+r)} + \frac{b-d(p+r)}{a-c(p-r)}\right)\right|^2 = \frac{1}{4}\left(\frac{b-d(p-r)}{a-c(p+r)} - \frac{b-d(p+r)}{a-c(p-r)}\right)^2 \nonumber\\
+\end{eqnarray}
+
+Putting $c_3 = sc_1+tc_2 = u(c_1-c_2) + \frac{1}{2}(c_1+c_2)$
+\begin{equation}
+\label{ }
+|z-c_3|^2 = |sc_1+tc_2|^2 - s(|c_1|^2 -r_1^2) - t(|c_2|^2-r_2^2) 
+\end{equation}
+$C:=c_1+c_2$, $c:= c_1-c_2$, $d_i^2 := |c_i|^2 -r_i^2$ denoting $<z,w>=2Re[z\overline{w}]$ (inner product as two dimensional vectors)
+\begin{equation}
+\label{ }
+|z-c_3|^2 = |c|^2 u^2 + (<c,C> - d_1^2 + d_2^2) u + \frac{1}{2}(\frac{|C|^2}{2}-d_1^2- d_2^2)
+\end{equation}
+\section{まとめ}
+
+
+\end{document}
+
+
+
+\end{}

@@ -1,0 +1,109 @@
+#+TITLE: Inversion of conics
+#+DATE: <2020-06-18 木>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage{mymacros}
+#+LATEX_HEADER: \usepackage{amsmath,amssymb,amsthm}
+
+# for static site generator
+Title: Inversion of conics
+Date: 2020-06-18
+Category: math
+Tags: math
+
+
+* Inversion
+The images of lines and circles under inversion in circles are again circles and lines.
+ This is the well-known fact of the inversion geometry.
+ But somewhat less known fact about the inversion in circles is that quadratic curves are inversed into certain types of famous quartic curves which have been known from antiguity.
+ In general, the image of a real algebraic curve of degree n, $F(x,y)=0$ under inversion in unit circle at the origin satisfies an equation $F(\frac{x}{R^2},\frac{y}{R^2}) = 0$,
+ where $R = \sqrt{x^2 + y^2}$, which is an algebraic expression of degree $2n$.
+ Here we will see how the quadratic curves or conics are mapped under this transformation.
+* Inversions of conics
+** Hyperbola
+Rectagular hyperbola
+\begin{equation}
+\label{ }
+x^2 - y^2 = 1
+\end{equation}
+maps to the Bernouilli's lemniscate
+\begin{equation}
+\label{ }
+(x^2 + y^2)^2 = x^2 - y^2.
+\end{equation}
+
+#+NAME: fig:inv-rec-hyp
+#+CAPTION: Inversion of the rectangular hyperbola $x^2 -y^2 = 1$.
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/hyperbola-lemniscate-pair.png]] \\
+
+#+NAME: fig:
+#+CAPTION: Inversive images of $(x-a)^2 -y^2 = 1$ with varying $a$
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/hyperbola_locus.png]]
+
+** Parabola
+
+\begin{equation}
+\label{ }
+y^2 + 1 = x
+\end{equation}
+maps to a droplet-like curve
+\begin{equation}
+\label{ }
+y^2 + (x^2 + y^2)^2 = x(x^2 + y^2).
+\end{equation}
+
+#+NAME: fig:para-drop
+#+CAPTION: Inversion of parabola $y^2+1=x$
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/para_drop.png]]
+
+#+NAME: fig:
+#+CAPTION: Inversive images of $y^2 = x-a$ with varying $a$
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/parabola_locus.png]]
+
+** Ellipse
+\begin{equation}
+\label{ }
+\frac{x^2}{a^2} + \frac{y^2}{b^2} =1
+\end{equation}
+maps to a hippopede
+\begin{equation}
+\label{ }
+(x^2 + y^2)^2 = A^2x^2 + B^2 y^2.
+\end{equation}
+
+#+NAME: fig:para-drop
+#+CAPTION: Inversion of ellipse $\frac{x^2}{4}+y^2 = 1$
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/ell_vase.png]]
+
+#+NAME: fig:
+#+CAPTION: Inversive images of $\frac{(x-c)^2}{a^2} -\frac{y^2}{b^2} = 1$ with varying $c$
+#+ATTR_ORG: :width 100
+#+ATTR_HTML: :width 400px :style border:2px solid black; display: block; margin-left: auto; margin-right: auto;
+#+ATTR_LATEX: :width 70mm
+[[./images/ellipse_locus.png]]
