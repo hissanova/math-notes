@@ -1,0 +1,46 @@
+#+TITLE: Notes on "Topoi" by Goldblatt
+#+DATE: <2019-06-27 木>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage{tikz-cd}
+
+* Chapter 3: Arrows instead of epsilons
+
+** Exercise Solutions
+
+*** 3.1.
+In any category
+1. $g \circ f$ is monic if both $f$ and $g$ are monic.
+2. If $g \circ f$ is monic, then so is $f$.
+Solutions \\
+(1) \\
+If $(g \circ f) \circ h_{1} = (g \circ f) \circ h_{2}$, then 
+
+#+BEGIN_LaTeX Latex
+\begin{eqnarray*}
+(g \circ f) \circ h_{1} &=& (g \circ f) \circ h_{2}\\
+g \circ (f \circ h_{1}) &=& g \circ (f \circ h_{2})\\
+f \circ h_{1} &=& f \circ h_{2}  \quad (\because \text{g is monic})\\
+h_{1} &=& h_{2}  \quad (\because \text{f is monic})
+\end{eqnarray*}
+Therefore, $(g \circ f)$ is monic. \\
+(2) \\
+If $f \circ h_{1} = f \circ h_{2}$, then 
+\begin{eqnarray*}
+g \circ (f \circ h_{1}) &=& g \circ (f \circ h_{2})\\
+(g \circ f) \circ h_{1} &=& (g \circ f) \circ h_{2}\\
+h_{1} &=& h_{2}  \quad (\because \text{$f \circ g$ is monic})
+\end{eqnarray*}
+Hence, $f$ is monic.
+#+END_LaTeX

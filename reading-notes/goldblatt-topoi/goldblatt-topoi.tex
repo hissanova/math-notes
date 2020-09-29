@@ -1,0 +1,67 @@
+% Created 2020-09-29 火 11:55
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[margin=1.0in]{geometry}
+\usepackage{tikz-cd}
+\author{hisanobu-nakamura}
+\date{\textit{<2019-06-27 木>}}
+\title{Notes on "Topoi" by Goldblatt}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Chapter 3: Arrows instead of epsilons}
+\label{sec-1}
+
+\subsection{Exercise Solutions}
+\label{sec-1-1}
+
+\subsubsection{3.1.}
+\label{sec-1-1-1}
+In any category
+\begin{enumerate}
+\item $g \circ f$ is monic if both $f$ and $g$ are monic.
+\item If $g \circ f$ is monic, then so is $f$.
+\end{enumerate}
+Solutions \\
+(1) \\
+If $(g \circ f) \circ h_{1} = (g \circ f) \circ h_{2}$, then 
+
+\begin{eqnarray*}
+(g \circ f) \circ h_{1} &=& (g \circ f) \circ h_{2}\\
+g \circ (f \circ h_{1}) &=& g \circ (f \circ h_{2})\\
+f \circ h_{1} &=& f \circ h_{2}  \quad (\because \text{g is monic})\\
+h_{1} &=& h_{2}  \quad (\because \text{f is monic})
+\end{eqnarray*}
+Therefore, $(g \circ f)$ is monic. \\
+(2) \\
+If $f \circ h_{1} = f \circ h_{2}$, then 
+\begin{eqnarray*}
+g \circ (f \circ h_{1}) &=& g \circ (f \circ h_{2})\\
+(g \circ f) \circ h_{1} &=& (g \circ f) \circ h_{2}\\
+h_{1} &=& h_{2}  \quad (\because \text{$f \circ g$ is monic})
+\end{eqnarray*}
+Hence, $f$ is monic.
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}

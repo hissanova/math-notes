@@ -1,9 +1,24 @@
-Title: A Proof for Arithmetic Mean and Geometric Mean Formula
+Title: A Proof of AM-GM Inequality
 Date: 2020-02-10
 Category: math
 Tags: math
 
-# Arithmetic Mean and Geometric Mean Formula
+# Inequality of Arithmetic and Geometric Mean
+
+## Introduction
+
+This is a proof of the famous AM-GM inequality that the author came up with some time ago.
+I saw somebody used the theorem in a solution to a math olympiad problem, which I don't remember the details of.
+Although I must have seen it somewhere during my undergrad-math education, I couldn't immediately think of any good proof of it.
+So, I started proving it by myself.
+I knew I had to make use of induction, and was vaguely hoping to make the argument as "symmetric" as possible.
+Here, I mean symmetric by treating all the terms in the arithmetic sum in the same manner.
+I think I have done my best to make it so.
+And the surprise was the method of my proof is actually quite similar to the one on [Wikipedia](https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means#Proof_by_induction_#2).
+The difference is the progression of the argument is in the opposite direction.
+They start with the *Lemma1*, which is stated below, whereas I started directly from the arithmetic mean to reach at *Lemma1*.
+Well, anyway, it turns out that my proof wasn't that original as I expected at the first place&#x2026;
+Never mind. Cheer up (for myself) and let's keep up the good mathematical energy and motivation. :)
 
 ## The Statement
 
@@ -14,7 +29,7 @@ Here is the arithmetic and geometric formula
 \frac{a_1 + \cdots + a_n}{n} \ge \sqrt[n]{a_1\cdots a_n},
 \end{equation*}
 
-where for all $i$, $a_i > 0$ .
+where $\forall i \; a_i > 0$.
 
 ## Proof of the Statement
 
@@ -37,13 +52,14 @@ where $\alpha_i=\sqrt[n]{a_1\overset{i}{\breve{\cdots}} a_{n+1}}$ (Here, $\overs
 \end{equation*}
 
 So, if we can show the following proposition, we are done.  
-***Lemma***:
- If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+***Lemma1***:
 
-\begin{equation}
-\label{AM_GM_normalised}
-b_1 + \cdots + b_{n+1} \ge n+1
-\end{equation}
+> If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+> 
+> \begin{equation}
+> \label{AM_GM_normalised}
+> b_1 + \cdots + b_{n+1} \ge n+1
+> \end{equation}
 
 Now, by substituting $b_i = \sqrt[n+1]{\frac{\alpha_i}{a_i}}$, it is straightforward to see that
 
@@ -52,15 +68,16 @@ a_1 + \cdots + a_{n+1} & = &  \sqrt[n+1]{a_1\cdots a_{n+1}} \left( \sqrt[n+1]{\f
                        & \ge &  \sqrt[n+1]{a_1\cdots a_{n+1}} (n + 1 ) \nonumber \\
 \end{eqnarray*}
 
-## Proof of the Lemma
+## Proof of the Lemma1
 
-***Lemma***:
- If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+***Lemma1***:
 
-\begin{equation}
-\label{AM_GM_normalised}
-b_1 + \cdots + b_{n+1} \ge n+1
-\end{equation}
+> If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+> 
+> \begin{equation}
+> \label{AM_GM_normalised}
+> b_1 + \cdots + b_{n+1} \ge n+1
+> \end{equation}
 
 ***Proof***:
  First, if $b_1 = \cdots = b_{n+1} =1$, then the equality holds.

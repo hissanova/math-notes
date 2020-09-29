@@ -1,4 +1,4 @@
-% Created 2020-02-24 月 22:49
+% Created 2020-08-28 金 18:26
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,7 +21,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \author{hisanobu-nakamura}
 \date{\textit{<2019-08-31 土>}}
-\title{How to prove the arithmetic mean and geometric mean formula}
+\title{How To Prove The Arithmetic Mean And Geometric Mean Inequality}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -29,15 +29,29 @@
 \begin{document}
 
 \maketitle
-Title: A Proof for Arithmetic Mean and Geometric Mean Formula
+Title: A Proof for Arithmetic Mean and Geometric Mean Inequality
 Date: 2020-02-10
 Category: math
 Tags: math
 
-\section{Arithmetic Mean and Geometric Mean Formula}
+\section{Arithmetic Mean and Geometric Mean Inequality}
 \label{sec-1}
-\subsection{The Statement}
+\subsection{Introduction}
 \label{sec-1-1}
+This is a proof of the famous AM-GM inequality that the author came up with some time ago.
+I saw somebody used the theorem in a solution to a math olympiad problem, which I don't remember the details of.
+Although I must have seen it somewhere during my undergrad-math education, I couldn't immediately think of any good proof of it.
+So, I started proving it by myself.
+I knew I had to make use of induction, and was vaguely hoping to make the argument as "symmetric" as possible.
+Here, I mean symmetric by treating all the terms in the arithmetic sum in the same manner.
+I think I have done my best to make it so.
+And the surprise was the method of my proof is actually quite similar to the one on \href{https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means#Proof_by_induction_#2}{Wikipedia}.
+The difference is the progression of the argument is in the opposite direction.
+They start with the \emph{Lemma1}, which is stated below, whereas I started directly from the arithmetic mean to reach at \emph{Lemma1}.
+Well, anyway, it turns out that my proof wasn't that original as I expected at the first place\ldots{}
+Never mind. Cheer up (for myself) and let's keep up the good mathematical energy and motivation. :)
+\subsection{The Statement}
+\label{sec-1-2}
 Here is the arithmetic and geometric formula
 \begin{equation*}
 \label{ }
@@ -46,7 +60,7 @@ Here is the arithmetic and geometric formula
 where $\forall i \; a_i > 0$.
 
 \subsection{Proof of the Statement}
-\label{sec-1-2}
+\label{sec-1-3}
 OK for $n=1$. Equality holds. Suppose that the inequality holds for all natural numbers up to $n$, then
 \begin{eqnarray*}
 a_1 + \cdots + a_{n+1} & = & \frac{a_2 + a_3 \cdots + a_{n+1}}{n} + \frac{a_1 + a_3 + \cdots + a_{n+1}}{n} + \cdots  \nonumber \\
@@ -62,12 +76,14 @@ where $\alpha_i=\sqrt[n]{a_1\overset{i}{\breve{\cdots}} a_{n+1}}$ (Here, $\overs
 \sqrt[n+1]{\frac{\alpha_1}{a_1}}  \cdots  \sqrt[n+1]{\frac{\alpha_{n+1}}{a_{n+1}}} = 1.
 \end{equation*}
 So, if we can show the following proposition, we are done.\\
-\textbf{\emph{Lemma}}:
- If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+\textbf{\emph{Lemma1}}:
+\begin{quote}
+If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 \begin{equation}
 \label{AM_GM_normalised}
 b_1 + \cdots + b_{n+1} \ge n+1
 \end{equation}
+\end{quote}
 \begin{right}
 $\qed$
 \end{right}
@@ -81,14 +97,16 @@ a_1 + \cdots + a_{n+1} & = &  \sqrt[n+1]{a_1\cdots a_{n+1}} \left( \sqrt[n+1]{\f
 \begin{right}
 $\qed$
 \end{right}
-\subsection{Proof of the Lemma}
-\label{sec-1-3}
-\textbf{\emph{Lemma}}:
- If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
+\subsection{Proof of the Lemma1}
+\label{sec-1-4}
+\textbf{\emph{Lemma1}}:
+\begin{quote}
+If $b_1, \cdots, b_{n+1} >0$ and $b_1 \cdots b_{n+1} = 1$, then
 \begin{equation}
 \label{AM_GM_normalised}
 b_1 + \cdots + b_{n+1} \ge n+1
 \end{equation}
+\end{quote}
 \textbf{\emph{Proof}}:
  First, if $b_1 = \cdots = b_{n+1} =1$, then the equality holds.
 We notice that $\exists i$ such that $b_{i} > 1$ implies that $\exists j$ such that $b_{j} < 1$.
