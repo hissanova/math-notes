@@ -1,4 +1,4 @@
-% Created 2020-03-13 金 13:24
+% Created 2020-10-06 火 13:23
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -212,7 +212,7 @@ The coefficient outside the sum, in terms of $j_1,j_2,J,m_1,m_2,M$, using the re
 \label{ }
 \sqrt{\frac{(j_1-m_1)!(j_2+m_1 -M)!}{(j_1 + m_1)!(j_2-m_1 +M )!(j_1-j_2 +J)!(j_2-j_1 +J)!}} (J-M)!(j_1+j_2-J)!
 \end{equation}
-Multipying by $\frac{N}{F(J,J-M)}$
+Multiplying by $\frac{N}{F(J,J-M)}$
 \begin{eqnarray}
 &&\sqrt{\frac{(2J+1)(j_1+j_2 -J)!}{(j_1-j_2 +J)!(j_2-j_1 +J)!(j_1+j_2+J+1)!}\frac{(j_1-m_1)!(j_2-m_2)!(J+M)!(J-M)!}{(j_1 + m_1)!(j_2+m_2 )!}} \nonumber\\
 && = \sqrt{(2J+1)}\sqrt{\Delta(j_1j_2J)}\sqrt{(j_1 + m_1)!(j_1-m_1)!(j_2+m_2 )!(j_2-m_2)!(J+M)!(J-M)!} \nonumber\\
@@ -285,7 +285,7 @@ and then the final formula
 \inn{j_1j_2m_1m_2}{JM} & = & \sqrt{(2J+1)}\sqrt{\Delta(j_1j_2J)}\sqrt{(j_1 + m_1)!(j_1-m_1)!(j_2+m_2 )!(j_2-m_2)!(J+M)!(J-M)!}  \nonumber\\
  & \times &  \sum_{\substack{t}} (-1)^t \frac{1}{t!(j_1 + j_2 -J - t)!(j_1 - m_1 - t)!(j_2 +m_2 -t)!(J-j_2 +m_1+t)!(J-j_1 -m_2 +t)!} \nonumber\\
 \end{eqnarray}
-Here, notice that the sum tkaes place in the range
+Here, notice that the sum takes place in the range
 \begin{equation}
 \label{}
 \max \left\{0,-(J-j_2 +m_1),-(J-j_1 -m_2)\right\} \le t \le \min \left\{j_1 + j_2 -J,j_1 - m_1,j_2 +m_2\right\}
@@ -353,12 +353,32 @@ We have three possibilities; $J = j+1, \;j,\;j-1$. Note that any $\ket{J \;M}$ i
 
 \section{$6j$-symbol}
 \label{sec-6}
-It is defined as a coupling coefficient of three angular momentum
+$6j$-symbol is defined as a coupling coefficient between representation vectors produced as a result of adding three angular momentum $j_{1}, j_{2}, j_{3}$.
+There is an ambiguity in taking the tensor products.
+There are three ways to pick the first two representation spaces $V_{j_{k}}}$ and $V_{j_{l}}$ to form $V_{j_{k}}} \otimes V_{j_{l}}$ and decompose it into the direct sum of irreducible representations $\bigoplus\limits_{j_{kl}} V_{j_{kl}}$.
+Then, we take tensor products again with each of the representation space $V_{j_{kl}}$ and $V_{j_{m}}$.
+The final direct sum $\left(\bigoplus\limits_{j_{kl}} V_{j_{kl}}\right) \otimes V_{j_{m}} = \bigoplus\limits_{J} n_{J}V_{J}$, where $n_{J}$ is the multiplicity of $V_{J}$, is independent of the way we chose the first two $j_{k}$ and $j_{l}$.
 \begin{eqnarray}
-&  &\ket{(j_1,(j_2,j_3)j_{23})JM}  \nonumber \\
- & = & \sum_{j_{12}} [(2j_{12}+1)(2j_{23}+1)]^{\frac{1}{2}}(-1)^{j_1+j_2+j_3+J}\sixj{j_1}{j_2}{j_{12}}{j_3}{J}{j_{23}} \ket{((j_1,j_2)j_{12},j_3)JM}
+&  & \ket{(j_1,(j_2,j_3)j_{23})JM}  \nonumber \\
+& = & \sum_{j_{12}} [(2j_{12}+1)(2j_{23}+1)]^{\frac{1}{2}}(-1)^{j_1+j_2+j_3+J}\sixj{j_1}{j_2}{j_{12}}{j_3}{J}{j_{23}} \ket{((j_1,j_2)j_{12},j_3)JM}
 \end{eqnarray}
-$6j$-symbol in terms of $3j$-symbols
+
+\begin{example}
+\exa{$j_1=j_2=\frac{1}{2}, j_3=1$.}
+The resultant angular momenta are $J = 0, 1,2$.
+\begin{eqnarray}
+\left(\mathbf{\frac{1}{2}} \otimes \mathbf{\frac{1}{2}} \right) \otimes \mathbf{1}  
+    & = & \mathbf{ \left(\left[\left(\frac{1}{2},\frac{1}{2}\right) 0 \right] \oplus \left[\left(\frac{1}{2},\frac{1}{2}\right) 1 \right]\right) \otimes 1}\nonumber\\
+    & = & \mathbf{  \left[\left(\left(\frac{1}{2},\frac{1}{2}\right) 0, 1 \right) 1 \right] \oplus \left[\left(\left(\frac{1}{2},\frac{1}{2}\right) 1, 1 \right) 0 \right] \oplus \left[\left(\left(\frac{1}{2}, \frac{1}{2}\right) 1, 1 \right) 1 \right] \oplus \left[\left(\left(\frac{1}{2}, \frac{1}{2}\right) 1, 1 \right) 2 \right]} \nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\mathbf{\frac{1}{2}} \otimes \left( \mathbf{\frac{1}{2}}  \otimes \mathbf{1} \right) 
+    & = & \mathbf{\frac{1}{2} \otimes\left(\left[\left(\frac{1}{2}, 1\right) \frac{1}{2} \right] \oplus \left[\left(\frac{1}{2}, 1 \right) \frac{3}{2} \right]\right) }\nonumber\\
+    & = & \mathbf{ \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{1}{2} \right) 0\right] \oplus \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1\right) \frac{1}{2} \right) 1 \right] \oplus \left[\left( \frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{3}{2} \right) 1 \right] \oplus \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{3}{2} \right) 2 \right] }\nonumber
+\end{eqnarray}
+\end{example}
+\subsection{$6j$-symbol in terms of $3j$-symbols}
+\label{sec-6-1}
 \begin{eqnarray}
 \label{}
 \sixj{a}{b}{c}{d}{e}{f} &=& \sum_{\substack{\alpha \beta \gamma \\ \delta \epsilon \varphi}} (-1)^{d+e+f+\delta + \epsilon + \varphi} \times \nonumber\\
@@ -371,18 +391,7 @@ Racah's formula (\cite{Racah})
 \end{eqnarray}
 where $q_1 = a+b+c, q_2 = b + d + f, q_3 = a+e+f, q_4 = d+e+c, p_1 = a+b+d+e, p_2 = b+c+e+f, p_3 = c+a+f+d$.
 Only values which satisfy the triangle inequalities, $|b-c|\le a \le b+c$ are allowed:$(abc),(aef),(dbf),(dec)$. Therefore, there have to be even numbers of half integers at each face. This is equivalente to say that $q_1, q_2, q_3 , q_4, p_1, p_2, p_3$ are all integers.
-\exa\{ $j_1=j_2=\frac{1}{2}, j_3=1$ \}
-The resultant angular momenta are $J = 0, 1,2$.
-\begin{eqnarray}
-\left(\mathbf{\frac{1}{2}} \otimes \mathbf{\frac{1}{2}} \right) \otimes \mathbf{1}  
-    & = & \mathbf{ \left(\left[\left(\frac{1}{2},\frac{1}{2}\right) 0 \right] \oplus \left[\left(\frac{1}{2},\frac{1}{2}\right) 1 \right]\right) \otimes 1}\nonumber\\
-    & = & \mathbf{  \left[\left(\left(\frac{1}{2},\frac{1}{2}\right) 0, 1 \right) 1 \right] \oplus \left[\left(\left(\frac{1}{2},\frac{1}{2}\right) 1, 1 \right) 0 \right] \oplus \left[\left(\left(\frac{1}{2}, \frac{1}{2}\right) 1, 1 \right) 1 \right] \oplus \left[\left(\left(\frac{1}{2}, \frac{1}{2}\right) 1, 1 \right) 2 \right]} \nonumber
-\end{eqnarray}
-\begin{eqnarray}
-\mathbf{\frac{1}{2}} \otimes \left( \mathbf{\frac{1}{2}}  \otimes \mathbf{1} \right) 
-    & = & \mathbf{\frac{1}{2} \otimes\left(\left[\left(\frac{1}{2}, 1\right) \frac{1}{2} \right] \oplus \left[\left(\frac{1}{2}, 1 \right) \frac{3}{2} \right]\right) }\nonumber\\
-    & = & \mathbf{ \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{1}{2} \right) 0\right] \oplus \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1\right) \frac{1}{2} \right) 1 \right] \oplus \left[\left( \frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{3}{2} \right) 1 \right] \oplus \left[\left(\frac{1}{2}, \left(\frac{1}{2}, 1 \right) \frac{3}{2} \right) 2 \right] }\nonumber
-\end{eqnarray}
+
 \appendix
 \section{Addition of Binomial Coefficients}
 \label{sec-7}
