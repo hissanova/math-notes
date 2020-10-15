@@ -1,4 +1,4 @@
-% Created 2020-10-09 金 14:53
+% Created 2020-10-15 木 11:37
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -62,5 +62,67 @@ The probability model $\{F_{\theta} : \theta \in \Theta\}$ will be calld \emph{\
 
 \subsection{Discrete Regular Models}
 \label{sec-3-1}
+\begin{quote}
+\textbf{Definition 1.5 Binomial distribution}\\
+A random variable $X$ is said to follow the binomial distribution with parameters $p \in (0,1)$ and $n \in \mathbb{N}$, denoted $X \sim Binom(n,p)$, if
+
+\begin{enumerate}
+\item $\mathcal{X} = \{0, \ldots ,n\}$,
+\item $\displaystyle f(x;n,p) = \binom{n}{p}p^{x}(1-p)^{n-x}$.
+\end{enumerate}
+\end{quote}
+\begin{itemize}
+\item The mean: $\mathbb{E}[X] = np$
+\item The variance: $Var[X] = np(1-p)$
+\item The moment genrating function: $M(t) = (1- p + pe^{t})^{n}$
+\end{itemize}
+
+\textbf{Derivations}\\
+The mean:
+\begin{eqnarray}
+\mathbb{E}[X]  & = & \sum_{x=0}^{n} x \binom{n}{x}p^{x}(1-p)^{n-x}\\
+               & = & \sum_{x=1}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x}\\
+               & = & p \sum_{x=1}^{n} x \binom{n}{x} p^{x-1}(1-p)^{n-x}\\
+\end{eqnarray}
+Consider the following polynomial's derivative with respect to $P$
+\begin{eqnarray}
+(P + Q)^{n} & = & \sum_{x=0}^{n} \binom{n}{x}P^{x}Q^{n-x}\\
+\frac{\partial}{\partial P}(P + Q)^{n} & = & n(P + Q)^{n-1} = \sum_{x=0}^{n} x \binom{n}{x}P^{x-1}Q^{n-x} \\
+                                       & = & \frac{1}{P} \left( \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\right)\\
+ nP(P + Q)^{n-1} & = &  \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\\
+\end{eqnarray}
+Putting $P=p$ and $Q=1-p$, we have
+\begin{equation}
+\mathbb{E}[X] = pn(p+1-p)^{n-1} = pn
+\end{equation}
+Th vatiance:
+\begin{eqnarray}
+Var[X] & = & \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2}\\
+       & = & \sum_{x=0}^{n} x^{2} \binom{n}{x}p^{x}(1-p)^{n-x} - n^{2}p^{2}
+\end{eqnarray}
+To calculate the first term in the last line, let us consider the following second derivative of the polynomial $(P+Q)^{n}$
+\begin{eqnarray}
+\frac{\partial^{2}}{\partial P^{2}}(P + Q)^{n} & = & n(n-1)(P + Q)^{n-2} \nonumber\\ 
+                                               & = & \sum_{x=2}^{n} x(x-1) \binom{n}{x}P^{x-2}Q^{n-x} \nonumber\\
+                                               & = & \sum_{x=2}^{n} x^{2} \binom{n}{x}P^{x-2}Q^{n-x} - \sum_{x=2}^{n} x \binom{n}{x}P^{x-2}Q^{n-x} \nonumber\\
+                                               & = & \frac{1}{P^{2}} \left( \sum_{x=2}^{n} x^{2} \binom{n}{x}P^{x}Q^{n-x} - \sum_{x=2}^{n} x \binom{n}{x}P^{x}Q^{n-x} \right) \nonumber\\
+                                               & = & \frac{1}{P^{2}} \left( \sum_{x=1}^{n} x^{2} \binom{n}{x}P^{x}Q^{n-x} - \sum_{x=1}^{n} x \binom{n}{x}P^{x}Q^{n-x} \right) \nonumber\\
+                                               & = & \frac{1}{P^{2}} \left( \sum_{x=1}^{n} x^{2} \binom{n}{x}P^{x}Q^{n-x} - nP(P+Q)^{n-1} \right) \nonumber\\
+\therefore \sum_{x=1}^{n} x^{2} \binom{n}{x}P^{x}Q^{n-x} & = & n(n-1)P^{2}(P + Q)^{n-2} + nP(P+Q)^{n-1} \nonumber
+\end{eqnarray}
+Putting $P=p$ and $Q=1-p$, we have
+\begin{equation}
+\sum_{x=0}^{n} x^{2} \binom{n}{x}p^{x}(1-p)^{n-x} & = & n(n-1)p^{2} + np\\
+\end{equation}
+Hence
+\begin{equation}
+Var[X] = n(n-1)p^{2} + np - n^{2}p^{2} = np(1-p)
+\end{equation}
+The moment generating function:
+\begin{eqnarray}
+M(t) = \mathbb{E}[e^{tX}] & = & \sum_{x=0}^{n} e^{tx} \binom{n}{x}p^{x}(1-p)^{n-x} \\
+& = & \sum_{x=0}^{n}  \binom{n}{x} (pe^{t})^{x}(1-p)^{n-x} \\
+& = & (1-p +pe^{t})^{n}
+\end{eqnarray}
 % Emacs 25.3.2 (Org mode 8.2.10)
 \end{document}
