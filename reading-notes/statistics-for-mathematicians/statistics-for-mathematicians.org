@@ -1,0 +1,38 @@
+#+TITLE: Notes on "Statistics for Mathematicians" by Victor M. Panaretos
+#+DATE: <2019-06-27 木>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+
+
+* About this note
+
+* Jargons
+
+* Chapter 1: Regular Probability Models
+#+BEGIN_QUOTE
+*Definition 1.1: Regular Parametric Probability Models*\\
+- $X$ : $\mathbb{R}$-valued random variable
+- $F_{\theta}$ : distribution function of $X$
+- $\theta$ : a parameter in $\Theta \subseteq \mathbb{R}^{p}$ (parameter space)
+
+The probability model $\{F_{\theta} : \theta \in \Theta\}$ will be calld /_regular_/ if one of the two following conditions holds:
+
+1. $\forall \theta  \in \Theta$, the distribution $F_{\theta}$ is continuous with density $f(x; \theta)$
+2. $\forall \theta  \in \Theta$, the distribution $F_{\theta}$ is discrete with probability mass function $f(x;\theta)$ such that $\sum_{x \in \mathbb{Z}} f(x;\theta) = 1$ for all $\theta \in \Theta$.
+#+END_QUOTE
+
+- The model $F_{\theta}$ cannot switch between continuous and discrete depending on the value of $\theta$.
+- $\mathcal{X} := \{x \in \mathbb{R}: f(x;\theta) > 0 \}$ is called the /_sample space_/ of $X$.
+
+** Discrete Regular Models
