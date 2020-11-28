@@ -1,0 +1,45 @@
+#+TITLE: Geometry Note
+#+DATE: <2020-11-28 土>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage{mymacros}
+
+
+* LQG propagator
+Attempts to calculate particle scattering in nonperturbative quantum gravity has been conducted by Carlo Rovelli (\ref{Rovelli_Modesto_particle_scattering_in_LQG}). All the scattering amplitudes can be derived from the $n$-point functions
+
+#+BEGIN_LaTeX latex
+\begin{equation}
+\label{}
+G(x_1, \ldots,x_n) = Z^{-1} \int D \phi \; \phi (x_1) \cdots \phi(x_n) \; e^{-iS[\phi]}
+\end{equation}
+#+END_LaTeX
+#+BEGIN_LaTeX latex
+\begin{equation}
+\label{}
+G^{abcd}(x,y) = \bra{0}h^{ab}(x)h^{cd}(y)\ket{0}
+\end{equation}
+#+END_LaTeX
+
+* The problem with Barrett-Crane Model
+
+#+BEGIN_LaTeX latex
+\begin{thebibliography}{10}
+\bibitem{Rovelli_Modesto_particle_scattering_in_LQG}
+Leonardo Modesto and Carlo Rovelli, Particle scattering in loop quantum gravity, arXiv:gr-qc/0502036v1
+\end{thebibliography}
+#+END_LaTeX
+
+
+

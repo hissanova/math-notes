@@ -1,0 +1,265 @@
+% Created 2020-11-28 ез 12:42
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[margin=1.0in]{geometry}
+\usepackage{mymacros}
+\author{hisanobu-nakamura}
+\date{\textit{<2020-11-28 ез>}}
+\title{GR Note}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{Differential geometry}
+\label{sec-1}
+\begin{Def}
+Torsion tensor
+\begin{equation}
+\label{ }
+\Theta (X,Y) := \nabla_{X}Y - \nabla_{Y} X - [X,Y]
+\end{equation}
+\end{Def}
+\begin{Def}
+Curvature tensor
+\begin{equation}
+\label{ }
+ R(X,Y)Z := \nabla_{X}\nabla_{Y}Z - \nabla_{Y} \nabla_{X}Z - \nabla_{[X,Y]}Z
+\end{equation}
+\end{Def}
+\begin{Def}
+Symmetrised Curvature tensor
+\begin{equation}
+\label{ }
+ R_S(W,X,Y,Z) := g(W,R(X,Y)Z)
+\end{equation}
+\end{Def}
+\begin{formula}
+Bianchi's first and second indentities
+\begin{equation}
+\label{ }
+ S(R(X,Y)Z) = S((\nabla_{X}\Theta) (Y,Z) + \Theta (\Theta (X,Y),Z))
+\end{equation}
+\begin{equation}
+\label{ }
+ S((\nabla_{X}R)(Y,Z) +R(\Theta(X,Y),Z)) = 0
+\end{equation}
+where $S$ is the symmetrisation in $X,Y,Z$.
+\end{formula}
+%% Proof of Biabchi's identities
+\begin{proof}
+ \begin{eqnarray*}
+ S(R(X,Y)Z)  & = & S(\nabla_{X}\nabla_{Y}Z - \nabla_{Y} \nabla_{X}Z - \nabla_{[X,Y]}Z )\\
+ & = &  S(\nabla_{X}(\nabla_{Y}Z - \nabla_{Y}Z) - \nabla_{[X,Y]}Z )\\
+ & = &  S(\nabla_{X}(\Theta (Y,Z)) +\nabla_{X}[Y,Z]- \nabla_{[Y,Z]}X - [X,[Y,Z]] )\\
+ & = &  S(\nabla_{X}(\Theta) (Y,Z) + \Theta (\nabla_{X}Y,Z) + \Theta (Y,\nabla_{X}Z) + \Theta (X,[Y,Z]) )\\
+ & = &  S(\nabla_{X}(\Theta) (Y,Z) + \Theta (\nabla_{X}Y - \nabla_{Y}X - [X,Y] ,Z)  )\\
+ & = &  S(\nabla_{X}(\Theta) (Y,Z) + \Theta (\Theta (X,Y),Z) )
+\end{eqnarray*}
+\end{proof}
+
+\section{Symmetry of spacetimes}
+\label{sec-2}
+\begin{Def}
+A Killing vector $X$ is a vector field, which satisfies the isometry condition,
+\begin{equation}
+\label{ }
+\mathcal{L}_X g = 0.
+\end{equation}
+\end{Def}
+\begin{eqnarray}
+ (\mathcal{L}_X g ) (V,W) & = & \mathcal{L}_X (g  (V,W)) - g (\mathcal{L}_X V,W) - g ( V,\mathcal{L}_XW) \nonumber \\
+ & = & \nabla_X (g  (V,W)) - g (\mathcal{L}_X V,W) - g ( V,\mathcal{L}_XW) \nonumber \\
+ & = &  g (\nabla_V X,W) + g ( V,\nabla_W X) \nonumber \\
+\end{eqnarray}
+for arbitrary vectors $V,W$. Hence, a Killing vector field $X$ must satisfy
+\begin{equation}
+\label{ }
+\nabla_{\mu} X_{\nu} + \nabla_{\nu}X_{\mu} = 0
+\end{equation}
+A propositon for the dimension of freedom of a Killing vector
+\begin{prop}
+ The dimension of the freedom of Killing vectors on a manifold with $\dim M = n$ is ,at most, $\frac{n(n+1)}{2}$ 
+\end{prop}
+\begin{prop}
+ If $X$, $Y$ are both Killing vectors, then so is $[X,Y]$.
+\end{prop}
+\begin{proof}
+\begin{equation}
+\label{ }
+\mathcal{L}_{[X,Y]}g = (\mathcal{L}_{X}\mathcal{L}_{Y}-\mathcal{L}_{Y}\mathcal{L}_{X})g  = 0
+\end{equation} 
+\end{proof}
+\section{Schwarzschild solution}
+\label{sec-3}
+The Schwarzschild metric 
+\begin{equation}
+\label{ }
+ds^2 = - \left( 1- \frac{2M}{r} \right) dt^2  + \frac{dr^2 }{ 1- \frac{2M}{r} } + r^2(d\theta^2 + \sin^2{\theta}d\phi^2)
+\end{equation}
+Non-vanishing Christoffel symbols are 
+\begin{eqnarray}
+&&\Gamma^{r}_{tt} = \frac{M}{r^2}\left(1-\frac{2M}{r}\right), \quad \Gamma^{t}_{rt} = \frac{M}{r(r-2M)}=- \Gamma^{r}_{rr},\quad \Gamma^{r}_{\theta \theta} = r-2M , \quad \Gamma^{r}_{\phi \phi} = -(r-2M)\sin^2{\theta}, \nonumber\\
+&&\Gamma^{\theta}_{r \theta} = \Gamma^{\phi}_{r \phi} = \frac{1}{r}, \quad \Gamma^{\theta}_{\phi \phi} = -\cos{\theta}\sin{\theta}, \quad \Gamma^{\phi}_{\theta \phi} = \cot{\theta} \nonumber
+\end{eqnarray}
+
+\subsection{Geodesics}
+\label{sec-3-1}
+The geodesic equations are:
+\begin{eqnarray}
+\frac{d^2t}{ds^2} & = & -2\Gamma^{t}_{tr} \frac{dt}{ds}\frac{dr}{ds} \\
+\frac{d^2r}{ds^2} & = & -\Gamma^{r}_{tt} \left(\frac{dt}{ds}\right)^2 -\Gamma^{r}_{rr} \left(\frac{dr}{ds}\right)^2 \Gamma^{r}_{\theta \theta} \left(\frac{d\theta}{ds}\right)^2 -\Gamma^{r}_{\phi \phi} \left(\frac{d\phi}{ds}\right)^2\\
+\frac{d^2\theta}{ds^2} & = & -2\Gamma^{\theta}_{r\theta} \frac{d\theta}{ds}\frac{dr}{ds}  - \Gamma^{\theta}_{\phi \phi} \left(\frac{d\theta}{ds}\right)^2\\
+\frac{d^2\phi}{ds^2} & = & -2\Gamma^{\phi}_{r\phi} \frac{d\phi}{ds}\frac{dr}{ds}  - 2\Gamma^{\phi}_{\theta \phi} \frac{d\theta}{ds}\frac{d\phi}{ds}
+\end{eqnarray}
+Abbreviation for the differentiation $\dot{t} := \frac{dt}{ds}$
+\begin{eqnarray}
+\ddot{t} & = & -\frac{2M}{r(r-2M)}\dot{t}\;\dot{r} \label{Schwarz_Geod1}\\
+\ddot{r} & = & -\frac{M}{r^2}\left(1-\frac{2M}{r}\right) \dot{t}^2 +\frac{M}{r(r-2M)} \dot{r}^2 -(r-2M)\;\dot{\theta}^2 - (r-2M)\sin^2{\theta}\;\dot{\phi}^2 \label{Schwarz_Geod2}\\
+\ddot{\theta} & = & -\frac{2}{r}\dot{r}\dot{\theta} + \cos{\theta}\sin{\theta} \;\dot{\phi}^2 \label{Schwarz_Geod3} \\
+\ddot{\phi} & = & -\frac{2}{r}\dot{r}\dot{\phi} -2 \cot{\theta} \;\dot{\theta}\dot{\phi} \label{Schwarz_Geod4}
+\end{eqnarray}
+(\ref{Schwarz_Geod3}) and (\ref{Schwarz_Geod4}) leads to a pair of angular momentum constants
+\begin{eqnarray}
+r^2\dot{\phi} + \frac{(r^2\dot{\theta})^2}{a} & = & b \\
+r^2 \sin^2{\theta} \; \dot{\phi} & = & a
+\end{eqnarray}
+where $a,b$ are constants. In particular, consider the initial condition $\theta_0 = \frac{\pi}{2}, \; \dot{\theta}_0 = 0$. Then $r^2_0 \dot{\phi}_0 =  a$ and substituting this to the first line, we have $a=b$. Now, equating the L.H.S. of the both equalities, we have 
+\begin{equation}
+\label{ }
+r^4\sin^2{\theta}\cos^2{\theta}\;\dot{\phi}^2 = -(r^2\dot{\theta})^2 
+\end{equation}
+which is only possible when $\theta(s) = \frac{\pi}{2}$ for all $s$, provided $a\ne 0$. In words, if a particle's $\theta$-component of the velocity is zero at $\theta = \frac{\pi}{2}$, then it will always remain so. This means that we can always choose a coordinates set where a given particle's geodosic is in the equatorial plane. Hence, it is sufficient to just think about those geodesics in the plane ($\theta=\frac{\pi}{2}$). Then the second line of the geodesic equations becomes
+\begin{equation}
+\label{ }
+\ddot{r}  =  -\frac{M}{r^2}\left(1-\frac{2M}{r}\right) \dot{t}^2 +\frac{M}{r(r-2M)} \dot{r}^2 - \frac{a^2}{r^4}(r-2M)
+\end{equation}
+\begin{eqnarray}
+\frac{\ddot{t}}{\dot{t}} & = & \left\{ \frac{1}{r} - \frac{1}{r-2M} \right\} \dot{r} \nonumber\\
+\dot{t} & = & \frac{k}{1-\frac{2M}{r}}
+\end{eqnarray}
+
+Notice that we can change the constant $k$ by reparametrising $s\mapsto s^{\prime} = cs$ for $c\ne 0$. 
+
+\subsection{Timelike geodesics}
+\label{sec-3-2}
+Geodesic of a particle of mass $m$
+\begin{eqnarray}
+-m &=& g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
+m & = &  \frac{k^2}{1-\frac{2M}{r}} - \frac{\dot{r}^2}{1-\frac{2M}{r}} - \frac{a^2}{r^2} \nonumber\\
+\dot{r}^2 & = & k^2 - m\left(1 - \frac{2M}{r} \right)- \frac{a^2}{r^2} \left(1 - \frac{2M}{r} \right) \label{Time_geodesic}
+\end{eqnarray}
+By the remark mentioned above, we can set $k=\sqrt{m}$. Then, the equation becomes
+ \begin{equation}
+\label{ }
+m\dot{r}^2  =   \frac{2mM}{r} - \frac{a^2}{r^2} \left(1 - \frac{2M}{r} \right)
+\end{equation}
+Or we can use the relation $\frac{dr}{d\phi}=\frac{\dot{r}}{\dot{\phi}}=\frac{r^2\dot{r}}{a}$ and $u=\frac{1}{r}$, $\frac{du}{d\phi} = -\frac{1}{r^2}\frac{dr}{d\phi}$ to rewrite (\ref{Time_geodesic}),
+\begin{equation}
+\label{ Schwarz_Geo_Kinematic1}
+\left( \frac{du}{d\phi} \right)^2  =  \frac{k^2 - m}{a^2} - \frac{2M}{a^2}u - u^2 \left(1 - 2Mu \right).
+\end{equation}
+The right hand side (\ref{Schwarz_Geo_Kinematic1}) can be factorise so that the equation becomes
+\begin{equation}
+\label{ Schwarz_Geo_Kinematic2}
+\left( \frac{du}{d\phi} \right)^2  =  2M(u-u_1)(u-u_2)(u-u_3).
+\end{equation}
+And this can be integrated to give the inverse elliptic function
+\begin{equation}
+\label{ Schwarz_Geo_Kinematic2}
+\phi - \phi_0 = \int_{u_0}^{u} \frac{du'}{\sqrt{(u'-u_1)(u'-u_2)(u'-u_3)}}.
+\end{equation}
+
+\subsection{Null geodesics}
+\label{sec-3-3}
+Null geodesics are:
+\begin{eqnarray}
+0 &=& g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
+\dot{r}^2  &=&  k^2 - \frac{a^2}{r^2} + \frac{2Ma^2}{r^3}
+\end{eqnarray}
+
+\section{Splitting of spacetime manifold \$ M $\simeq$ \R \texttimes{} $\sigma$\$}
+\label{sec-4}
+Lorentzian manifold \$(M,g)\$\\
+A connection $\nabla : TM \rightarrow T^*M\times TM$ compatible with $g$.\\
+The definition of compatibility:
+\begin{eqnarray}
+\nabla_{X}(g(Y,Z)) & = & g(\nabla_{X}Y,Z) +  g(Y,\nabla_{X}Z)\\
+\end{eqnarray}
+The relation with Lie derivative (torsion free condition)
+\begin{equation}
+\label{Lie_Cov}
+\nabla_{X}Y -\nabla_{Y}X  =  [X,Y] = \mathcal{L}_{X} Y
+\end{equation}
+Hyperbolicity condition $M \simeq \R \times \sigma$ where $\sigma$ is a 3-D manifold.
+Let $n$ be a unit normal ($g(n,n) = -1$) to $Im(\sigma)$ in $M$ 
+\begin{Def}
+Internal metric $q_{\mu \nu}$ and extrinsic curvature $K_{\mu \nu}$
+\begin{eqnarray}
+q_{\mu \nu} & := & g_{\mu \nu} +  n_\mu n_\nu\\
+K_{\mu \nu}& := & q_{\mu}^{\rho}q_{\nu}^{\sigma}\nabla_{\rho}n_{\sigma}
+\end{eqnarray}
+\end{Def}
+\begin{eqnarray}
+2K_{\mu \nu}& = & q_{\mu}^{\rho}q_{\nu}^{\sigma}2\nabla_{(\rho}n_{\sigma)} \nonumber \\
+                        & = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} g)_{\rho \sigma} = q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q + s\mathcal{L}_{n}n\otimes n)_{\rho \sigma} \nonumber \\
+                        & = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q)_{\rho \sigma} = (\mathcal{L}_{n} q)_{\mu \nu}
+\end{eqnarray}
+We can regard $q_{\mu}^{\rho}$ as a vector field $q_{\mu}=q_{\mu}^{\rho}\partial_{\rho}$. Then,
+\begin{eqnarray*}
+d(g(q_{\mu},q_{\nu}))(n) & = & \nabla_{n}(g(q_{\mu},q_{\nu}))  =  g(\nabla_{n}q_{\mu},q_{\nu}) +  g(q_{\mu},\nabla_{n}q_{\nu})\\
+                                                & = & g(\nabla_{q_{\mu}}n,q_{\nu}) +  g(q_{\mu},\nabla_{q_{\nu}}n) + g(\mathcal{L}_{n} q_{\mu},q_{\nu}) + g(q_{\mu},\mathcal{L}_{n} q_{\nu})
+\end{eqnarray*}
+Here, we used (\ref{Lie_Cov}) with \$$\nabla$$_{\text{n}}$q$_{\mu}$ = $\nabla$$_{\text{q}_{\mu}}$n + \mathcal{L}$_{\text{n}}$q$_{\mu}$\$\\
+Comparing with
+\begin{eqnarray*}
+d(g(q_{\mu},q_{\nu}))(n) & = & \mathcal{L}_{n}(g(q_{\mu},q_{\nu}))  =  (\mathcal{L}_{n} g)(q_{\mu},q_{\nu}) +  g(\mathcal{L}_{n} q_{\mu},q_{\nu}) + g(q_{\mu},\mathcal{L}_{n} q_{\nu})
+\end{eqnarray*}
+we see
+\begin{equation}
+\label{ }
+(\mathcal{L}_{n} g)(q_{\mu},q_{\nu}) = g(\nabla_{q_{\mu}}n,q_{\nu}) +  g(q_{\mu},\nabla_{q_{\nu}}n) 
+\end{equation}
+or in indices
+\begin{equation}
+\label{ }
+(\mathcal{L}_{n} g)_{\rho \sigma}q_{\mu}^{\rho}q_{\nu}^{\sigma} = q_{\mu}^{\rho}q_{\nu}^{\sigma} (\nabla_{\rho}n_{\sigma} +  \nabla_{\sigma}n_{\rho}) 
+\end{equation}
+In words, this is the change of $q_{\mu \nu}$ along $n^{\mu}$ projected to the tangent subspace of $\sigma$ in $M$.
+\section{2+1 dimensional gravity}
+\label{sec-5}
+\subsection{Angle between two spacelike planes(faces)}
+\label{sec-5-1}
+Let $S_1$, $S_2$ be two spacelike faces in 3-D Minkowski spacetime and $n_1$ and $n_2$ be their unit normals respectively. Then we can write $n_i = (\cosh{\theta_i},\sinh{\theta_i}\cos{\phi_i},\sinh{\theta_i}\sin{\phi_i})$. The inner product is
+\begin{eqnarray}
+n_1\cdot n_2 & = &  \cosh{\theta_1}\cosh{\theta_2} - \cos{\phi}\sinh{\theta_1}\sinh{\theta_2}\nonumber
+\end{eqnarray}
+This number can be interpreted as the timelike component of the image of the unit vector under a boost relative to the observer comoving with $n_1$. That is, the vector
+\begin{eqnarray}
+\label{}
+n_3 &:=& \MatThree{\cosh{\theta_1}}{-\sinh{\theta_1}}{0}{-\sinh{\theta_1}}{\cosh{\theta_1}}{0}{0}{0}{1}\MatThree{1}{0}{0}{0}{\cos{\phi_1}}{\sin{\phi_1}}{0}{-\sin{\phi_1}}{\cos{\phi_1}} n_2 \nonumber\\
+\clmnVsan{\cosh{\theta_3}}{\sinh{\theta_3}\cos{\phi_3}}{\sinh{\theta_3}\sin{\phi_3}}&=& \clmnVsan{\cosh{\theta_1}\cosh{\theta_2} - \cos{\phi}\sinh{\theta_1}\sinh{\theta_2}}{-\sinh{\theta_1}\cosh{\theta_2}+\cos{\phi}\cosh{\theta_1}\sinh{\theta_2}}{\sin{\phi}\sinh{\theta_2}}
+\end{eqnarray}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}

@@ -1,0 +1,144 @@
+% Created 2020-11-28 土 11:39
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[margin=1.0in]{geometry}
+\usepackage{mymacros}
+\author{hisanobu-nakamura}
+\date{\textit{<2020-11-28 土>}}
+\title{Notes on BF theories}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{BF-Theory in D dimensions}
+\label{sec-1}
+Let $M$ be a D dimensional manifold, G be a finite dimanesional Lie group and $\mathfrak{g}$ the corresponding Lie algebra. Let $\omega$ be a $\mathfrak{g}$-valued connection on $M$ and $F(\omega) = d\omega + \omega \wedge \omega$ its corresponding curvature. We also introduce another $\mathfrak{g}$-valued (D-2)-form $B$. Then BF-theory is defined by the following action integral,
+\begin{equation}
+\label{}
+I_{BF} = \int_{M}tr B\wedge F(\omega)
+\end{equation}
+where $tr$ is the Killing form of the Lie algebra $\mathfrak{g}$. It is a topological field theory, in the sense that the action does not depend on the metrical structure of the base manifold $M$. Since the case $D = 3$ is equivalent to the first order formalism of the gravitational theory, the model has been studied intensively so far and some results are known. 
+\begin{table}[htb]
+  \centering 
+  \caption{Ingredients of BF Theory}\label{}
+  \begin{tabular}{|l|c|c|}
+\hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+  $M$ & Base manifold & $D$ dimensional  \\
+  $G$ & compact Lie group &  usually $SO(D)$ or $SO(D-1,1)$\\
+  $P$ & principal fibre bundle over $M$ with principal group $G$ & \\
+  $\mathfrak{g}$ & Lie algebra of $G$ &  \\
+  $\omega$ & $\mathfrak{g}$-valued connection & \\
+  $F(\omega)$ & the curvature of $\omega$ & $F= d\omega + \omega \wedge \omega$\\
+  $B$ & $\mathfrak{g}$-valued $(D-2)$-form & \\
+\hline
+\end{tabular}
+\end{table} 
+
+\section{3D gravity}
+\label{sec-2}
+\subsection{Second order formalism}
+\label{sec-2-1}
+$g \in sym(T^*M \bigotimes T^*M)$ or $g:TM \bigotimes TM \rightarrow C(M)$. In local coordinates $x^{\mu}$, $g = g_{\mu\nu} dx^{\mu}dx^{\nu}$. $g$ is assumed to be non-degenerate at all points in $M$.
+\begin{equation}
+\label{}
+I_{EH} = \int_{M}\sqrt{|g|}R(g)
+\end{equation}
+\subsection{Fisrt order formalism}
+\label{sec-2-2}
+Consider a tirad $e = e_{\mu}^{I}\tau_{I}dx^{\mu}$. The indices $I=1,2,3$ are thought to be the coordinates of the inner gauge symmetry and $\tau_{I} = \frac{i}{2} \sigma_{I}$ where $\sigma_{I}$ are the Pauli Matrices. There are nine free variables $e_{\mu}^{I}$.
+
+\section{4D Gravity}
+\label{sec-3}
+\subsection{Bivectors in 4-D and Simplicity Condition}
+\label{sec-3-1}
+\begin{equation}
+\label{}
+I_{PAL} = \int_{M}tr \left[ B\wedge F(\omega) \right] - \lambda_{IJKL} B^{IJ}B^{KL}
+\end{equation}
+\begin{thm}
+Assume that $e^1, e^2, e^3, e^4$ span $\R^4$. A bivector $B = B_{\mu \nu} e^{\mu}\wedge e^{\nu}$ with $B_{\mu \nu} \in \R$, can be written as a sum of at most two wedge products of vectors which are linearly independent. In other words, it is either
+\begin{equation}
+\label{}
+B = u^1 \wedge v^1 + u^2 \wedge v^2
+\end{equation}
+for some linearly independent vectors $u^1,u^2,v^1,v^2$ or
+\begin{equation}
+\label{}
+B = u \wedge v
+\end{equation}
+for some linearly independent vectors $u,v$. In the latter case, B is said to be simple.
+\end{thm}
+\begin{proof}
+First, let us collect as many terms with the same index in the left subscript as possible, say starting with subscripts containing 1 and 2.
+\begin{eqnarray}
+B & = & B_{\mu \nu} e^{\mu}\wedge e^{\nu} \nonumber\\
+ & = & e^{1}\wedge (B_{12} e^{2}+B_{13} e^{3}+B_{14} e^{4}) +  e^{2}\wedge ( B_{23} e^{3}+B_{24} e^{4}) + B_{34}e^3 \wedge e^4 \nonumber\\
+ & = & e^{1}\wedge e^{\prime 1} +  e^{2}\wedge e^{\prime 2} + B_{34} e^3 \wedge e^4 \nonumber\\
+\end{eqnarray}
+Since $e^1, e^2, e^3, e^4$ are linearly independent, so are the vectors $e^1, e^{\prime 1}, e^2, e^{\prime 2}$. Now
+\begin{equation}
+\label{}
+e^{\prime 1}\wedge e^{\prime 2} = B_{12} e^2 \wedge e^{\prime 2} + C_{12;34} e^3 \wedge e^4.
+\end{equation}
+Here $C_{12;34}:= B_{13}B_{24} - B_{14}B_{23}$.\\
+If $C_{12;34}\ne 0 $,
+\begin{equation}
+\label{}
+e^3 \wedge e^4 = \frac{1}{C_{12;34}}\left(e^{\prime 1}\wedge e^{\prime 2} - B_{12}e^{2}\wedge e^{\prime 2}\right)
+\end{equation}
+then
+\begin{equation}
+\label{}
+B = \left( e^1 - \frac{B_{34}}{C_{12;34}}e^{\prime 2}\right) \wedge e^{\prime 1} + \left( 1 - \frac{B_{12}B_{34}}{C_{12;34}}\right)e^{ 2} \wedge e^{\prime 2} = u^1 \wedge v^1 + u^2 \wedge v^2
+\end{equation}
+where we have defined $u^1=\left( e^1 - \frac{B_{34}}{C_{12;34}}e^{\prime 2}\right),u^2=e^{\prime 1},v^1=\left( 1 - \frac{B_{12}B_{34}}{C_{12;34}}\right)e^{ 2},v^2=e^{\prime 2}$.\\
+If $C_{12;34} = 0$, we can look for other pairs of indeces to find one $ij$ with $C_{ij;kl}\ne 0$ and then we can apply the same process as described above. Otherwise, we have $C_{ij;kl} = 0$ for all $ij$. In this case $B$ is a simple bivector. To see this, let us list the coefficients $B_{\mu \nu}$ as the entries of an anti-symmetric matrix
+\begin{equation}
+\label{}
+\left(\begin{array}{cccc}0 & B_{12} & B_{13} & B_{14} \\B_{21} & 0 & B_{23} & B_{34} \\B_{31} & B_{32} & 0 & B_{34} \\B_{41} & B_{42} & B_{43} & 0\end{array}\right)
+\end{equation}
+with $B_{\mu \nu} = -B_{\nu \mu}$. Then $C_{ij;kl} = 0$ implies that
+\begin{equation}
+\label{}
+\left(\begin{array}{cccc}0 & B_{12} & B_{13} & B_{14} \\B_{21} & 0 & k_1B_{13} & k_1B_{14} \\B_{31} & k_2B_{12} & 0 & k_2B_{14} \\B_{41} & k_3B_{12} & k_3B_{43} & 0\end{array}\right)
+\end{equation}
+for some constants $k_1,k_2,k_3$. Then, from the anti-symmetry, we have
+\begin{equation}
+\label{ }
+\begin{cases}
+    k_1B_{13}  &= -k_2B_{12} \text{ } \\
+    k_1B_{14}  &= -k_3B_{12} \text{} \\
+    k_2B_{14}  &= -k_3B_{13}.
+\end{cases}
+\end{equation}
+Hence, $k_1B_{13}=k_1B_{14}=k_2B_{14}=0$, which implies that
+\begin{equation}
+\label{}
+B = e^1 \wedge B_{1\mu} e^{\mu} = u\wedge v.
+\end{equation}
+\end{proof}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}
