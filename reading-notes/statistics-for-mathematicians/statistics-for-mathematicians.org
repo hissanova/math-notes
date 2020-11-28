@@ -5,7 +5,7 @@
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
 #+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
-#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
 #+CREATOR: Emacs 25.3.2 (Org mode 8.2.10)
 #+DESCRIPTION:
 #+EXCLUDE_TAGS: noexport
@@ -13,13 +13,8 @@
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 
-
-
-* About this note
-
-* Jargons
-
 * Chapter 1: Regular Probability Models
+
 #+BEGIN_QUOTE
 *Definition 1.1: Regular Parametric Probability Models*\\
 - $X$ : $\mathbb{R}$-valued random variable
@@ -41,25 +36,26 @@ The probability model $\{F_{\theta} : \theta \in \Theta\}$ will be calld /_regul
 A random variable $X$ is said to follow the binomial distribution with parameters $p \in (0,1)$ and $n \in \mathbb{N}$, denoted $X \sim Binom(n,p)$, if
 
 1. $\mathcal{X} = \{0, \ldots ,n\}$,
-2. $\displaystyle f(x;n,p) = \binom{n}{p}p^{x}(1-p)^{n-x}$.
+2. $\displaystyle f(x;n,p) = \left( n \atop p\right) \binom{n}{p}p^{x}(1-p)^{n-x}$.
 #+END_QUOTE
-- The mean: $\mathbb{E}[X] = np$
-- The variance: $Var[X] = np(1-p)$
-- The moment genrating function: $M(t) = (1- p + pe^{t})^{n}$
+
+- The mean:  $\mathbb{E}[X] = np$         
+- The variance:  $Var[X] = np(1-p)$ 
+- The moment generating function:  $M(t) = (1- p + pe^{t})^{n}$
 
 *Derivations*\\
 The mean:
 \begin{eqnarray}
 \mathbb{E}[X]  & = & \sum_{x=0}^{n} x \binom{n}{x}p^{x}(1-p)^{n-x}\\
                & = & \sum_{x=1}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x}\\
-               & = & p \sum_{x=1}^{n} x \binom{n}{x} p^{x-1}(1-p)^{n-x}\\
+               & = & p \sum_{x=1}^{n} x \binom{n}{x} p^{x-1}(1-p)^{n-x}
 \end{eqnarray}
 Consider the following polynomial's derivative with respect to $P$
 \begin{eqnarray}
 (P + Q)^{n} & = & \sum_{x=0}^{n} \binom{n}{x}P^{x}Q^{n-x}\\
 \frac{\partial}{\partial P}(P + Q)^{n} & = & n(P + Q)^{n-1} = \sum_{x=0}^{n} x \binom{n}{x}P^{x-1}Q^{n-x} \\
                                        & = & \frac{1}{P} \left( \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\right)\\
- nP(P + Q)^{n-1} & = &  \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\\
+ nP(P + Q)^{n-1} & = &  \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}
 \end{eqnarray}
 Putting $P=p$ and $Q=1-p$, we have
 \begin{equation}

@@ -1,0 +1,363 @@
+% Created 2020-11-28 土 10:59
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[margin=1.0in]{geometry}
+\usepackage{mymacros}
+\newcommand{\AntiSymBiLinear}[2]{\Lambda^{#1}(\R^{#2})}
+\newcommand{\WedgeProdComponent}[4]{{#1}_{#3} {#2}_{#4} -  {#1}_{#4} {#2}_{#3}}
+\author{hisanobu-nakamura}
+\date{\textit{<2020-11-28 土>}}
+\title{Geometry Note}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+
+\section{Euclidean Space $\R^4$}
+\label{sec-1}
+Let \$M $\subset$ Mat(2,\C) \$ be a set of all the matices of the form $\left(\begin{array}{cc}u & v \\-\bar{v} & \bar{u}\end{array}\right)$. Note that $M$ is closed under the usual matirx multiplication. Let us consider an identification of $\x = (x,y,z,w) \in \R^4$ with a matrix \$\mathbf{X} $\in$ M \$ given by
+\begin{equation}
+\label{}
+\x = (x,y,z,w) \leftrightarrow \bf{X} = \left(\begin{array}{cc}u & v \\-\bar{v} & \bar{u}\end{array}\right)
+\end{equation}
+where $u = x +iy$ and $v = z + iw$. Then the Euclidean metric is given by
+\begin{equation}
+\label{}
+||\x||^2 = \det (\mathbf{XX}^{\dagger} ) = |u|^2 + |v|^2
+\end{equation}
+For $a,b \in SU(2)$, we define a transformation $R[a,b]$
+\begin{equation}
+\label{}
+\mathbf{X}^{\prime} = R[a,b] (\mathbf{X}) := a\mathbf{X} b = \left(\begin{array}{cc}u^{\prime} & v^{\prime}  \\-\bar{v}^{\prime}  & \bar{u}^{\prime} \end{array}\right) \in M.
+\end{equation}
+Since an element $a \in SU(2)$ can be written as $a = \left(\begin{array}{cc}\alpha & \beta  \\-\bar{\alpha}  & \bar{\beta} \end{array}\right)$ with $|\alpha|^2 + |\beta|^2 = 1$.
+This transformation preserves the length
+\begin{equation}
+\label{}
+||\x^{\prime}|| = \det (\mathbf{X^{\prime}}\mathbf{X^{\prime}}^{\dagger} ) = \det (a\mathbf{X}bb^{\dagger}\mathbf{X}^{\dagger} a^{\dagger} ) = \det (\mathbf{XX}^{\dagger} ) = ||\x||^2 
+\end{equation}
+
+\subsection{Bivectors on $\R^4$}
+\label{sec-1-1}
+We will here consider about the correspondence between the space $\R^4 \oplus \R^4$ and the anti-symmetric bilinear forms $\AntiSymBiLinear{2}{4}$. An element $\omega$ of $\AntiSymBiLinear{2}{4}$
+\begin{equation}
+ \omega = \omega_{12} e^1 \wedge e^2 + \cdots  
+\end{equation}
+Let us consider the map
+\begin{eqnarray}
+ \wedge : \R^4 \oplus \R^4 \rightarrow \AntiSymBiLinear{2}{4} \\
+ (u, v) \in \R^4 \oplus \R^4 \mapsto u \wedge v
+\end{eqnarray}
+What is the kernel of $\wedge$, $\ker (\wedge)$?\\
+Let us start with the case where we are given a vector $u$ and to determine $v$ such that $u \wedge v = 0$. Assume $u \wedge v = 0$ for some $u \ne 0$, then $u \wedge v = 0$ means
+\begin{equation}
+ \left(
+        \begin{array}{cccc}
+                0 & \WedgeProdComponent{u}{v}{2}{3} & \WedgeProdComponent{u}{v}{3}{1} & \WedgeProdComponent{u}{v}{1}{2} \\
+                \WedgeProdComponent{u}{v}{3}{2} & 0 & \WedgeProdComponent{u}{v}{0}{3} & \WedgeProdComponent{u}{v}{0}{2} \\
+                \WedgeProdComponent{u}{v}{1}{3}& \WedgeProdComponent{u}{v}{1}{0} & 0 & \WedgeProdComponent{u}{v}{0}{1} \\
+                \WedgeProdComponent{u}{v}{2}{1} & \WedgeProdComponent{u}{v}{2}{0} & \WedgeProdComponent{u}{v}{1}{0} & 0
+        \end{array}
+ \right)
+\end{equation}
+Assuming $u_0 \ne 0$, we have
+\begin{equation}
+ v_i = \frac{v_0}{u_0} u_i,
+\end{equation}
+which means $u \parallel v$.
+
+\section{Convex Polytopes in $\R^n$}
+\label{sec-2}
+Definition ,due to Coxeter, of convex polygons in $\R^2$ is given by setting n triplets of numbers $(a_i,b_i,c_i)$ with $c_i>0$ and any two vectors $(a_i,b_i)$ being indepndent and taking the points $(x,y) \in \R$ satisfying $a_ix +b_i y\le c_i$ for all $i=1,\cdots,n$.
+\par
+We are going to work in n dimensional Euclidean spaces $\R$ with the standard inner product: for $x=(x_1,\cdots, x_n), \; y=(y_1,\cdots,y_n)$, $(x,y) :=\sum_{i=1}^{n} x_i y_i$.
+\begin{Def}
+ For $0\le k \le n$, $k+1$-tuple of vectors $v_i \in \R^n, \; i=0,1,\cdots,k$ are said to be non-coplanar or planarily independent, if, fixing any one of them, say $v_i$, the vectors $\{v_{ji}:=v_j -v_i|j=0,\cdots,k,i\ne j\}$ are linearly independent.
+\end{Def}
+One only has to check the linear indepedence of $v_{ij}$ for one fixed index $j$ since, if they are, it is true for other values of $j$ as well.
+\begin{Def}
+Given $k+1$-tuple of planarily independent vectors $v_i \in \R^n, \; i=0,1,\cdots,k$, we define a k-simplex as follows:
+\begin{equation}
+\label{}
+\sigma_k = [v_0,v_1,\cdots,v_k] := \Big\{ \sum_{i=0}^{k} a_i v_i | \sum_{0}^{n} a_i = 1, \; \forall a_i >0  \Big\}
+\end{equation}
+\end{Def}
+\begin{Def}
+The barycentre $\hat{\sigma}_k$ of $\sigma_k = [v_0,v_1,\cdots,v_k] $
+\begin{equation}
+\label{}
+\hat{\sigma}_k := \frac{1}{k+1} \sum_{i=0}^{k} v_i 
+\end{equation}
+\end{Def}
+
+\subsection{Regular Simplices}
+\label{sec-2-1}
+Let us denote the truncation of a real number $a\in \R$ to $\tilde v = (v_1, \cdots, v_{n}) \in \R^{n}$ by $(a;\tilde v) := (a,v_1, \cdots, v_n) \in \R^{n+1}$
+\begin{Def}
+ We assume that the vectors of an n-simplex $\sigma_n = [v_0,v_1,\cdots,v_n]$ satisfies the following conditions: (1) $||v_i||=1$, (2) $\sum_{i=0}^{n}v_i=0$, (3) $||v_i - v_j|| = c$ for some constant $c$ when $i\ne j$. Then $sigma_n$ is called a regular n-simplex and denoted as $\Delta_n$
+\end{Def}
+For $n=1$, we define $v_0 = -1, \; v_1 = 1$ and $\Delta_1 := [-1,1]$. For $n\ge 2$, by choosing $v_0 = (1,0,\cdots,0)\in \R^n$, we can give explicit coordinates by induction on dimensions as follows. We can see this because (1) and (3) imply $<v_i,v_j> = k, (i\ne j)$ where $k=1-\frac{c^2}{2}$. Then by (2),
+\begin{eqnarray}
+v_0 & = & - \sum_{i=1}^{n}v_i \nonumber \\
+<v_0,v_0> & = & - \sum_{i=0}^{n} <v_0,v_i> \nonumber \\
+1 &=& - nk \nonumber
+\end{eqnarray}
+Hence, $k=-\frac{1}{n}$ and $v_i = (-\frac{1}{n};\tilde{v_i})$ where $\tilde{v_i}\in \R^{n-1}, \; ||\tilde{v_i}|| = \frac{\sqrt{n^2-1}}{n}$. Actually, denoting the $i$-th vertices of $\Delta_n$ as $v(n;i)$, we can write it as 
+\begin{equation}
+\label{}
+v(n;0) = (1,0,\cdots,0), \quad v(n;i) = (-\frac{1}{n}, -\frac{\sqrt{n^2-1}}{n} v(n-1;i-1)).
+\end{equation}
+\begin{exa}[$\Delta_2$, regular triangle]
+ \begin{equation}
+\label{}
+v(2;0) = (1,0), \; v(2;1)=  \left( -\frac{1}{2}, \frac{\sqrt{3}}{2}\right) , \; v(2;2)=  \left( -\frac{1}{2}, -\frac{\sqrt{3}}{2}\right)
+\end{equation}
+\end{exa}
+\begin{exa}[$\Delta_3$, regular tetrahedron]
+\begin{eqnarray}
+v(3;0) & = & (1,0,0)  \nonumber\\
+v(3;1) & = & \left(-\frac{1}{3}, \frac{2\sqrt{2}}{3},0\right) \nonumber\\
+v(3;2,3) &=& \left(-\frac{1}{3}, -\frac{\sqrt{2}}{3},\pm \sqrt{\frac{2}{3}}\right) \nonumber
+\end{eqnarray}
+\end{exa}
+\begin{exa}[$\Delta_4$, regular pentachoron]
+\begin{eqnarray}
+v(4;0) & = & (1,0,0,0)  \nonumber\\
+v(4;1) & = & \left(-\frac{1}{4}, \frac{\sqrt{15}}{4},0,0\right) \nonumber\\
+v(4;2) &=& \left(-\frac{1}{4}, -\frac{1}{4}\sqrt{\frac{5}{3}}, \sqrt{\frac{5}{6}},0\right) \nonumber\\
+v(4;3,4) &=& \left(-\frac{1}{4}, -\frac{1}{4}\sqrt{\frac{5}{3}}, -\frac{1}{2}\sqrt{\frac{5}{6}},\pm \frac{1}{2}\sqrt{\frac{5}{6}}\right) \nonumber
+\end{eqnarray}
+\end{exa}
+
+\subsection{Coordinates of the Regular Icosahedron and Dodecahedron}
+\label{sec-2-2}
+We want to calculate the coordinates of an icosaheron whose vertices are on the unit sphere. with respect to rectangular axes. Let us assume the centre coincides with the origin and one antipodal pair of the vertices is placed on the z-axis. Also, we place one of the vertices adjacent to the north pole $N = (0,0,1)$ to be in the first quarter of $xz$-plane. Call this point $A(a_1,0,a_3)$. To obtain its coordinates, we need to know the proportion of the pentagonal pyramid first. The length of its ridges are equal to the sides of the regular petagon at the base. Hence, the height of the pyramid can be calculated if we know the ratio between the radius of the circumscribing circle of the pentagon and its sides. To do this, let us consider a pentagon on a unit circle. The fifth roots of 1 can be obtained as complex solutions to the equation
+\begin{equation}
+\label{}
+x^5 - 1=0.
+\end{equation}
+Then, by factorising, 
+\begin{eqnarray}
+x^5 - 1 & = & (x-1)(x^4 + x^3 + x^2 + x + 1) \nonumber \\
+ & = &  (x-1)(x^2 + \frac{1-\sqrt{5}}{2}x + 1)(x^2 + \frac{1+\sqrt{5}}{2}x + 1) \nonumber\\
+ & = &  (x-1)(x^2 + \alpha x + 1)(x^2 + \beta x + 1) \nonumber
+\end{eqnarray}
+where $\alpha, \beta$ are the solutions of the quadratic equation
+\begin{equation}
+\label{}
+x^2 +x -1 = 0,
+\end{equation}
+and satisfiy the relations
+\begin{equation}
+\label{}
+\alpha + \beta = 1, \quad \alpha  \beta = -1.
+\end{equation}
+Using these relations, one can calculate the other roots as
+\begin{eqnarray}
+e_0 & = & 1  \\
+e_{1,2} & = & \frac{1}{2}(-\alpha \pm i\sqrt{\alpha + 3}) = e^{\pm\frac{2\pi}{5}i} \\
+e_{1,2} & = & \frac{1}{2}(-\beta \pm i\sqrt{\beta + 3}) = e^{\pm\frac{4\pi}{5}i}
+\end{eqnarray}
+The distance $\gamma$ between vertices is (noting that $\cos^2{\frac{\theta}{2}} = \frac{1+ \cos{\theta}}{2}$)
+\begin{equation}
+\label{}
+\gamma_ = 2\cos{\frac{\pi}{5}} = \sqrt{2\left( 1 - \cos{\frac{2\pi}{5}}\right)} = \sqrt{\frac{5-\sqrt{5}}{2}}
+\end{equation}
+Since $5-\sqrt{5}>2$, $\gamma >1$. If the sides of the pentagon is of length $1$, the radius of the circumscribing circle is $g:=\frac{1}{\gamma} = \sqrt{\frac{5+\sqrt{5}}{10}}$, and then the height, $h$ of the pyramid is
+\begin{equation}
+\label{}
+h := \sqrt{1-\frac{1}{\gamma^2}} = \sqrt{\frac{5-\sqrt{5}}{10}} 
+\end{equation}
+Next, we apply this result to our icosahedron. Let denote the perpendicular projection of $A$ onto the $z$-axis as $H$, the midpoint of the segment $NA$ as $M$. Then $\triangle NOM \sim \triangle NAH$. From this, we have $A(2g^2-1, 0, 2gh)$. The rest of the vertices of the base pentagon of the pyramid are obtained by successively rotating $A$ with the increment $\frac{2\pi}{5}$ about the $z$-axis, which make up the six vertices of the northern hemisphere together with the north pole. The other half of the antipodal vertices are just the images of these points under the reflections about the origin.
+\par
+Next, let us denote the barycentre of the triangle face adjacent to $NA$ as $P$. Then the height of P from the base the pyramid is $\frac{2h^2}{3}$ and $PM = \frac{h}{\sqrt{3}}$, hence $OP = \sqrt{g^2 - \frac{h^2}{3}} = \sqrt{\frac{4g^2-1}{3}} =:R$ and this point's $z$-coordinate is $a_3 + \frac{2h^2}{3} = \frac{4g^2-1}{3}=R^2$
+
+\subsection{Riemann Sphere and Polyhedra}
+\label{sec-2-3}
+Riemann sphere $S=\{(\xi,\eta,\zeta)\in \mathbb{R}^3| \xi^2 +\eta^2+\zeta^2 = 1\}$. \\
+The stereographic projection $P_{N}:S-\{(0,0,1)\} \rightarrow \C$
+\begin{equation}
+\label{}
+P_{N}:(\xi,\eta,\zeta) \mapsto x+iy = \frac{\xi}{1-\zeta} + i\frac{\eta}{1-\zeta} = \frac{\xi+i\eta}{1-\zeta}
+\end{equation}
+The inverse map is
+\begin{equation}
+\label{}
+P_{N}^{-1}: x+iy \mapsto \left(\frac{2x}{x^2+y^2+1},\frac{2y}{x^2+y^2+1},\frac{x^2+y^2-1}{x^2+y^2+1} \right)
+\end{equation}
+Moebius transformation $M(z)$ is defined by four complex numbers $a,b,c,d$ as
+\begin{equation}
+\label{}
+M(z) := \frac{az+b}{cz+d}
+\end{equation}
+with $ad -bc \ne 0$.\\
+
+\begin{itemize}
+%--- item1 ---%
+  \item 
+  Diametric point of $(\xi,\eta,\zeta)$ is $(-\xi,-\eta,-\zeta)$. Hence
+\begin{equation}
+\label{}
+w = \frac{-\xi-i\eta}{1-\zeta}
+\end{equation}
+Then, $w\bar z = -1$. Hence, if $z = re^{i\theta}$, then
+\begin{equation}
+\label{}
+w = -\frac{1}{\bar z} = \frac{1}{r}e^{i(\theta + \pi)}
+\end{equation}
+%--- item2 ---%
+  \item 
+  Rotation about $z$-axes by angle $\alpha$:
+\begin{equation}
+\label{}
+w = e^{i\alpha} z.
+\end{equation}
+  %--- item3 ---%
+  \item rotation by angle $\alpha$ that leaves $(\xi,\eta,\zeta)$ and $(-\xi,-\eta,-\zeta)$ invariant:\\
+first, a map that sends $(\xi,\eta,\zeta)$ to $\infty$ and $(-\xi,-\eta,-\zeta)$ to $0$
+\begin{equation}
+\label{}
+C\frac{z + \frac{\xi+i\eta}{1-\zeta}}{z - \frac{\xi+i\eta}{1-\zeta}}
+\end{equation}
+second, if $w$ is the image of $z$ then
+ \begin{equation}
+\label{}
+\frac{w + \frac{\xi+i\eta}{1-\zeta}}{w - \frac{\xi+i\eta}{1-\zeta}} = e^{i\alpha}\frac{z + \frac{\xi+i\eta}{1-\zeta}}{z - \frac{\xi+i\eta}{1-\zeta}}
+\end{equation}
+
+\end{itemize}
+\%--- SUBSECTION---\%
+\subsubsection{Symmetry Groups of Polyhedra}
+\subsubsection{Dihedral group}
+\%---Regualr Polytopes in 4 Dimension---\%
+\subsection{Regualr Polytopes in 4 Dimension}
+\subsubsection{24-Cell}
+The vertices
+\begin{displaymath}
+(\pm1,0,0,0), \; (0,\pm1,0,0), \; (0,0,\pm1,0),\; (0,0,0,\pm1),\; (\pm\frac{1}{2},\pm\frac{1}{2},\pm\frac{1}{2},\pm\frac{1}{2})
+\end{displaymath}
+The length of the sides are $1$. 16 $\{3\;4\}$-facets (octahedra). $\{3\;4\;3\}$
+\%--- Curvature of curves
+\section{The Curvature of Curves in Plane}
+In this section, bold letters stand for vectors in $R^2$, like $\x = (x_1, x_2)$ and the dot product between two such vectors are understood to be the canonical inner product: $\x \cdot \y = x_1 y_1 + x_2 y_2$. The norm of a vector $\x$ is $|x| = \sqrt{\x \cdot \x}$. Let $I \in \R$ be a closed interval and a curve $\bp:I \rightarrow \R^2$ be a continuous map. If \$\dot{\bp}(t) $\ne$ 0 \$, $\bp(t)$ is called a regular point and if \$\dot{\bp}(t) = 0 \$, a singular point. If $\bp(t)$ is regular for all $t \in I$, $\bp$ is called a regular or non-singular curve. For such a curve, the norm of the tangent vector is always positive, i.e. \$$\forall$ t, $\backslash$; |\dot{\bp}(t)| > 0 \$. Then, we can define a strictly increasing function $s(t)$ associated with the curve $\bp$ as
+\begin{equation}
+\label{}
+s(t) : = \int_{t_0}^{t} |\dot{\bp}(u)| \; du.
+\end{equation}
+$s(t)$ is called the length the curve at $t$. Since $s(t)$ is strictly increasing, the inverse function $t(s)$ exists. Hence
+\begin{equation}
+\label{}
+\frac{dt}{ds} = \frac{1}{\frac{ds}{dt}} = \frac{1}{|\dot{\bp}(t)|}
+\end{equation}
+We can use the inverse function $t(s)$ to change the parameter of the curve to $s$. Let us denote the reparametrised curve by the same notation $\bp(s) = \bp(t(s))$. And denote $\bp^{\prime}(s) = \frac{d \bp}{ds}(s)$ Then
+\begin{equation}
+\label{}
+|\bp^{\prime}| = \left|\frac{d \bp}{dt} \right| \left|\frac{dt}{ds} \right| = 1
+\end{equation}
+Differentiating the square of the above equation, we have $\bp^{\prime}\cdot \bp^{\prime \prime} = 0$, which means \$\bp$^{\prime\ \prime}$ \$ is perpendicular to $\bp^{\prime}$. Let $\mathbf{n}(s)$ be the unit vector at $\bp(s)$ normal to the tangent $\bp^{\prime}(s)$ on the left. Then, the curvature at $\bp(s)$ is defined as 
+\begin{equation}
+\label{}
+\kappa(s) := \bp^{\prime \prime}(s) \cdot \mathbf{n}(s)
+\end{equation}
+Since $\bp^{\prime \prime}(s) \propto \mathbf{n} (s)$, $|\kappa (s)| = |\bp^{\prime \prime}(s)|$.\\
+Let us calculate the curvature explcitly in terms of the coordinates $\bp(t) =  (x(t),y(t))$.
+\begin{eqnarray}
+\frac{d^2 \bp}{ds^2} & = & \frac{d}{ds} \left(\frac{dt}{ds}\frac{d\bp}{dt}\right) \nonumber \\
+ & = & \frac{dt}{ds} \frac{d}{dt}\left(\frac{dt}{ds}\right)\frac{d\bp}{dt} + \left(\frac{dt}{ds}\right)^2 \frac{d^2\bp}{dt^2}
+\end{eqnarray}
+Here, $\frac{d}{dt}\left(\frac{dt}{ds}\right)$ is meant to be
+\begin{equation}
+\label{}
+\frac{d}{dt}\left(\frac{dt}{ds}\right) = \frac{d}{dt}\left(\frac{1}{|\dot{\bp}(t)|}\right) = -\frac{\dot{x}\ddot{x} + \dot{y}\ddot{y}}{(\dot{x}^2 + \dot{y}^2)^{\frac{3}{2}}}
+\end{equation}
+Then
+\begin{equation}
+\label{}
+\kappa (t) = \frac{\dot{x}\ddot{y} - \dot{y}\ddot{x}}{(\dot{x}^2 + \dot{y}^2)^{\frac{3}{2}}}
+\end{equation}
+\subsection{Curvature of Implicitly Defined Curves}
+Let $F: \R^2 \rightarrow \R$ be a smooth function. Then, $F(x,y)=a$ with some constant $a$, defines a curve. Let us assume that some part of the curve can be parametrised by a regular curve $\bp(t)$ with $\forall t \; F(\bp(t))=F(x(t), y(t)) = a$ and $(F_x(x(t), y(t)),F_y(x(t), y(t))) \ne (0,0)$ (non-singular with respect to $F$). We have
+\begin{equation}
+\label{}
+\dot{x} F_x + \dot{y}F_y = 0
+\end{equation}
+Here, $F_x := \frac{\partial F}{\partial x}$, $F_{xy} := \frac{\partial^2 F}{\partial x \partial y}$ etc.
+\begin{equation}
+\label{}
+\frac{dy}{dx} = \frac{\dot{y}}{\dot{x}} = - \frac{F_x}{F_y}
+\end{equation}
+Then
+\begin{equation}
+\label{}
+\frac{d^2y}{d^2x} = \frac{1}{\dot x}\frac{d}{dt}\left(\frac{\dot y }{\dot x}\right) = \frac{\dot{x}\ddot{y} - \dot{y}\ddot{x}}{\dot{x}^3}
+\end{equation}
+And
+\begin{eqnarray}
+\frac{d^2y}{d^2x} &=& - \frac{1}{\dot x}\frac{d}{dt}\left(\frac{F_x }{F_y}\right) \nonumber\\
+ & = & - \frac{1}{\dot x} \frac{(\dot{x} F_{xx} + \dot{y}F_{xy})F_y -  F_x(\dot{x} F_{xy} + \dot{y}F_{yy}) }{F_y^2} \nonumber \\
+ &=& - \frac{F_{xx} F_y^2 + F_{y} F_x^2 -  2 F_{xy}F_x F_y }{F_y^3} \nonumber
+\end{eqnarray}
+Then
+\begin{equation}
+\label{}
+\kappa(x) = \frac{\frac{d^2y}{dx^2}}{\left( 1 + \left( \frac{dy}{dx}\right)^2 \right)^{\frac{3}{2}}}
+\end{equation}
+And \begin{equation}
+\label{}
+$\kappa$(x(t),y(t)) = - \frac\{F$_{\text{xx}}$ F$_{\text{y}}^{\text{2}}$ + F$_{\text{y}}$ F$_{\text{x}}^{\text{2}}$ -  2 F$_{\text{xy}}$F$_{\text{x}}$ F$_{\text{y}}$ \}\{(F$_{\text{x}}^{\text{2}}$ + F$_{\text{y}}^{\text{2}}$)$^{\frac{3}{2}}$\}
+\end{equation}
+Note that with the last formula, the curvature of the curve at $(x(t),y(t))$ can be calculated even without parametrising the curve. $\kappa$ can be seen as a function defined on the plane $\R^2$ except for the $F$-singluar points $\bp$ with $(F_x(\bp),F_y(\bp)) = (0,0)$. The curve $\kappa(x,y) = 0$ is the set of points where the implicit curves passing the points change their sign of $\kappa$.
+\par 
+Let us write the numerator of the above formula as
+\begin{equation}
+\label{}
+F_{xx} F_y^2 + F_{y} F_x^2 -  2 F_{xy}F_x F_y 
+= (F_x \; F_y) \left(\begin{array}{cc}F_{yy} & -F_{xy} \\-F_{yx} & F_{xx}\end{array}\right) \left(\begin{array}{c}F_{x} \\F_{y}\end{array}\right)
+= \;\partial F^t \; \tilde{\Delta} \; \partial F
+\end{equation}
+where $\partial F = (F_x \; F_y)^t$ and $\tilde{\Delta}$ is the minor of the matrix
+\begin{equation}
+\label{}
+\Delta = \left(\begin{array}{cc}F_{xx} & F_{xy} \\ F_{yx} & F_{yy}\end{array}\right).
+\end{equation}
+What is the form of $F(x,y)$ for which the followings are satisfied?
+\begin{itemize}
+  \item $\kappa(r, \theta) \rightarrow \infty$ as $r \rightarrow 0$ ? 
+  \item when $r >> 1$, either $\kappa(t) > 0 $ or $\kappa(t) < 0 $ for all $t \in I $?
+  \item What if $\kappa(x,y) = 0$ is compact?
+\end{itemize}
+
+\subsection{Cassinian Curves}
+\label{sec-2-4}
+
+%---REFERENCES---%
+\begin{thebibliography}{10}
+\bibitem{Klein}
+        Felix Klein, Lectures on Icosahedron, Dover
+\bibitem{Coxeter}
+        Harold Coxeter, Regular Polytopes, Dover
+\end{thebibliography}
+% Emacs 25.3.2 (Org mode 8.2.10)
+\end{document}

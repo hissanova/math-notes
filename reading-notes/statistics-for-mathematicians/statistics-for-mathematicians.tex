@@ -1,4 +1,4 @@
-% Created 2020-10-15 木 11:37
+% Created 2020-10-21 水 10:11
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -26,19 +26,15 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
+Title: Binomial Distribution
+Date: 2020-10-21
+Category: math
+Tags: math, statistics
 
-
-
-
-\section{About this note}
-\label{sec-1}
-
-\section{Jargons}
-\label{sec-2}
 
 \section{Chapter 1: Regular Probability Models}
-\label{sec-3}
+\label{sec-1}
+
 \begin{quote}
 \textbf{Definition 1.1: Regular Parametric Probability Models}\\
 \begin{itemize}
@@ -61,20 +57,21 @@ The probability model $\{F_{\theta} : \theta \in \Theta\}$ will be calld \emph{\
 \end{itemize}
 
 \subsection{Discrete Regular Models}
-\label{sec-3-1}
+\label{sec-1-1}
 \begin{quote}
 \textbf{Definition 1.5 Binomial distribution}\\
 A random variable $X$ is said to follow the binomial distribution with parameters $p \in (0,1)$ and $n \in \mathbb{N}$, denoted $X \sim Binom(n,p)$, if
 
 \begin{enumerate}
 \item $\mathcal{X} = \{0, \ldots ,n\}$,
-\item $\displaystyle f(x;n,p) = \binom{n}{p}p^{x}(1-p)^{n-x}$.
+\item $\displaystyle f(x;n,p) = \left( n \atop p\right) \binom{n}{p}p^{x}(1-p)^{n-x}$. $\displaystyle f(x;n,p) = \left( n \atop p\right) p^{x}(1-p)^{n-x}$.
 \end{enumerate}
 \end{quote}
+
 \begin{itemize}
-\item The mean: $\mathbb{E}[X] = np$
-\item The variance: $Var[X] = np(1-p)$
-\item The moment genrating function: $M(t) = (1- p + pe^{t})^{n}$
+\item The mean:  $\mathbb{E}[X] = np$
+\item The variance:  $Var[X] = np(1-p)$
+\item The moment generating function:  $M(t) = (1- p + pe^{t})^{n}$
 \end{itemize}
 
 \textbf{Derivations}\\
@@ -82,14 +79,14 @@ The mean:
 \begin{eqnarray}
 \mathbb{E}[X]  & = & \sum_{x=0}^{n} x \binom{n}{x}p^{x}(1-p)^{n-x}\\
                & = & \sum_{x=1}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x}\\
-               & = & p \sum_{x=1}^{n} x \binom{n}{x} p^{x-1}(1-p)^{n-x}\\
+               & = & p \sum_{x=1}^{n} x \binom{n}{x} p^{x-1}(1-p)^{n-x}
 \end{eqnarray}
 Consider the following polynomial's derivative with respect to $P$
 \begin{eqnarray}
 (P + Q)^{n} & = & \sum_{x=0}^{n} \binom{n}{x}P^{x}Q^{n-x}\\
 \frac{\partial}{\partial P}(P + Q)^{n} & = & n(P + Q)^{n-1} = \sum_{x=0}^{n} x \binom{n}{x}P^{x-1}Q^{n-x} \\
                                        & = & \frac{1}{P} \left( \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\right)\\
- nP(P + Q)^{n-1} & = &  \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}\\
+ nP(P + Q)^{n-1} & = &  \sum_{x=0}^{n} x \binom{n}{x}P^{x}Q^{n-x}
 \end{eqnarray}
 Putting $P=p$ and $Q=1-p$, we have
 \begin{equation}
