@@ -53,7 +53,7 @@ Bianchi's first and second indentities
 \end{equation}
 \begin{equation}
 \label{ }
- S((\nabla_{X}R)(Y,Z) +R(\Theta(X,Y),Z)) = 0
+ S((\nabla_{X}R)(Y,Z) + R(\Theta(X,Y),Z)) = 0
 \end{equation}
 where $S$ is the symmetrisation in $X,Y,Z$.
 \end{formula}
@@ -85,8 +85,8 @@ A Killing vector $X$ is a vector field, which satisfies the isometry condition,
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
  (\mathcal{L}_X g ) (V,W) & = & \mathcal{L}_X (g  (V,W)) - g (\mathcal{L}_X V,W) - g ( V,\mathcal{L}_XW) \nonumber \\
- & = & \nabla_X (g  (V,W)) - g (\mathcal{L}_X V,W) - g ( V,\mathcal{L}_XW) \nonumber \\
- & = &  g (\nabla_V X,W) + g ( V,\nabla_W X) \nonumber \\
+                          & = & \nabla_X (g  (V,W)) - g (\mathcal{L}_X V,W) - g ( V,\mathcal{L}_XW) \nonumber \\
+                          & = &  g (\nabla_V X,W) + g ( V,\nabla_W X) \nonumber \\
 \end{eqnarray}
 #+END_LaTeX
 for arbitrary vectors $V,W$. Hence, a Killing vector field $X$ must satisfy
@@ -135,26 +135,26 @@ Non-vanishing Christoffel symbols are
 The geodesic equations are:
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
-\frac{d^2t}{ds^2} & = & -2\Gamma^{t}_{tr} \frac{dt}{ds}\frac{dr}{ds} \\
-\frac{d^2r}{ds^2} & = & -\Gamma^{r}_{tt} \left(\frac{dt}{ds}\right)^2 -\Gamma^{r}_{rr} \left(\frac{dr}{ds}\right)^2 \Gamma^{r}_{\theta \theta} \left(\frac{d\theta}{ds}\right)^2 -\Gamma^{r}_{\phi \phi} \left(\frac{d\phi}{ds}\right)^2\\
+\frac{d^2t}{ds^2}      & = & -2\Gamma^{t}_{tr} \frac{dt}{ds}\frac{dr}{ds} \\
+\frac{d^2r}{ds^2}      & = & -\Gamma^{r}_{tt} \left(\frac{dt}{ds}\right)^2 -\Gamma^{r}_{rr} \left(\frac{dr}{ds}\right)^2 \Gamma^{r}_{\theta \theta} \left(\frac{d\theta}{ds}\right)^2 -\Gamma^{r}_{\phi \phi} \left(\frac{d\phi}{ds}\right)^2\\
 \frac{d^2\theta}{ds^2} & = & -2\Gamma^{\theta}_{r\theta} \frac{d\theta}{ds}\frac{dr}{ds}  - \Gamma^{\theta}_{\phi \phi} \left(\frac{d\theta}{ds}\right)^2\\
-\frac{d^2\phi}{ds^2} & = & -2\Gamma^{\phi}_{r\phi} \frac{d\phi}{ds}\frac{dr}{ds}  - 2\Gamma^{\phi}_{\theta \phi} \frac{d\theta}{ds}\frac{d\phi}{ds}
+\frac{d^2\phi}{ds^2}   & = & -2\Gamma^{\phi}_{r\phi} \frac{d\phi}{ds}\frac{dr}{ds}  - 2\Gamma^{\phi}_{\theta \phi} \frac{d\theta}{ds}\frac{d\phi}{ds}
 \end{eqnarray}
 #+END_LaTeX
 Abbreviation for the differentiation $\dot{t} := \frac{dt}{ds}$
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
-\ddot{t} & = & -\frac{2M}{r(r-2M)}\dot{t}\;\dot{r} \label{Schwarz_Geod1}\\
-\ddot{r} & = & -\frac{M}{r^2}\left(1-\frac{2M}{r}\right) \dot{t}^2 +\frac{M}{r(r-2M)} \dot{r}^2 -(r-2M)\;\dot{\theta}^2 - (r-2M)\sin^2{\theta}\;\dot{\phi}^2 \label{Schwarz_Geod2}\\
+\ddot{t}      & = & -\frac{2M}{r(r-2M)}\dot{t}\;\dot{r} \label{Schwarz_Geod1}\\
+\ddot{r}      & = & -\frac{M}{r^2}\left(1-\frac{2M}{r}\right) \dot{t}^2 +\frac{M}{r(r-2M)} \dot{r}^2 -(r-2M)\;\dot{\theta}^2 - (r-2M)\sin^2{\theta}\;\dot{\phi}^2 \label{Schwarz_Geod2}\\
 \ddot{\theta} & = & -\frac{2}{r}\dot{r}\dot{\theta} + \cos{\theta}\sin{\theta} \;\dot{\phi}^2 \label{Schwarz_Geod3} \\
-\ddot{\phi} & = & -\frac{2}{r}\dot{r}\dot{\phi} -2 \cot{\theta} \;\dot{\theta}\dot{\phi} \label{Schwarz_Geod4}
+\ddot{\phi}   & = & -\frac{2}{r}\dot{r}\dot{\phi} -2 \cot{\theta} \;\dot{\theta}\dot{\phi} \label{Schwarz_Geod4}
 \end{eqnarray}
 #+END_LaTeX
 (\ref{Schwarz_Geod3}) and (\ref{Schwarz_Geod4}) leads to a pair of angular momentum constants
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
 r^2\dot{\phi} + \frac{(r^2\dot{\theta})^2}{a} & = & b \\
-r^2 \sin^2{\theta} \; \dot{\phi} & = & a
+r^2 \sin^2{\theta} \; \dot{\phi}              & = & a
 \end{eqnarray}
 #+END_LaTeX
 where $a,b$ are constants. In particular, consider the initial condition $\theta_0 = \frac{\pi}{2}, \; \dot{\theta}_0 = 0$. Then $r^2_0 \dot{\phi}_0 =  a$ and substituting this to the first line, we have $a=b$. Now, equating the L.H.S. of the both equalities, we have 
@@ -174,7 +174,7 @@ which is only possible when $\theta(s) = \frac{\pi}{2}$ for all $s$, provided $a
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
 \frac{\ddot{t}}{\dot{t}} & = & \left\{ \frac{1}{r} - \frac{1}{r-2M} \right\} \dot{r} \nonumber\\
-\dot{t} & = & \frac{k}{1-\frac{2M}{r}}
+\dot{t}                  & = & \frac{k}{1-\frac{2M}{r}}
 \end{eqnarray}
 #+END_LaTeX
 
@@ -184,8 +184,8 @@ Notice that we can change the constant $k$ by reparametrising $s\mapsto s^{\prim
 Geodesic of a particle of mass $m$
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
--m &=& g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
-m & = &  \frac{k^2}{1-\frac{2M}{r}} - \frac{\dot{r}^2}{1-\frac{2M}{r}} - \frac{a^2}{r^2} \nonumber\\
+-m        & = & g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
+m         & = &  \frac{k^2}{1-\frac{2M}{r}} - \frac{\dot{r}^2}{1-\frac{2M}{r}} - \frac{a^2}{r^2} \nonumber\\
 \dot{r}^2 & = & k^2 - m\left(1 - \frac{2M}{r} \right)- \frac{a^2}{r^2} \left(1 - \frac{2M}{r} \right) \label{Time_geodesic}
 \end{eqnarray}
 #+END_LaTeX
@@ -222,8 +222,8 @@ And this can be integrated to give the inverse elliptic function
 Null geodesics are:
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
-0 &=& g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
-\dot{r}^2  &=&  k^2 - \frac{a^2}{r^2} + \frac{2Ma^2}{r^3}
+0          & = & g_{00}(v^0)^2 + g_{11}(v^1)^2 + g_{33} (v^3)^2 \nonumber\\
+\dot{r}^2  & = &  k^2 - \frac{a^2}{r^2} + \frac{2Ma^2}{r^3}
 \end{eqnarray}
 #+END_LaTeX
 
@@ -250,25 +250,25 @@ Let $n$ be a unit normal ($g(n,n) = -1$) to $Im(\sigma)$ in $M$
 Internal metric $q_{\mu \nu}$ and extrinsic curvature $K_{\mu \nu}$
 \begin{eqnarray}
 q_{\mu \nu} & := & g_{\mu \nu} +  n_\mu n_\nu\\
-K_{\mu \nu}& := & q_{\mu}^{\rho}q_{\nu}^{\sigma}\nabla_{\rho}n_{\sigma}
+K_{\mu \nu} & := & q_{\mu}^{\rho}q_{\nu}^{\sigma}\nabla_{\rho}n_{\sigma}
 \end{eqnarray}
 \end{Def}
 #+END_LaTeX
 #+BEGIN_LaTeX latex
 \begin{eqnarray}
-2K_{\mu \nu}& = & q_{\mu}^{\rho}q_{\nu}^{\sigma}2\nabla_{(\rho}n_{\sigma)} \nonumber \\
-			& = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} g)_{\rho \sigma} = q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q + s\mathcal{L}_{n}n\otimes n)_{\rho \sigma} \nonumber \\
-			& = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q)_{\rho \sigma} = (\mathcal{L}_{n} q)_{\mu \nu}
+2K_{\mu \nu} & = & q_{\mu}^{\rho}q_{\nu}^{\sigma}2\nabla_{(\rho}n_{\sigma)} \nonumber \\
+            & = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} g)_{\rho \sigma} = q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q + s\mathcal{L}_{n}n\otimes n)_{\rho \sigma} \nonumber \\
+            & = & q_{\mu}^{\rho}q_{\nu}^{\sigma}(\mathcal{L}_{n} q)_{\rho \sigma} = (\mathcal{L}_{n} q)_{\mu \nu}
 \end{eqnarray}
 #+END_LaTeX
 We can regard $q_{\mu}^{\rho}$ as a vector field $q_{\mu}=q_{\mu}^{\rho}\partial_{\rho}$. Then,
 #+BEGIN_LaTeX latex
 \begin{eqnarray*}
 d(g(q_{\mu},q_{\nu}))(n) & = & \nabla_{n}(g(q_{\mu},q_{\nu}))  =  g(\nabla_{n}q_{\mu},q_{\nu}) +  g(q_{\mu},\nabla_{n}q_{\nu})\\
-						& = & g(\nabla_{q_{\mu}}n,q_{\nu}) +  g(q_{\mu},\nabla_{q_{\nu}}n) + g(\mathcal{L}_{n} q_{\mu},q_{\nu}) + g(q_{\mu},\mathcal{L}_{n} q_{\nu})
+                        & = & g(\nabla_{q_{\mu}}n,q_{\nu}) +  g(q_{\mu},\nabla_{q_{\nu}}n) + g(\mathcal{L}_{n} q_{\mu},q_{\nu}) + g(q_{\mu},\mathcal{L}_{n} q_{\nu})
 \end{eqnarray*}
 #+END_LaTeX
-Here, we used (\ref{Lie_Cov}) with $\nabla_{n}q_{\mu} = \nabla_{q_{\mu}}n + \mathcal{L}_{n}q_{\mu}$\\
+Here, we used (\ref{Lie_Cov}) with $\nabla_{n}q_{\mu} = \nabla_{q_{\mu}}n + \mathcal{L}_{n}q_{\mu}$ \\
 Comparing with
 #+BEGIN_LaTeX latex
 \begin{eqnarray*}

@@ -1,28 +1,29 @@
-% Created 2019-08-30 金 00:01
+% Created 2021-04-09 Fri 12:07
+% Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
 \usepackage{graphicx}
+\usepackage{grffile}
 \usepackage{longtable}
-\usepackage{float}
 \usepackage{wrapfig}
 \usepackage{rotating}
 \usepackage[normalem]{ulem}
 \usepackage{amsmath}
 \usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{wasysym}
 \usepackage{amssymb}
+\usepackage{capt-of}
 \usepackage{hyperref}
-\tolerance=1000
 \author{hisanobu-nakamura}
-\date{\textit{<2019-06-27 木>}}
+\date{\textit{<2019-06-27 Thu>}}
 \title{Notes on "Regular Polytopes" by H.S.M. Coxeter}
 \hypersetup{
-  pdfkeywords={},
-  pdfsubject={},
-  pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}}
+ pdfauthor={hisanobu-nakamura},
+ pdftitle={Notes on "Regular Polytopes" by H.S.M. Coxeter},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.3.2 (Org mode 8.2.10)}, 
+ pdflang={English}}
 \begin{document}
 
 \maketitle
@@ -32,18 +33,18 @@
 
 
 \section{About this note}
-\label{sec-1}
+\label{sec:orgb23bccb}
 This note contains some interpretations, visualisations, comments, etc, from reading "Regular Polytopes, H.S.M. Coxeter"
 \section{Jargons}
-\label{sec-2}
+\label{sec:orgfe4309a}
 \begin{quote}
 \emph{congruent}:Two figures are said to be \textbf{\emph{congruent}} if the distances between any corresponding pairs of points are equal. Likewise, angles between corresponding pairs of lines are equal. 
 For example, two dihdra (or trihdral solid angles) are congruent if the three face-angles of one are equal to respective face-angles of the other. 
 Two such trihedra are said to be \emph{directly} (or "superposable") congruent if they have the same sense (right- or left-handed), but \emph{enantiomorphous} if they have opposite senses. 
 The same distinction can be applied to figures of any kind, byth following device. (To be continued,,,)
 \end{quote}
-\section{The Product Of Three Reflections ($\S\text{3.1}$ p35)}
-\label{sec-3}
+\section{The Product Of Three Reflections (\(\S\text{3.1}\) p35)}
+\label{sec:org7c4e360}
 I will prove the following statement in a way more understandable to myself than in the book:
 \begin{quote}
 In the product of three reflections, we can always arrange that one of the reflecting lines shall be perpendicular to both the others.
@@ -52,39 +53,39 @@ Coxeter's proof goes like this:
 \begin{quote}
 The following is perhaps not the simplest proof, but it is one that generalizes easily to any number of dimensions.
  If we regard a congruent transformation as operating on pencils of parallel rays (instead of operating on points), we can say that a translation has no effect: it leaves every pencil invariant.
- Since each pencil can be represented by that one of its rays which passes through a fixed point $O$,
- any congruent transformation operating on the rays that emanate from $O$: congruent because of the preservation of angles.
+ Since each pencil can be represented by that one of its rays which passes through a fixed point \(O\),
+ any congruent transformation operating on the rays that emanate from \(O\): congruent because of the preservation of angles.
 
 If the given transformation is opposite, so is the induced transformation.
- But the latter, leaving $O$ invariant, can only be a reflection, say a reflection in $OQ$.
- This leaves  $O$ and $Q$ invariant; therefore the given transformation leaves the \emph{direction} $OQ$ invariant.
- Consider the product of the given transformation with the reflection in any line, $p$, perpendicular to $OQ$.
- This is a direct transformation which reverses the direction $OQ$; i.e., it is a half-turn with the reflection in $p$.
- But the half-turn is the product of reflectios in two perpendicular lines, which may be chosen perpendicular and parallel to $p$.
+ But the latter, leaving \(O\) invariant, can only be a reflection, say a reflection in \(OQ\).
+ This leaves  \(O\) and \(Q\) invariant; therefore the given transformation leaves the \emph{direction} \(OQ\) invariant.
+ Consider the product of the given transformation with the reflection in any line, \(p\), perpendicular to \(OQ\).
+ This is a direct transformation which reverses the direction \(OQ\); i.e., it is a half-turn with the reflection in \(p\).
+ But the half-turn is the product of reflectios in two perpendicular lines, which may be chosen perpendicular and parallel to \(p\).
  Thus we have altogether three reflections , of which the last two can be combined to form a translation.
  The general opposite transformation is now reduced to the product of a reflection and a translation which commutes, the reflecting line being in the direction of translation.
  This is kind of transformation called  a \emph{glide-reflection}.
 \end{quote}
 OK. I think it would be more comprehensive if we add a little bit more explanations to some logical steps hidden between the lines in a modern style. 
-I started to re-prove the theorem in 2 dimension by using a bra and ket vector notation, because it is useful for writing inner products like $\langle a|b \rangle$, 
-and the "outer" products like $|a \rangle \langle b|$. A reflection in any dimensions about a plane orthoganal to a normal vector $|\hat{a}\rangle$ can be expressed using this bra-ket notation as
+I started to re-prove the theorem in 2 dimension by using a bra and ket vector notation, because it is useful for writing inner products like \(\langle a|b \rangle\), 
+and the "outer" products like \(|a \rangle \langle b|\). A reflection in any dimensions about a plane orthoganal to a normal vector \(|\hat{a}\rangle\) can be expressed using this bra-ket notation as
 \begin{equation}
 |x' \rangle = |x \rangle - 2 |\hat{a} \rangle \langle \hat{a} |x \rangle = \left( \mathbb{1} - 2  |\hat{a} \rangle \langle \hat{a}  |\, \right) |x \rangle
 \end{equation}
-\subsection{2D case in terms of complex numbers $\mathbb{C}$}
-\label{sec-3-1}
-A line $\mathcal{L}(\alpha, d) \subset \mathbb{C}$, is defined by a pair of reals, $0 \le \alpha < \pi$, and $d \ge 0$, parametrically as follows:
+\subsection{2D case in terms of complex numbers \(\mathbb{C}\)}
+\label{sec:org40f7144}
+A line \(\mathcal{L}(\alpha, d) \subset \mathbb{C}\), is defined by a pair of reals, \(0 \le \alpha < \pi\), and \(d \ge 0\), parametrically as follows:
 \begin{equation}
 \mathcal{L}(\alpha, d) := \{ e^{i\alpha}t + i \, d e^{i\alpha} \mid t \in \mathbb{R} \}
 \end{equation}
-$e^{i\alpha}$ is the direction of the line and $d$ is the perpendicular distance from the origin to the line. So the point $i\, d e^{i\alpha}$ is the vertical projection of the origin onto $\mathcal{L}(\alpha, d)$.
+\(e^{i\alpha}\) is the direction of the line and \(d\) is the perpendicular distance from the origin to the line. So the point \(i\, d e^{i\alpha}\) is the vertical projection of the origin onto \(\mathcal{L}(\alpha, d)\).
 \subsubsection{Reflections with invariant lines through the origin}
-\label{sec-3-1-1}
-First, a reflection $\rho_{\alpha}:\mathbb{C} \rightarrow \mathbb{C}$ with a line passing through the origin, $\mathcal{L}(\alpha, 0)$, as the invariant line is
+\label{sec:org51add9a}
+First, a reflection \(\rho_{\alpha}:\mathbb{C} \rightarrow \mathbb{C}\) with a line passing through the origin, \(\mathcal{L}(\alpha, 0)\), as the invariant line is
 \begin{equation}
 w = \rho_{\alpha} (z) = e^{i\alpha} \overline{e^{-i\alpha} z} = e^{i2\alpha} \bar{z}
 \end{equation}
-Then, the product of \textbf{two} such reflections, say $\rho_{\alpha_{2}}$ and $\rho_{\alpha_{1}}$ is, (writing $\rho_{i} = \rho_{\alpha_{i}}$ for my brevity)
+Then, the product of \textbf{two} such reflections, say \(\rho_{\alpha_{2}}\) and \(\rho_{\alpha_{1}}\) is, (writing \(\rho_{i} = \rho_{\alpha_{i}}\) for my brevity)
 \begin{equation}
 w = \rho_{2} \circ \rho_{1} (z) = e^{i2\alpha_{2}} \overline{e^{i2\alpha_{1}} \bar{z}} = e^{i2(\alpha_{2} - \alpha_{1})} z,
 \end{equation}
@@ -92,18 +93,18 @@ which is just a rotation. Now, the product of \textbf{three} reflections is
 \begin{equation}
 w = \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) = e^{i2\alpha_{3}} \overline{e^{i2(\alpha_{2} - \alpha_{1})} z} = e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z} = e^{i2\theta} \bar{z},
 \end{equation}
-which is \textbf{another reflection} in the line $\mathcal{L}(\theta, 0)$ where $\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}$.\\
+which is \textbf{another reflection} in the line \(\mathcal{L}(\theta, 0)\) where \(\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}\).\\
 \subsubsection{General reflections}
-\label{sec-3-1-2}
-A more general reflection $\rho_{\alpha,d}:\mathbb{C} \rightarrow \mathbb{C}$ with the invariant line not passing through the origin $\mathcal{L}(\alpha, d)$ can be constructed as follows:
+\label{sec:org0e04d08}
+A more general reflection \(\rho_{\alpha,d}:\mathbb{C} \rightarrow \mathbb{C}\) with the invariant line not passing through the origin \(\mathcal{L}(\alpha, d)\) can be constructed as follows:
 \begin{enumerate}
-\item Apply a rotation $e^{-i\alpha}$
-\item Translate $-id$
-\item Appply reflection in real axis, i.e. take conjugate $z \mapsto \bar{z}$
-\item Translate back $id$
-\item Rotate back $e^{i\alpha}$.
+\item Apply a rotation \(e^{-i\alpha}\)
+\item Translate \(-id\)
+\item Appply reflection in real axis, i.e. take conjugate \(z \mapsto \bar{z}\)
+\item Translate back \(id\)
+\item Rotate back \(e^{i\alpha}\).
 \end{enumerate}
-Applying all the transformations, we have, for a general reflection in $\mathcal{L}(\alpha, d)$, as
+Applying all the transformations, we have, for a general reflection in \(\mathcal{L}(\alpha, d)\), as
 \begin{equation}
 w = \rho_{\alpha,d} (z) = e^{i\alpha}\{ \overline{e^{-i\alpha} z - i\,d} + i\,d \} = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}.
 \end{equation}
@@ -112,52 +113,52 @@ The product of \textbf{two} such reflections is,
 w = \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (z) &=& e^{i2(\alpha_{2} - \alpha_{1})} z - 2i \, ( d_{1} e^{i2\alpha_{2} - \alpha_{1}} - d_{2} e^{i\alpha_{2}})  \nonumber \\
 &=& e^{i2\theta} z - 2i \, e^{i\alpha}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}),
 \end{eqnarray}
-where $\theta = \alpha_{2} - \alpha_{1}$. Now let's look for a fixed point $c$ of this transformation. Then it must satisfy
+where \(\theta = \alpha_{2} - \alpha_{1}\). Now let's look for a fixed point \(c\) of this transformation. Then it must satisfy
 \begin{eqnarray}
 c &=&  \rho_{\alpha_{2}, d_{2}} \circ \rho_{\alpha_{1},d_{1}} (c) \nonumber \\
 (e^{i2\theta} - 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber  \\
 (e^{i\theta} - 1)(e^{i\theta} + 1)c &=&  2i \, e^{i\theta}( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) \nonumber 
 \end{eqnarray}
-For $c$ to have a definite value, $e^{i\theta} \ne 1$ and $e^{i\theta} \ne -1$ have to hold. And those cases are when $\theta = 0$ or $\pi$ but the latter is impossible because $0 \le \theta < \pi$. 
+For \(c\) to have a definite value, \(e^{i\theta} \ne 1\) and \(e^{i\theta} \ne -1\) have to hold. And those cases are when \(\theta = 0\) or \(\pi\) but the latter is impossible because \(0 \le \theta < \pi\). 
 This implies the two reflection lines are parallel.\\
-Hence, when $\theta \ne 0$, the fixed point of the transformation (the centre of the rotation) is
+Hence, when \(\theta \ne 0\), the fixed point of the transformation (the centre of the rotation) is
 \begin{equation}
 c =  2i \, e^{i\theta}\frac{( d_{1} e^{i\alpha_{2}} - d_{2} e^{i\alpha_{1}}) }{(e^{i\theta} - 1)(e^{i\theta} + 1)} \nonumber 
 \end{equation}
-In the case $\theta = 0$, we have translations: noticing that $\alpha_{2} = \alpha_{1} = \alpha$ 
+In the case \(\theta = 0\), we have translations: noticing that \(\alpha_{2} = \alpha_{1} = \alpha\) 
 \begin{equation}
 w = z - 2i \, e^{i\alpha} ( d_{1}  - d_{2}).
 \end{equation}
 We can see the direction of the resultant translation is perpendicular to the reflection lines.\\
 
-Next, we proceed to the product of \textbf{three} general reflections. Let the three reflections be $\rho_{\alpha_{1}, d_{1}}$, $\rho_{\alpha_{2},d_{2}}$ and $\rho_{\alpha_{3},d_{3}}$.
-The composition of them is (again, writing $\rho_{i} = \rho_{\alpha_{i}, d_{i}}$ for my brevity)
+Next, we proceed to the product of \textbf{three} general reflections. Let the three reflections be \(\rho_{\alpha_{1}, d_{1}}\), \(\rho_{\alpha_{2},d_{2}}\) and \(\rho_{\alpha_{3},d_{3}}\).
+The composition of them is (again, writing \(\rho_{i} = \rho_{\alpha_{i}, d_{i}}\) for my brevity)
 \begin{eqnarray}
 w &=& \rho_{3} \circ \rho_{2} \circ \rho_{1} (z) \nonumber \\
   &=& e^{i2(\alpha_{3} - \alpha_{2} + \alpha_{1})} \bar{z} + 2i \, ( d_{1} e^{i(2\alpha_{3} - 2\alpha_{2} + \alpha_{1})} - d_{2} e^{i(2\alpha_{3} - \alpha_{2})} + d_{3} e^{i\alpha_{3}})  \nonumber \\
   &=& e^{i2\theta} \bar{z} + 2i \, e^{i\theta}( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}),
 \end{eqnarray}
-where $\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}$ and $\theta_{ij} = \alpha_{j} - \alpha_{i}$.\\
+where \(\theta = \alpha_{3} - \alpha_{2} + \alpha_{1}\) and \(\theta_{ij} = \alpha_{j} - \alpha_{i}\).\\
 According to Coxeter's proof, the product of three reflections is a glide-reflection. So, let us calculate the length by which the gliding occurs.
-The gliding occurs in the same direction as the reflection, which is $e^{i2\theta}$ appeared in the above equation.
-If a point $z \in \mathbb{C}$ is on the reflection line, it will be fixed by the reflection and only displaced by the translation. 
-Therefore, its image will be of the form $z + l e^{i\theta}$ for some $l \in \mathbb{R}$.
-Equating this with the image $\rho_{3} \circ \rho_{2} \circ \rho_{1} (z)$ yields
+The gliding occurs in the same direction as the reflection, which is \(e^{i2\theta}\) appeared in the above equation.
+If a point \(z \in \mathbb{C}\) is on the reflection line, it will be fixed by the reflection and only displaced by the translation. 
+Therefore, its image will be of the form \(z + l e^{i\theta}\) for some \(l \in \mathbb{R}\).
+Equating this with the image \(\rho_{3} \circ \rho_{2} \circ \rho_{1} (z)\) yields
 \begin{eqnarray}
-\label{eq:gliding-length}
+\label{eq:orgd202919}
 z + l e^{i\theta}  &=& e^{i2\theta} \bar{z} + 2i \, e^{i\theta}( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}) \nonumber \\
 e^{-i\theta} z - e^{i\theta} \bar{z}  &=& -l + 2i\,( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}}). 
 \end{eqnarray}
-The L.H.S. of the last equation is a pure imaginary number, so the real part of the R.H.S. must be $0$. 
-This fixes the value of $l$ as
+The L.H.S. of the last equation is a pure imaginary number, so the real part of the R.H.S. must be \(0\). 
+This fixes the value of \(l\) as
 \begin{equation}
 l = - 2 \{ d_{1} \sin{\theta_{23}} - d_{2} \sin{\theta_{13}} + d_{3} \sin{\theta_{12}}\}.
 \end{equation}
-The meaning of $l$ is actually the magnitude of the translation (or the gliding part of the glide-reflection).
-Also, remembering the expression of a reflection is $w = \rho_{\alpha,d} (z) = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}$ with $d$ being real, 
-we see that the real part of $( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}})$ is the vertical distance from the origin to the reflection line, namely
+The meaning of \(l\) is actually the magnitude of the translation (or the gliding part of the glide-reflection).
+Also, remembering the expression of a reflection is \(w = \rho_{\alpha,d} (z) = e^{i2\alpha} \bar{z} + 2i \, de^{i\alpha}\) with \(d\) being real, 
+we see that the real part of \(( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} + d_{3} e^{i\theta_{12}})\) is the vertical distance from the origin to the reflection line, namely
 \begin{equation}
 d = d_{1} \cos{\theta_{23}} - d_{2} \cos{\theta_{13}} + d_{3} \cos{\theta_{12}}.
 \end{equation}
-% Emacs 25.3.2 (Org mode 8.2.10)
+Emacs 25.3.2 (Org mode 8.2.10)
 \end{document}
