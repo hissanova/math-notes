@@ -20,9 +20,9 @@
 An arrow $f:a \rightarrow b$ in a category $\mathcal{C}$ is  /monic/ in $\mathcal{C}$ if for any pair $g,h:c \rightrightarrows a$ of $\mathcal{C}$ -arrows, equality $f\circ g = f \circ h$ implies that $g=h$.
 The symbolism $f:a \rightarrowtail b$ is used to indicate that $f$ is monic.
 *** 3.1. Exercise Solutions
-In any category
-(1) $g \circ f$ is monic if both $f$ and $g$ are monic.
-(2) If $g \circ f$ is monic, then so is $f$.
+In any category \\
+(1) $g \circ f$ is monic if both $f$ and $g$ are monic.\\
+(2) If $g \circ f$ is monic, then so is $f$.\\
 *Solutions* \\
 (1) \\
 If $(g \circ f) \circ h_{1} = (g \circ f) \circ h_{2}$, then 
@@ -57,6 +57,32 @@ b \arrow{r}{h}& c
 #+end_export
 commutes, then $g=h$. The notation $f:a \twoheadrightarrow b$ is used for epic arrows.
 
+*** 3.2. Exercises(Duals of exercises in 3.1)
+In any category\\
+(1) $g \circ f$ is epic if both $f$ and $g$ are epic.\\
+(2) If $g \circ f$ is epic, then so is $g$.\\
+*Solutions* \\
+(1) \\
+Suppose that $f$ and $g$ are both epic, then if $h_{1} \circ (g \circ f) = h_{2} \circ (g \circ f)$,
+#+begin_export latex
+\begin{eqnarray*}
+h_{1} \circ (g \circ f) &=& h_{2} \circ (g \circ f)\\
+(h_{1} \circ g) \circ f &=& (h_{2} \circ g) \circ f\\
+h_{1} \circ f &=& h_{2} \circ f\\
+h_{1} &=& h_{2}.
+\end{eqnarray*}
+Hence, $g \circ f$ is epic.\\
+#+end_export
+(2)\\
+Suppose $g \circ f$ is epic. Then, if $h_{1} \circ g = h_{2} \circ g$,
+#+begin_export latex
+\begin{eqnarray*}
+(h_{1} \circ g) \circ f &=& (h_{2} \circ g) \circ f\\
+h_{1} \circ (g \circ f) &=& h_{2} \circ (g \circ f)\\
+h_{1} &=& h_{2}.
+\end{eqnarray*}
+#+end_export
+Hence, $g$ is epic.
 ** 3.8 Products
 *DEFINITION*
 A product in a category $\mathcal{C}$ of two objects $a$ and $b$ is a $\mathcal{C}$ -object $a \times b$
@@ -70,5 +96,4 @@ a  && \arrow{ll}[swap, near head]{pr_{a}} a \times b \arrow[rr, "pr_{b}"]&& b
 \end{tikzcd}
 \]
 #+end_export
-
 commute, i.e. such that  $pr_{a}\circ \langle f,g \rangle = f$, $pr_{b}\circ \langle f,g \rangle = g$. $\langle f,g \rangle$ is the product arrow of $f$ and $g$ with respect to the projections $pr_{a}$, $pr_{b}$.

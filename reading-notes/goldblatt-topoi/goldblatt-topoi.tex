@@ -1,4 +1,4 @@
-% Created 2021-04-13 Tue 12:52
+% Created 2021-04-17 土 12:00
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -17,7 +17,7 @@
 \usepackage[margin=1.0in]{geometry}
 \usepackage{tikz-cd}
 \author{hisanobu-nakamura}
-\date{\textit{<2019-06-27 Thu>}}
+\date{\textit{<2019-06-27 木>}}
 \title{Notes on "Topoi" by Goldblatt}
 \hypersetup{
  pdfauthor={hisanobu-nakamura},
@@ -33,16 +33,16 @@
 
 
 \section{Chapter 3: Arrows instead of epsilons}
-\label{sec:org385a140}
+\label{sec:org7fdf1f2}
 \subsection{3.1. Monic arrows}
-\label{sec:orgb723978}
+\label{sec:orge1a2464}
 An arrow \(f:a \rightarrow b\) in a category \(\mathcal{C}\) is  \emph{monic} in \(\mathcal{C}\) if for any pair \(g,h:c \rightrightarrows a\) of \(\mathcal{C}\) -arrows, equality \(f\circ g = f \circ h\) implies that \(g=h\).
 The symbolism \(f:a \rightarrowtail b\) is used to indicate that \(f\) is monic.
 \subsubsection{3.1. Exercise Solutions}
-\label{sec:org249d0f7}
-In any category
-(1) \(g \circ f\) is monic if both \(f\) and \(g\) are monic.
-(2) If \(g \circ f\) is monic, then so is \(f\).
+\label{sec:orgfe2eec1}
+In any category \\
+(1) \(g \circ f\) is monic if both \(f\) and \(g\) are monic.\\
+(2) If \(g \circ f\) is monic, then so is \(f\).\\
 \textbf{Solutions} \\
 (1) \\
 If \((g \circ f) \circ h_{1} = (g \circ f) \circ h_{2}\), then 
@@ -63,7 +63,7 @@ h_{1} &=& h_{2}  \quad (\because \text{$f \circ g$ is monic})
 Hence, \(f\) is monic.
 
 \subsection{3.2. Epic arrows}
-\label{sec:org0477e1d}
+\label{sec:org663d4e1}
 An arrow \(f: a \rightarrow b\) is \emph{epic} (right-cancellable) in a category \(\mathcal{C}\) if for any pair \(g,h:b \rightrightarrows c\), the equality \(g \circ f = h \circ f\) implies \(g=h\) i.e. whenever a diagram
 \[ \begin{tikzcd}
 a \arrow{r}{f} \arrow[swap]{d}{f} & b \arrow{d}{g} \\%
@@ -72,8 +72,31 @@ b \arrow{r}{h}& c
 \]
 commutes, then \(g=h\). The notation \(f:a \twoheadrightarrow b\) is used for epic arrows.
 
+\subsubsection{3.2. Exercises(Duals of exercises in 3.1)}
+\label{sec:org359564e}
+In any category\\
+(1) \(g \circ f\) is epic if both \(f\) and \(g\) are epic.\\
+(2) If \(g \circ f\) is epic, then so is \(g\).\\
+\textbf{Solutions} \\
+(1) \\
+Suppose that \(f\) and \(g\) are both epic, then if \(h_{1} \circ (g \circ f) = h_{2} \circ (g \circ f)\),
+\begin{eqnarray*}
+h_{1} \circ (g \circ f) &=& h_{2} \circ (g \circ f)\\
+(h_{1} \circ g) \circ f &=& (h_{2} \circ g) \circ f\\
+h_{1} \circ f &=& h_{2} \circ f\\
+h_{1} &=& h_{2}.
+\end{eqnarray*}
+Hence, $g \circ f$ is epic.\\
+(2)\\
+Suppose \(g \circ f\) is epic. Then, if \(h_{1} \circ g = h_{2} \circ g\),
+\begin{eqnarray*}
+(h_{1} \circ g) \circ f &=& (h_{2} \circ g) \circ f\\
+h_{1} \circ (g \circ f) &=& h_{2} \circ (g \circ f)\\
+h_{1} &=& h_{2}.
+\end{eqnarray*}
+Hence, \(g\) is epic.
 \subsection{3.8 Products}
-\label{sec:org640dd70}
+\label{sec:org0d5709d}
 \textbf{DEFINITION}
 A product in a category \(\mathcal{C}\) of two objects \(a\) and \(b\) is a \(\mathcal{C}\) -object \(a \times b\)
 together with a pair (\(pr_{a}:a\times b \rightarrow a\), \(pr_{b}:a\times b \rightarrow b\)) of \(\mathcal{C}\) -arrows such that for any pair of \(\mathcal{C}\) -arrows of the form (\(f:c \rightarrow a\), \(g:c \rightarrow b\))
@@ -84,7 +107,6 @@ there is exactly one arrow \(\langle a,g \rangle : c \rightarrow a \times b\) ma
 a  && \arrow{ll}[swap, near head]{pr_{a}} a \times b \arrow[rr, "pr_{b}"]&& b
 \end{tikzcd}
 \]
-
 commute, i.e. such that  \(pr_{a}\circ \langle f,g \rangle = f\), \(pr_{b}\circ \langle f,g \rangle = g\). \(\langle f,g \rangle\) is the product arrow of \(f\) and \(g\) with respect to the projections \(pr_{a}\), \(pr_{b}\).
 
 \end{document}
