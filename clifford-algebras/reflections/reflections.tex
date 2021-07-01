@@ -1,0 +1,59 @@
+% Created 2021-07-01 木 11:56
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\textit{<2021-07-01 木>}}
+\title{Reflections of Pinor group representations}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Reflections of Pinor group representations},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+Title: Reflections of Pinor group representations
+Date: 2021-07-01
+Category: math
+Tags: math, Clifford-Algebra
+
+\section{Clifford Algebra and Pinor group}
+\label{sec:orgbc9cbe9}
+
+Let \(\text{Cl}(N)\) be a Clifford algebra of dimension \(N\), and \(e_{i} \in \text{Cl}(N),\; i=1,...,N\) be a orthogonal basis. 
+Let us consider a unit vector \(n = \sum_{i=1}^{N} n_{i}e_{i}\) with \(||n||=1\) and its action on a vector \(x = \sum_{i=1}^{N} x_{i}e_{i}\) determined by the Pinor representation \(\alpha: Pin(N) \rightarrow O(N)\):
+\begin{equation*}
+\alpha(n)(x) := nx^tn.
+\end{equation}
+Let's calculate the explicit expression of this action!
+\begin{eqnarray}
+\alpha(n)(x) & = & \sum_{i,j,k=1}^{N} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k}\nonumber\\ 
+& = & \sum_{i} n_{i}x_{i}n_{i}e_{i}e_{i}e_{i} + \sum_{i \ne j} n_{i}x_{i}n_{j}e_{i}e_{i}e_{j} + \sum_{i \ne j} n_{i}x_{j}n_{i}e_{i}e_{j}e_{i} + \sum_{i \ne j} n_{j}x_{i}n_{i}e_{j}e_{i}e_{i} + \sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k} \nonumber \\
+& = & -\sum_{i} n_{i}x_{i}n_{i}e_{i} - \sum_{i \ne j} n_{i}x_{i}n_{j}e_{j} + \sum_{i \ne j} n_{i}x_{j}n_{i}e_{j} - \sum_{i \ne j} n_{j}x_{i}n_{i}e_{j} + \sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k} \nonumber \\
+& = &  - \sum_{i, j=1}^{N} n_{i}x_{i}n_{j}e_{j} + \sum_{i, j=1}^{N} n_{i}x_{j}n_{i}e_{j} - \sum_{i, j}^{N} n_{j}x_{i}n_{i}e_{j} + \sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k} \nonumber \\
+& = & \sum_{i=1}^{N} x_{i}e_{i} - 2 \sum_{i, j}^{N} n_{i}x_{i}n_{j}e_{j} + \sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k}
+\end{eqnarray}
+The last term is zero, because
+\begin{equation}
+ \sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k} =  -\sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{k}e_{j}e_{i} =  -\sum_{i \ne j \ne k} n_{i}x_{j}n_{k}e_{i}e_{j}e_{k}
+\end{equation}
+Hence,
+\begin{equation}
+\alpha(n)(x) = \sum_{i=1}^{N} x_{i}e_{i} - 2 \sum_{i, j=1}^{N} n_{i}x_{i}n_{j}e_{j} = x - 2 (n,x)n
+\end{equation}
+, which is a reflection in \(n\).
+\end{document}
