@@ -135,3 +135,24 @@ we see that the real part of $( d_{1} e^{i\theta_{23}} - d_{2} e^{i\theta_{13}} 
 \begin{equation}
 d = d_{1} \cos{\theta_{23}} - d_{2} \cos{\theta_{13}} + d_{3} \cos{\theta_{12}}.
 \end{equation}
+
+
+* Chapter 7: Ordinary Polytopes in Higher Space
+
+Definition: /Sphere/ is a locus of a point at a distance $r$ from a fixed point.
+
+Example
+- 1-dimensional sphere is a point-pair (in modern terminology, this is a 0-sphere $S^{0}$)
+- 2-dimensional sphere is a circle (again, in modern term, 1-sphere $S^{1}$).
+
+  In modern notations, it is
+\begin{eqnarray}
+D^{n} & := & \{x \in \mathbb{R}^{n} \mid \|x\| \le 1 \} \nonumber\\
+S^{n-1} & := & \partial D^{n}=  \{x \in \mathbb{R}^{n} \mid \|x\| = 1 \} 
+\end{eqnarray}
+and 
+\begin{eqnarray}
+V(D^{n}) & := & \int_{D^{n}} dV \nonumber\\
+A(S^{n-1}) & := & \int_{\partial D^{n}} |*dV|
+\end{eqnarray}
+where $dV := dx_{1} \wedge dx_{2} \wedge \dots \wedge dx_{n}$.

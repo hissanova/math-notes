@@ -1,0 +1,35 @@
+#+TITLE: Notes on "Combinatorics" by Bollobas
+#+DATE: 
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: 
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage{tikz-cd}
+
+* Chapter 2 Representing Sets
+Theorem 1.\\
+Let $\mathcal{F}= \{A_1, A_2, \dots, A_n\}$ be a set system on $X = [n]$.
+Then there is an element $x \in X$ such that $A_1 - \{x\}, A_2 - \{x\}, \dots, A_n - \{x\}$ are all distinct.
+The set system $\mathcal{F}= \{\emptyset, \{1\}, \{2\}, \dots, \{n\}\}$ shows that such en $x$ need not exist if $|\mathcal{F}| = n +1$.
+
+*Proof1.*
+
+Set $\mathcal{D} = \{D \subset X: |\mathcal{F_{D}}| \ge |D| + 1\}$, where $\mathcal{F_{D}} = \{D \cap A_{i}: i \in \mathcal{F}\}$.
+If $A_{1}, A_{2} \in \mathcal{F}$ and $d \in A_{1} \triangle A_{2}$ then $\{d\} \in \mathcal{D}$ so $\mathcal{D} \ne \emptyset$.
+Let $D$ be a maximal set in $\mathcal{D}$. Then $|D| \le n-2$(??) and $|\mathcal{F_{D}}| \le n-1$ (so, in fact $|\mathcal{F_{D}}| = n-1$)
+
+#+begin_export latex
+\fbox{What about the case $D=\{1, 2, \dots, n-1\}$ $\mathcal{F} = \{\{1\},\{2\},\dots,\{n-1\},\{n\}\}$,
+where we have $|D| = n-1$ and $|\mathcal{F_{D}}| = n$?}\\
+#+end_export
+
+When $D=\{1, 2, \dots, n\}$ $\mathcal{F} = \{\{1\},\{2\},\dots,\{n-1\},\{n\}\}$,
