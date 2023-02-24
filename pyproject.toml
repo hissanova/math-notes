@@ -8,6 +8,8 @@ authors = ["Hissanova"]
 python = "^3.10"
 JupyterNotebookReflection = "^0.0.11"
 jupyter = "^1.0.0"
+matplotlib = "^3.7.0"
+sympy = "^1.11.1"
 
 [tool.poetry.dev-dependencies]
 
