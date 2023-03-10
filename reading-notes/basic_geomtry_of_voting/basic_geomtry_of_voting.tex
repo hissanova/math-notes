@@ -1,0 +1,87 @@
+% Created 2023-03-10 金 17:43
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{tikz-cd}
+\author{hisanobu-nakamura}
+\date{\textit{<2019-06-27 木>}}
+\title{Notes on "Topoi" by Goldblatt}
+\hypersetup{
+ pdfauthor={hisanobu-nakamura},
+ pdftitle={Notes on "Topoi" by Goldblatt},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Chapter 2}
+\label{sec:orgfe0195a}
+
+\tikzset{
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
+}
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+& c_{k} \arrow[dr, symbol=\prec]& \\
+c_{i} \arrow[ur,sloped, symbol=\succ] \arrow[rr, symbol=\succ] && c_{j}
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\succ]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\succ] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\sim]& \\
+c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+
+
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\succ] && c_{j}
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+
+\end{document}

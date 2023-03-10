@@ -1,0 +1,80 @@
+#+TITLE: Notes on "Topoi" by Goldblatt
+#+DATE: <2019-06-27 木>
+#+AUTHOR: hisanobu-nakamura
+#+EMAIL: 369bodhisattva@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: 
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage{tikz-cd}
+
+* Chapter 2
+
+#+begin_export latex
+\tikzset{
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
+}
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+& c_{k} \arrow[dr, symbol=\prec]& \\
+c_{i} \arrow[ur,sloped, symbol=\succ] \arrow[rr, symbol=\succ] && c_{j}
+\end{tikzcd}
+\]
+#+end_export
+
+#+begin_export latex
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\succ]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\succ] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+#+end_export
+
+#+begin_export latex
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\sim]& \\
+c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+#+end_export
+
+
+#+begin_export latex
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\succ] && c_{j}
+\end{tikzcd}
+\]
+#+end_export
+
+#+begin_export latex
+\[
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\begin{tikzcd}[row sep=small,column sep=Small]
+ & c_{k} \arrow[dr,symbol=\prec]& \\
+c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
+\end{tikzcd}
+\]
+#+end_export
+
