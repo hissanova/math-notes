@@ -1,5 +1,4 @@
-#+TITLE: Notes on "Topoi" by Goldblatt
-#+DATE: <2019-06-27 木>
+#+TITLE: Notes on "Basic Geometry of Voting" by Saari
 #+AUTHOR: hisanobu-nakamura
 #+EMAIL: 369bodhisattva@gmail.com
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
@@ -25,6 +24,9 @@
       edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
   }
 }
+#+end_export
+Transitive linear orders
+#+begin_export latex
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
 & c_{k} \arrow[dr, symbol=\prec]& \\
@@ -32,7 +34,7 @@ c_{i} \arrow[ur,sloped, symbol=\succ] \arrow[rr, symbol=\succ] && c_{j}
 \end{tikzcd}
 \]
 #+end_export
-
+Order relations with ties
 #+begin_export latex
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
@@ -45,7 +47,7 @@ c_{i} \arrow[ur,symbol=\succ] \arrow[rr,symbol=\sim] && c_{j}
 \end{tikzcd}
 \]
 #+end_export
-
+Equivalent relations
 #+begin_export latex
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
@@ -54,8 +56,7 @@ c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
 \end{tikzcd}
 \]
 #+end_export
-
-
+Cycles
 #+begin_export latex
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
@@ -64,7 +65,7 @@ c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\succ] && c_{j}
 \end{tikzcd}
 \]
 #+end_export
-
+Non-transitive, non-cycles
 #+begin_export latex
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]

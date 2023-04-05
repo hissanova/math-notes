@@ -1,4 +1,4 @@
-% Created 2023-03-10 金 17:43
+% Created 2023-03-30 木 18:25
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -15,11 +15,11 @@
 \usepackage[margin=1.0in]{geometry}
 \usepackage{tikz-cd}
 \author{hisanobu-nakamura}
-\date{\textit{<2019-06-27 木>}}
-\title{Notes on "Topoi" by Goldblatt}
+\date{\today}
+\title{Notes on "Basic Geometry of Voting" by Saari}
 \hypersetup{
  pdfauthor={hisanobu-nakamura},
- pdftitle={Notes on "Topoi" by Goldblatt},
+ pdftitle={Notes on "Basic Geometry of Voting" by Saari},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={}, 
@@ -31,7 +31,7 @@
 
 
 \section{Chapter 2}
-\label{sec:orgfe0195a}
+\label{sec:org8f2a360}
 
 \tikzset{
   symbol/.style={
@@ -40,13 +40,14 @@
       edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
   }
 }
+Transitive linear orders
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
 & c_{k} \arrow[dr, symbol=\prec]& \\
 c_{i} \arrow[ur,sloped, symbol=\succ] \arrow[rr, symbol=\succ] && c_{j}
 \end{tikzcd}
 \]
-
+Order relations with ties
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
  & c_{k} \arrow[dr,symbol=\succ]& \\
@@ -57,22 +58,21 @@ c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\sim] && c_{j}
 c_{i} \arrow[ur,symbol=\succ] \arrow[rr,symbol=\sim] && c_{j}
 \end{tikzcd}
 \]
-
+Equivalent relations
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
  & c_{k} \arrow[dr,symbol=\sim]& \\
 c_{i} \arrow[ur,symbol=\sim] \arrow[rr,symbol=\sim] && c_{j}
 \end{tikzcd}
 \]
-
-
+Cycles
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
  & c_{k} \arrow[dr,symbol=\prec]& \\
 c_{i} \arrow[ur,symbol=\prec] \arrow[rr,symbol=\succ] && c_{j}
 \end{tikzcd}
 \]
-
+Non-transitive, non-cycles
 \[
 \begin{tikzcd}[row sep=small,column sep=Small]
  & c_{k} \arrow[dr,symbol=\prec]& \\
