@@ -17,7 +17,7 @@
 
 * Generalized Cassinian Curves, Surfaces and Hypersurfaces
 ** The Curves of Cassini in 2D Plane
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{images/cassini_generic_point.png}
@@ -25,17 +25,17 @@
 \label{ }
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 The /curves of Cassini/, or /Cassinian curevs/, in $\R^2$ are defined as follows: given two poins $p_1, p_2 \in \R^2$, called focus, and a real number $a \in \R$, 
 the Cassinian curve with the focses $p_{1},p_{2}$ is the set of points $x \in \R^2$ whose product of the Euclidean distances $r_i = \sqrt{|x-p_i|}, \; (i=1,2)$ are always constant $a^2$:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 r_1 r_2 = a^2.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 They were first introduced by Cassini as orbits of the heavenly bodies, but later discarded as a physical model for astrophysics.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{images/cassini2.eps}
@@ -43,35 +43,35 @@ They were first introduced by Cassini as orbits of the heavenly bodies, but late
 \label{ }
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 ** Generalisations
 There are two immediate generalisations of the definition of Cassinian curves: (i) increase the number $n$ of foci or/and (ii) increase the dimensionality $D$ of the ambient space $\R^{D}$. 
 Let us denote a generic point in the ambient space $\R^{D}$ by $x =(x^1, x^2, \cdots, x^D)$, $n$ distinct fixed points by $p_i \in \R^D, \; (i=1,\cdots, n)$ 
 and the values of the distances by $r_i := |x-p_i|$, where $|x|$ is the usual $D$-dimensional Euclidean distance.
  Then define 
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 F(p_1,\cdots,p_n;x):=\prod_{i=1}^{n} r_i.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 (D-1)-dimensional Cassinian hypersurface associated with $p_i$'s is defined as the set of points $x\in \R^D$, the product of whose distances from $x$ is equal to a constant $a^2$:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 C(p_1,\cdots,p_n;a) :=\DefSet{x\in \R^D}{F(p_1,\cdots,p_n;x) = a^2 }.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 We will often use the abbreviation, $C(P;a)=C(p_1,\cdots,p_n;a)$ in the sequel. 
 A further generalisation with arbitrary exponentials can be carried out to obtain /the weighted n-Cassinian curves/, which are defined by:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
 F(P;k;x) & := & \prod_{i=1}^{n} r_i^{k_i} \nonumber\\
 C(P;k;a) &:=&\DefSet{x\in \R^D}{F(P;k;x) = a^2 }
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
 An example of a weighted Cassinian curve is illustrated in Figure \ref{fig:weighted_2_cass}.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %--- DIAGRAM: weighted 2-cassinian ---%
 \begin{figure}[h]
 \begin{center}
@@ -80,16 +80,16 @@ An example of a weighted Cassinian curve is illustrated in Figure \ref{fig:weigh
 \label{fig:weighted_2_cass}
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 However, in this article, we will concentrate mainly on the case $k_i = 1, \forall i$.
 
 When $n=2$, we can assume that $p_1 = (p,0,\dots,0)$ and $p_2 = (-p,0,\dots,0)$ without loss of generality. Then
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 r_1r_2 = \sqrt{(x^1-p)^2 + (x^2)^2 + \cdots + (x^D)^2}\sqrt{(x^1+p)^2 + (x^2)^2 + \cdots + (x^D)^2} = \sqrt{(x^1-p)^2 + R^2}\sqrt{(x^1+p)^2 + R^2}
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 with $R^2 = (x^2)^2 + \cdots + (x^D)^2$. Hence, ($D-1$)-dimensional Cassinian hypersurface with two foci is like a lemniscate with its $y$-axes replaced by a $(D-2)$-sphere $S_R^{D-2}$ of radius $R$.
 
 ** Polar Coordinates and Compatibility Conditions
@@ -109,15 +109,15 @@ We have not figured out how it really works yet. So, the followings are some obs
  First, let us consider the case $D=2$ with $n=2$ foci. Without loss of generality, we can assume the foci are of the form $p_{1}=(p,0),P_{2}=(-p,0)$.
  Then the bipolar coordinates $r_1 :r_2$ with $|p_1 -p_2| =2p$ have to satisfy the compatibility conditions,
  which are, in this case, just triangle inequalities,
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
  r_1 + r_2 & \ge & 2p \\
  r_1 +2p  & \ge & r_2  \\
  r_2 +2p  & \ge & r_1 .
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
  These inequalities specify a region in $\R^2_{\ge0}$ which is the image $\phi(\R^{2})$ (Figure \ref{fig:bipolar-allowed-region}).
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %%% FIGURE: for 2Cassinian %%%
 \begin{figure}[h]
 \begin{center}
@@ -126,29 +126,29 @@ We have not figured out how it really works yet. So, the followings are some obs
 \label{fig:bipolar-allowed-region}
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 Note that the boudary of the shaded region corresponds to the line joining the two foci in the original Euclidean plane. Writing $r_{12}=|p_1 -p_2|$, this condition can be written symmetrically as
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 (r_1 + r_2 - r_{12})(r_1 - r_2 + r_{12})(-r_1 + r_2 + r_{12}) \ge 0.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Multiplying both sides by $(r_{1} + r_{2} + r_{12})$, which is greater than zero, we get
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{eq:compat-2D}
 (r_1 + r_2 + r_{12})(r_1 + r_2 - r_{12})(r_1 - r_2 + r_{12})(-r_1 + r_2 + r_{12}) \ge 0.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 The l.h.s. of this inequality is actually related to the area $A$ of the triangle whose side lengths are $r_{1},r_{2},r_{12}$ by the Heron's formula:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 A = \sqrt{s(s - r_{1})(s-r_{2})(s-r_{12})}, \quad s=\frac{r_1 + r_2 + r_{12}}{2}
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 So (\ref{eq:compat-2D}) is equivalent to $16A^{2} \ge 0$. Furthermore, the Heron's formula can be obtained by the so-called Cayley-Menger determinant defined as follows:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 W_2(r_1,r_2;r_{12}) :=   \left|
@@ -159,28 +159,28 @@ r_2^2 & r_{12}^2 & 0 & 1 \\
 1 & 1 & 1 & 0
 \end{array}\right| = 16A^{2}
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
  We will use this formula to obtain compatibility conditions in higher dimensions later.
  For the case $n=3$, we have a redundancy in the number of variables $r_{i}$, so one degree of freedom needs to be eliminated by some equation.
  To obtain such an equation, we can naively use the cosine rule for angles $\alpha = \angle BxC, \beta =\angle CxA, \gamma = \angle AxB$, 
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
 f_{23} & := & r_2^2 + r_3^2 - r_{23}^2 = 2r_2r_3\cos{\alpha}\\
 f_{31} & := & r_3^2 + r_1^2 - r_{31}^2 = 2r_1r_3\cos{\beta}\\
 f_{12} & := & r_1^2 + r_2^2 - r_{12}^2 = 2r_1r_2\cos{\gamma}\\
 f_{123} & := & r_1^2 r_2^2 r_3^2,
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
 where $r_{ij}:=|p_i-p_j|$ and the fact that $\alpha + \beta + \gamma = 2\pi$ to eliminate cosines, we obtain the compatibility condition for the tripolar coordinates $r_{1}:r_{2}:r_{3}$;
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{eq:tri_compat}
 F_3(r_1,r_2,r_3;r_{12},r_{23},r_{31}) := f_{23}^2 r_1^2 + f_{31}^2 r_2^2 + f_{12}^2 r_3^2 - 4 f_{123} - f_{23} f_{31} f_{12} = 0.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Figure \ref{fig:compat_tripol} shows a plot of the compatibility surface in the tripolar coordinates space. Note also that the region inside the purple surface corresponds to two points symmetric in the plane which contains the three foci in the original Euclidean 3 dimensional space. \\
 The above compatibility condition can also be stated geometrically: the volume of the tetrahedron formed with the the 6 sides of the lengths $(r_1,r_2,r_3;r_{12},r_{23},r_{31})$ is zero i.e. the vertices of the tetrahedron are all in the same 2D plane. 
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 W_3(r_1,r_2,r_3;r_{12},r_{23},r_{31}) =\left|\begin{array}{ccccc}
@@ -191,8 +191,8 @@ r_{3}^2 &  r_{31}^2 & r_{32}^2 & 0 & 1 \\
  1 & 1 & 1 & 1 & 0  
 \end{array}\right|=0
 \end{equation} 
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 %---FIGURE:compatibility surface for a triangle---%
 \begin{figure}[H]
 \begin{center}
@@ -201,22 +201,22 @@ r_{3}^2 &  r_{31}^2 & r_{32}^2 & 0 & 1 \\
 \label{fig:compat_tripol}
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 For $n=4$ or quadrilateral case, the compatibility condition can be expressed as a pair of simultaneous equations.
  For example, if we calculate one of the diagonal length $l_1$, then we have two compatibility conditions for the two triangles
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
 W_3(r_1,r_2,r_3;r_{12},r_{23},r_{31})  & = & W_3(r_2,r_3,r_4;r_{23},r_{34},r_{42})   =  0   
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
 And then other two relations which involve the other diagonal must be redundant.
 In general, compatibility conditions for $n \ge 3$ points $p_i, (i=1,\cdots,n)$ can be written as
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 F_3(r_1,r_2,r_3) =  F_3(r_2,r_3,r_4) = \cdots = F_3(r_{n-3},r_{n-2},r_{n-1})= F_3(r_{n-2},r_{n-1},r_{n})=0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 
 ** The Case in 3D
  When $D=3$, in the cases $n=2$ and $n=3$, the singularities appear in the plane where the focuses lie. 
@@ -224,7 +224,7 @@ So the first non-trivial appearance of the singularities occurs when we have $n=
 Th analogy with triangle will lead us to the similar argument for the construction of the compatibility condition for the quadripolar coordinates. 
 That is to divide the tetrahedron $\triangle ABCD$ into four sub-tetrahedra $\triangle xABC$, $\triangle xACD$, $\triangle xABD$ and $\triangle xBCD$ and calculate the solid angles subtended by the vertex $x$, and then eliminate them by using the condition that they must sum up to $4\pi$. 
 But we are not going to use this rather naive method here. Instead, we resort to the Cayley determinant for the pentachoron.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{eq:vol_det}
 W_4=
@@ -238,10 +238,10 @@ r_{4}^2 & r_{41}^2 & r_{42}^2 & r_{43}^2 & 0 & 1 \\
 \end{array}\right|
 =0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 *** Examples
  The graphs of some particular Cassinian curves with varying parameter $a$ are listed below. The images were created by using Sage graphics plot.\\ 
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %%-----  3-Casinnians ---%%
 \begin{exa}
  Figure \ref{3_cassini_omu} : $ p_1=(0,1), \; p_2 = (-\frac{\sqrt{3}}{2},-\frac{1}{2}), \; p_3 = (\frac{\sqrt{3}}{2},-\frac{1}{2})$\\
@@ -266,8 +266,8 @@ Figure \ref{3_cassini_align} : $p_1=(-1,0), \; p_2 = (0,0), \; p_3 = (1,0)$
 \end{minipage}
 \end{figure}
 \end{exa}
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 %% ----  4-Cassinians ---%%
 \begin{exa}
 \begin{figure}[H]
@@ -297,8 +297,8 @@ Figure \ref{3_cassini_align} : $p_1=(-1,0), \; p_2 = (0,0), \; p_3 = (1,0)$
 \end{center}
 \end{figure}
 \end{exa}
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 %% ----  5-Cassinians ---%%
 \begin{exa}
 $p_1 =(0,1), p_2=(-\sin{\frac{2}{5}\pi},\cos{\frac{2}{5}\pi}), p_3=(-\sin{\frac{4}{5}\pi},\cos{\frac{4}{5}\pi}), p_4=(\sin{\frac{4}{5}\pi},\cos{\frac{4}{5}\pi}), p_5=(\sin{\frac{2}{5}\pi},\cos{\frac{2}{5}\pi})$
@@ -312,14 +312,14 @@ $p_1 =(0,1), p_2=(-\sin{\frac{2}{5}\pi},\cos{\frac{2}{5}\pi}), p_3=(-\sin{\frac{
 \end{figure}
 \end{exa}
 %---- Connected Components ----%
-#+END_LaTeX
+#+END_EXPORT
 ** Connected Components
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{prop}
 Let $p_i, (i=1,\cdots,n)$ be distinct points in $\R^D$. Then, for sufficiently small $\delta >0$, the inverse image $C(p_1,\cdots,p_n;\delta)$ have at least $n$ non-intersecting components homeomorphic to $S^{D-1}$ centred at $p_i$.
 \end{prop}
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 \begin{proof}
 Let $r_{\min}:= \min_{i,j}\left\{r_{ij}\right\}$, $\delta < \frac{r_{\min}}{2}$ and $B(p_i;\delta):= \DefSet{x\in \R^D}{\delta >|x-p_i|}$. Let us denote the minimum pair $r_{ab}=r_{\min}$. Then $B(p_i;\delta)\cap B(p_j;\delta) = \emptyset, (\forall i\ne j)$.  We are only interested in their relative positions. So, by multiplying all the coordinates with a suitable constant, we can assume $r_{\min}>2$ so that $\delta <1$. Now, consider the inverse image $C(p_1,\cdots,p_n;\delta)$. Because we have assumed $r_{\min}>2$ and $\delta <1$, for $x\in B(p_a;\delta)$, we have $r_i = |x-p_i|>1, (i\ne a)$. 
 \begin{equation}
@@ -351,9 +351,9 @@ F(\y) > \rho_{min}
 \end{equation}
 But, now $F(p;\x(\rho))$ is a strictly increasing function of $\rho$ for any $\hat{r} := \frac{\overrightarrow{p_a y}}{|\overrightarrow{p_a y}|}$, so there exists exactly one $\rho_0$ such that $F(p;\x(\rho_0(\hat{r}))) = \rho_{min}$ for each $\hat{r} \in S^{D-1}$. This means there is a disconnected component of the inverse image of $C(p_1,\cdots,p_n;\rho_{min}) =0$ around $p_a$ homeomorphic to $S^{D-1}$.
 \end{proof}
-#+END_LaTeX
+#+END_EXPORT
 But, the fact is, this is not just good enough to tell you all the components to appear when you vary the value $a$. For $D=3$, Cassinian surfaces with the points located on the unit sphere appear to have an extra component which does'nt contain a focus inside. The central component emerges as a point from the critical point at the origin when $a=1$.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{figure}[H]
 %------- TETRAHEDRON -------%
 \begin{minipage}{.5\hsize}
@@ -373,34 +373,37 @@ But, the fact is, this is not just good enough to tell you all the components to
 \end{minipage}
 \end{figure}
 %---Self-intersection points ---%
-#+END_LaTeX
+#+END_EXPORT
 ** Singular points
 We want to determine the singular points for the level curve of the function
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 F(x) =  \prod_{i=1}^{n} r_i 
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 that is, points $x_0$ with $\partial_{\mu} F(x_0) := \frac{\partial F}{\partial x^{\mu}}(x_0)= 0$ other than foci where total derivatives are not defined. Thus, we will assume that $x_0 \ne p_i$. Then, $r_i \ne 0$, so we can divide the partial derivatives by $r_1 \cdots r_n$, which yields, as a stationary condition
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{eq:stationary}
 \frac{1}{2r_1 \cdots r_n}\clmnVsan{\partial_1 F(x_0)}{\vdots}{\partial_D F(x_0)} = \sum_{i=1}^{n} \frac{1}{r_i^2} x_i =0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 where $x_i = x_0-p_i$. By writing the image of $x_i$ under a geometric inversion $\mathcal{I}_{S^{D-1}}$ in unit $D-1$ sphere $S^{D-1}$ centred at $x_0$ as $\tilde{x}_i = \mathcal{I}_{S^{D-1}}(x_i)$, the condition reads as
-#+BEGIN_LaTeX latex
+
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \frac{1}{n}\sum_{i=1}^{n} \tilde{x}_i =0
 \end{equation}
-#+END_LaTeX
-which translates geometrically as the barycentre of the polygon whose vertices are the inverse images of the foci must coincide with the centre of the inversion. For $n=2$, it is easy to see that the barycentre is the midpoint of the two foci in any dimension $D$.\\
+#+END_EXPORT
+which can be geometrically interpreted as follows: The barycentre of the polygon, whose vertices are the inverse images of the foci, must coincide with the centre of the inversion.
+
+For $n=2$, it is easy to see that the barycentre is the midpoint of the two foci in any dimension $D$.\\
 It can be expressed in terms of mechanical language too. If we consider a set of n points with equal mass located at $p_i$'s, the equation (\ref{eq:stationary}) means that the sum of the centrifugal forces at point $x$ is zero.
 
 Knowing the condition for the self-intersection points, we want to know the barycentre of a polytope in terms of multipolar coordinates. It is actually easy to obtain;
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %---PROPOSITION:---%
 \begin{prop}
 Let $p_1 \cdots, p_n$ be distinct points in $\R^{D}$ and $b:= \frac{1}{n}\sum_{i=1}^{n}p_i$ be the barycentre. Then the multipolar coordinates $r_i := |p_i-b|$ of the barycentre is given by
@@ -410,8 +413,8 @@ r_i =  \frac{1}{n}\sqrt{ (n-1)\sum_{i\ne j } r_{ij}^2 - \sum_{\substack{j < k \\
 \end{equation}
 \end{prop}
 %---PROPOSITION:---%
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 \begin{proof}
 \begin{eqnarray}
 |p_1-b|^2 & = & \frac{1}{n^2}|(n-1)p_1-(p_2 + \cdots + p_n)|^2 \nonumber\\
@@ -427,107 +430,107 @@ where $\textbf r_{ij} : = p_i - p_j$ and $r_{ij} = |\textbf r_{ij}|$. Then, from
 \end{eqnarray}
 \end{proof}
 %---END OF PROOF---%
-#+END_LaTeX
+#+END_EXPORT
 A way to remember (\ref{eq:barycentre}) is that the first sum inside the square root consists of edges connected to $p_i$ and the second sum contains those not connected to $p_i$. Let us denote the barycentre determined by the data $\{r_{ij}\}_{1\le i < j\le n}$, the distances between points $p_i$'s as
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 Bary(r_{ij}) := r_1 : \cdots : r_n  .
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Then the explicit condition for the stationary points is
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 Bary\left(\frac{r_{ij}}{r_i r_j}\right) := \frac{1}{r_1} : \cdots : \frac{1}{r_n}  .
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 By substituting $u_i = \frac{1}{r_i^2}$, and writing $R_{ij} := r^2_{ij}$
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 n^2 u_i =   (n-1)\sum_{i\ne j } R_{ij}u_i u_j - \sum_{\substack{j < k \\ j,k \ne i}}R_{jk}u_j u_k
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Hence
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 \left\{ (n-1)\sum_{i\ne j } R_{ij} u_j - n^2 \right\} u_i =     \sum_{\substack{j < k \\ j,k \ne i}}R_{jk}u_j u_k
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 If the quatity inside the bracket on the l.h.s. is non-zero for all $i$, we can obtain an equation for $u_i$ of degree $n+1$, by eliminating other indices,
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 A_{n+1}(R;i)u_i^{n+1} + \cdots +A_{1}(R;i)u_i + A_0(R;i) = 0.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Together with $n$ equations of the above form, we also have combpatibility conditions. And by solving the system of equations or equations and inequalities, we can determine the polar coordinates of the singular points and hence the values $a^2$ at which they appear.\\
 UNSOLVED:Can we know the number of the positive roots to this equation?\\
 The use of Groebner basis may solve the problem.
  An observation tells us that it seems that there $n-1$ solutions when all the foci are in the same 2-D plane and $n$ solutions when $n\ge 4$ and all the foci are in the same 3-D hyperplane. What about for $n \ge 5$ when all the foci are in the same 4-D hyperplane?
 
 In $D=2$ case, we can use complex numbers to obtain the same result. For that end, let us consider the polynomial function $P(z)$
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 w = P(z) = (z-p_1)(z-p_2)\cdots(z-p_n)
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Then, Cassinian curves are defined to be the set
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 C(P,a) := \left\{ z \in \C | \;|P(z)| = a \right\}.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 It can also be seen as the inverse image of a circle of radius $a$ centred at the origin. And the singular points are simply the zeros of the derivative $\frac{dP}{dz}$: that is
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \frac{dP}{dz} = \sum_{i=1}^{n} (z-p_1)\overset{i}{\breve{\cdots} }(z-p_n) = 0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 where $\overset{i}{\breve{\cdots} }$ means $i$-th product is omitted. It is obvious $\frac{dP}{dz}(p_i) \ne 0$ for all $p_i$. So, we can assume $z \ne p_i$ and have
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \sum_{i=1}^{n} \frac{1}{z-p_1} = 0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
  which is the same as the geometric inversion except that the orientation is reversed in this case.
 *** Some explicit calculations
  Let us consider the case $n=3$, where we can work again in the 2 dimensional plane which contains the foci. Then, for a triangle $\triangle ABC$ with sides' lengths $(a,b,c)$ and a point on the plane, let us call the triplet $x:y:z$ of the distances $AP$, $BP$ and $CP$ respectively, the tripolar coordinates. Then the tripolar coordinates of the barycentre of $\triangle ABC$ is given by
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 Bary(a,b,c) : = \frac{1}{3}\sqrt{2(b^2 + c^2)-a^2} : \frac{1}{3}\sqrt{2(c^2 + a^2)-b^2} : \frac{1}{3}\sqrt{2(a^2 + b^2)-c^2} 
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Notice that $Bary(ka,kb,kc) = k\; Bary(a,b,c)$. Now, from inversion geometry, the lengths $(a^{\prime},b^{\prime},c^{\prime})$ of the sides of $\triangle \tilde{A}\tilde{B}\tilde{C}$ are given by
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 (a^{\prime},b^{\prime},c^{\prime}) = \left( \frac{a}{yz},\frac{b}{zx}, \frac{c}{xy} \right).
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Therefore, the stationary condition now reads as
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \frac{1}{x}:\frac{1}{y}:\frac{1}{z} = Bary(a^{\prime},b^{\prime},c^{\prime}) = Bary\left( \frac{a}{yz},\frac{b}{zx}, \frac{c}{xy} \right).
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 multiplying both sides by $xyz$, we get
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 yz:zx:xy = Bary(ax,by,cz).
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 The solutions for these equations should give us the stationary points.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %---FIGURE:Singular points for triangle ---%
 \begin{figure}[H]
 \begin{center}
@@ -536,10 +539,10 @@ The solutions for these equations should give us the stationary points.
 \label{ }
 \end{center}
 \end{figure}
-#+END_LaTeX
+#+END_EXPORT
 * Surfaces of Arbitrary Genus Constructed from Generalised Cassinian Curves
 Refinement of a statement made in a problem in the book (Morris \cite{Hirsch} p28. problem 12)
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{thm}
  If a curve defined by $F(x,y) = 0$, where $F:\R^2 \rightarrow \R$, is closed and has $n-1$ crossings, then we can construct a genus $n$ surface in $\R^3$ by setting
 \begin{equation}
@@ -548,8 +551,8 @@ F(x,y)^2 - ( r^2 - z^2) = 0
 \end{equation}
 for some $r$.
 \end{thm}
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 \begin{proof}
  First, we want to show for some $r > 0$, if $F^{-1}(r)$ is connected regular (a Jordan curve) then $F^{-1}(-r)$ consist of $n$ compnents (the case $F^{-1}(-r)$ is connected is really the same if set $F' = -F$). Then, from the factorisation
 \begin{equation}
@@ -558,18 +561,18 @@ for some $r$.
 \end{equation}
  We can see that the level cruves at $z=\pm r$ have $n-1$ crossings and for $z \in (-r,r)$ split into the outer curve $F^{-1}(\sqrt{r^2-z^2})$ and the inner $n$ curves $F^{-1}(-\sqrt{r^2-z^2})$.
 \end{proof}
-#+END_LaTeX
+#+END_EXPORT
 CONSIDERATION: Suppose $F:\R^2 \rightarrow \R$ has $n-1$ crossings (the number of critical points may be less than the number of crossings), say $\{p_{i}\}$, and every inverse image $F^{-1}(a)$ for $a\in F(\R^2)$ is closed and denote $z_i=F(p_i)$ and set $M:= \max\{z_i\}$ and $ m :=\min \{z_i\}$. For $a>M$, $F^{-1}(a)$ is connected(?),and does $F^{-1}(a<m)$ have $n$ components? ANSWER: In general, $F^{-1}(a>M)$ is not connected, but if $F^{-1}(a)$ is connected for $a>M$, then .\\
 Question: If $F^{-1}(a>M)$ is connected , by suitably adjusting the constant, we can assume $M=0$. If we pick up a $r< m-M, \; r \in F(\R^2)$ , then a surface defined by
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 F(x,y)^2 + (r^2 - z^2) = 0
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 has genus $n$ ?
 ** Examples of Cassinian Cookies
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{figure}[H]
 %------- Omusubi 4-Cassinian -------%
 \begin{minipage}{0.5\hsize}
@@ -589,8 +592,8 @@ has genus $n$ ?
 \end{minipage}
 \end{figure}
 %------- Clover 4-Cassinian -------%
-#+END_LaTeX
-#+BEGIN_LaTeX latex
+#+END_EXPORT
+#+BEGIN_EXPORT latex
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=6cm]{images/cookie5_star.eps}
@@ -599,87 +602,87 @@ has genus $n$ ?
 \end{center}
 \end{figure}
 %---SECTION: Cassinian cookies in 4D---% 
-#+END_LaTeX
+#+END_EXPORT
 * Cassinian Cookies in 4D
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 F(x^1,x^2,x^3)^2 - ( r^2 - (x^4)^2) = 0 
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
  When $n=2$, we can assume that $p_1 = (p,0,0)$ and $p_2 = (-p,0,0)$ without loss of generality. 
 $r_1= \sqrt{(x^1-p)^2 + (x^2)^2 + (x^3)^2}= \sqrt{(x^1-p)^2 + R^2}$, $r_2 = \sqrt{(x^1+p)^2 + (x^2)^2 +  (x^3)^2}= \sqrt{(x^1+p)^2 + R^2}$ where $R^2 = (x^2)^2 + (x^3)^2$
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{}
 F(x^1,x^2,x^3)= r_1r_2 -a^2
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 
 * The Limit $n \to \infty$ with Points on Unit Circle
 Consider points of regular $n$-gon $\{p_i=(\cos{\theta_i,\sin{\theta_i}})| \theta_i = \frac{2i\pi}{n}, \; i = 0,\cdots,n-1\}$. And set
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 F_n(x) := \prod_{i=0}^{n-1}|x-p_i|
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 What will happen when we take the limit $n \to \infty$?
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %-------- APPENDICES -----------%
 \appendix
-#+END_LaTeX
+#+END_EXPORT
 * Compatibility Conditions For A Triangle
 Use the cosine rule for each side:
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
 r_{12}^2 & = & r_1^2 + r_2^2 - 2r_1r_2\cos{\alpha} \\
 r_{31}^2 & = & r_3^2 + r_1^2 - 2r_3r_1\cos{\beta} \\
 r_{23}^2 & = & r_2^2 + r_3^2 - 2r_2r_3\cos{\gamma} 
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
 and also the fact that the total angle is $\alpha + \beta +\gamma = 2\pi$ so
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \cos{(\alpha + \beta +\gamma)} = 1.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 By addition theorem, this implies
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{eq:cosine_for_three}
 1= \cos^2{\alpha} + \cos^2{\beta} + \cos^2{\gamma} -2 \cos{\alpha} \cos{\beta} \cos{\gamma}.
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Equating the first three expressions to cosines and then substituing them into (\ref{eq:cosine_for_three}) yields the compatibility condition for triangles.
 * Solid Angles and Compatibility Conditions For A Tetrahedron
 The spherical cosine rule:
 consider a triangle on a sphere i.e. a region on a sphere bounded by three distinct greater circles. Let us denote the length of the three sides by $\alpha$, $\beta$ and $\gamma$, and the corresponding opposite dihedral angles by $A$, $B$ and $C$.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \cos{C} = \frac{\cos{\gamma} - \cos{\alpha}\cos{\beta} }{\sin{\alpha}\sin{\beta}}
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 Let us denote the solid angles above respectively by $\Theta_{ABC}$, $\Theta_{ACD}$, $\Theta_{ABD}$ and $\Theta_{BCD}$. And let us denote by, for example, $\theta_{BAC}$ the dihedral angle subtended by the greater circles on the unit sphere centred at $x$, which pass through the projected points of $A$, $B$ and $C$. Then it follows that 
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{eqnarray}
 \Theta_{ABC} & = & \theta_{BAC} + \theta_{ACB} + \theta_{ABC} - \pi \\
 \Theta_{ACD} & = & \theta_{ACD} + \theta_{CDA} + \theta_{CAD} - \pi \\
 \Theta_{ABD} & = & \theta_{ABD} + \theta_{BDA} + \theta_{BAD} - \pi \\
 \Theta_{BCD} & = & \theta_{BCD} + \theta_{CBD} + \theta_{BDC} - \pi 
 \end{eqnarray}
-#+END_LaTeX
+#+END_EXPORT
 And then the compatibility condition for the tetrahedron is
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 \begin{equation}
 \label{ }
 \Theta_{ABC} + \Theta_{ABD} + \Theta_{ACD} + \Theta_{BCD} = 4\pi
 \end{equation}
-#+END_LaTeX
+#+END_EXPORT
 But we also have $\theta_{BAC} + \theta_{CAD} + \theta_{DAB} = 2\pi$ for each vertices.
-#+BEGIN_LaTeX latex
+#+BEGIN_EXPORT latex
 %-----------  Bibliography ----------------
 \begin{thebibliography}{10}
 \bibitem{Hirsch}
@@ -687,4 +690,4 @@ But we also have $\theta_{BAC} + \theta_{CAD} + \theta_{DAB} = 2\pi$ for each ve
 \bibitem{Cayley}
   A. Cayley, The Cambridge Mathematical Journal, vol. II, 267-271, 1841
 \end{thebibliography}
-#+END_LaTeX
+#+END_EXPORT
