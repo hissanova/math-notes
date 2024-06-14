@@ -1,0 +1,110 @@
+\documentclass[a4j,12pt]{jarticle}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancybox}
+\usepackage[dvips,final]{graphicx}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\numberwithin{equation}{section}
+\newtheorem{example}{Example}[section]
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\bra}[1]{\langle{#1}|}
+\newcommand{\ket}[1]{|{#1}\rangle}
+\newcommand{\Expect}[3]{\langle {#1}|{#2}|{#3} \rangle}
+\newcommand{\dev}[2]{\langle (\Delta {#1})^2 \rangle _{{#2}}}
+\newcommand{\sgm}[1]{\sigma_{#1}}
+\newcommand{\sgmOp}[1]{\hat{\sigma}_{#1}}
+\newcommand{\hfangle}[1]{{\frac{#1}{2}}}
+\newcommand{\clmnV}[2]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\clmnVsan}[3]
+		{\left(
+			\begin{matrix}
+			 {#1}\\
+			 {#2}\\
+			 {#3}\\
+		 	\end{matrix}
+		\right)
+		}
+\newcommand{\mtrx}[4]
+	{\left(
+		\begin{matrix}
+		 {#1} & {#2} \\
+		 {#3} & {#4} \\
+		\end{matrix}
+	\right)
+	}
+\newcommand{\inn}[2]{\langle{#1}|{#2}\rangle}
+\newcommand{\itbf}[1]{\textit{\textbf{#1}}}
+
+\newtheorem{thm}{定理}[section]
+\newtheorem{dfn}{定義}[section]
+\newtheorem{prop}[thm]{proposition}
+
+\begin{document}
+\title{Pointless Topology 勉強ノート}
+\date{2024年6月13日〜}
+\author{中村仁宣}
+\maketitle
+
+\section{Preliminary}
+\subsection{Topology トポロジー}
+Let $\mathcal{P}(X)$ denote the power set of $X$.
+\begin{dfn}[Topology トポロジー]
+  A \itbf{topological space} is an ordered pair $(X, \tau), \; \tau \subseteq \mathcal{P}(X)$ which satisfies the following properties
+  \begin{enumerate}
+  \item $\varnothing \in \tau$ and $X \in \tau$.
+  \item if $U,V \in \tau$, then $U \cap V \in \tau$.
+  \item if $\forall I, U_i \in \tau \text{ forall } i \in I$, then $\bigcup_{i\in I}U_i$.
+  \end{enumerate}
+  $\tau$ is called the \itbf{topology} of $X$.
+  The members of the topology $U\in\tau$ is said to be \itbf{open} and $V \subseteq X$ is said to be closed if $\exists U$ open such that $V = U^c$.
+\end{dfn}
+\begin{dfn}[Separation Axioms 分離公理]
+  A space $(X,\tau)$ is called $T_i$ ,if respectively satisfies the following conditions,
+  \begin{enumerate}
+  \item $T_0$: $\forall x,y \in X$ $\exists$ an open set $U \in \tau$ such that $U$ contains one of $x,y$ and not the other.
+  \item $T_1$: $\forall x,y \in X$ $\exists$ a nhood of each not containing the other.
+  \end{enumerate}
+\end{dfn}
+\subsection{Posets, Lattices 半順序集合、束}
+\begin{dfn}[Posets]
+  A \itbf{partial order (半順序)} on a set $X$ is a binary relation $R \subseteq X \times X$ satisfying,
+  \begin{enumerate}
+  \item $\forall a, aRa$ (reflexivity, 反射律),
+  \item $\forall a,b,c,\; aRb \; \& \; bRc \Rightarrow aRc$ (transitivity, 推移律),
+  \item $\forall a,b,\; aRb \; \& \; bRa \Rightarrow a=b$ (antisymmetry, 反対称律).
+  \end{enumerate}
+  if moreover
+  \begin{enumerate}
+    \setcounter{enumi}{3}
+  \item $\forall a,b$ either $aRb$ or $bRa$ holds,
+  \end{enumerate}
+  it is said to be a \itbf{linear} or \itbf{total} order.\\
+  A \itbf{poset} or \itbf{partially ordered set}, $(X, \le)$ is a set with a partial order.
+  If the order of a poset is linear (or total), it is called a \itbf{linearly ordered set}, \itbf{totally ordered set} or \itbf{chain}.
+  A relation that satisfies only (1) and (2) is called \itbf{preorder}.
+\end{dfn}
+
+\section{Spaces and Lattices of Open Sets}
+We will suppose that all topological spaces that appear here will be $T_0$.
+% ---REFERENCES---%
+\begin{thebibliography}{10}
+\bibitem{Picado}
+  Jorge Picado, Ale\u{s} Putlr, Frames and Locales:Topology without points, Birkh\"auser.
+\end{thebibliography}
+
+\end{document}
