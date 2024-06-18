@@ -10,7 +10,7 @@
 \usepackage{tabularx}
 \usepackage{enumerate}
 \numberwithin{equation}{section}
-\newtheorem{example}{Example}[section]
+\newtheorem{example}{例}[section]
 
 \newcommand{\N}{\mathbb N}
 \newcommand{\R}{\mathbb R}
@@ -52,7 +52,8 @@
 
 \newtheorem{thm}{定理}[section]
 \newtheorem{dfn}{定義}[section]
-\newtheorem{prop}[thm]{proposition}
+\newtheorem{prop}[thm]{命題}
+\renewcommand{\proofname}{\textbf{証明}}
 
 \begin{document}
 \title{Pointless Topology 勉強ノート}
@@ -71,7 +72,7 @@ Let $\mathcal{P}(X)$ denote the power set of $X$.
   \item if $\forall I, U_i \in \tau \text{ forall } i \in I$, then $\bigcup_{i\in I}U_i$.
   \end{enumerate}
   $\tau$ is called the \itbf{topology} of $X$.
-  The members of the topology $U\in\tau$ is said to be \itbf{open} and $V \subseteq X$ is said to be closed if $\exists U$ open such that $V = U^c$.
+  The members of the topology $U\in\tau$ is said to be \itbf{open} and $V \subseteq X$ is said to be \itbf{closed} if $\exists U$ open such that $V = U^c$.
 \end{dfn}
 \begin{dfn}[Separation Axioms 分離公理]
   A space $(X,\tau)$ is called $T_i$ ,if respectively satisfies the following conditions,
@@ -80,6 +81,9 @@ Let $\mathcal{P}(X)$ denote the power set of $X$.
   \item $T_1$: $\forall x,y \in X$ $\exists$ a nhood of each not containing the other.
   \end{enumerate}
 \end{dfn}
+\begin{example}[$T_0$-space]
+  $X=\{a,b\}, \tau=\{\varnothing, \{a\}, X\}$
+\end{example}
 \subsection{Posets, Lattices 半順序集合、束}
 \begin{dfn}[Posets]
   A \itbf{partial order (半順序)} on a set $X$ is a binary relation $R \subseteq X \times X$ satisfying,
@@ -98,9 +102,98 @@ Let $\mathcal{P}(X)$ denote the power set of $X$.
   If the order of a poset is linear (or total), it is called a \itbf{linearly ordered set}, \itbf{totally ordered set} or \itbf{chain}.
   A relation that satisfies only (1) and (2) is called \itbf{preorder}.
 \end{dfn}
-
+\begin{dfn}[Suprema, infima]
+  A \itbf{supremum} $s$ of a subset $M \subseteq (X, \le)$ the least upper bound of $M$, that is
+  \begin{enumerate}
+  \item $\forall m \in M, m \le s,$
+  \item $\forall m \in M, m \le x \Rightarrow s \le x$.
+  \end{enumerate}
+  Similarly, a \itbf{infimum} of a subset $M \subseteq (X, \le)$ the greatest lower bound of $M$.\\
+  We also call a supremum a \itbf{join} and an infimum \itbf{meet} and notate $\sup M, \inf M$ or $\bigvee M, \bigwedge M$ respectively.\\
+  For finite cases, we wirte $a \vee b := \sup\{a,b\}$ or $a_1 \vee \dots \vee a_n := \sup\{a_1\dots a_n\}$ and $a \wedge b := \inf\{a,b\}$ or $a_1 \wedge \dots \wedge a_n := \inf\{a_1\dots a_n\}$.
+\end{dfn}
+Since each $x\in X$ is both a lower and an upper bound of the empty set $\varnothing$,
+\begin{equation}
+  \sup\varnothing \text{ is the least element of } X
+\end{equation}
+and
+\begin{equation}
+  \inf\varnothing \text{ is the greatest element of } X
+\end{equation}
+We use the symbols $0$ or $\bot$ for the former and $1$ or $\top$ for the latter.\\
+\begin{dfn}[Semilattices, Lattice]
+  A \itbf{meet-semilattice} is a poset $X$ such that $\forall a,b \in X$ there exists an infimum $a \wedge b$.\\
+  A \itbf{join-semilattice} is a poset $X$ such that $\forall a,b \in X$ there exists an supremum $a \vee b$.\\
+  A \itbf{lattice} is a poset $X$ such that $\forall a,b \in X$ both an infimum $a \wedge b$ and a supremum $a \vee b$ exist.\\
+  A \itbf{bounded lattice} is a poset in which all finite subsets have infima and suprema (i.e. a lattice with bottom and top).\\
+  A poset is a \itbf{complete lattice} if every subset has a supremum and an infimum.
+\end{dfn}
+In a bounded semilattice, $\wedge$ or $\vee$ is a binary operation and satisfies the following properties,
+\begin{align}
+  & a \wedge a = a && a \vee a = a\\
+  & a \wedge b = b \wedge a &&  a \vee b = b \vee a \\
+  & (a \wedge b) \wedge c = a \wedge (b \wedge c)  && (a \vee b) \vee c = a \vee (b \vee c) \\
+  & a \wedge 1 = a && a \vee 0 = a.
+\end{align}
+In other words, bounded semilattices are commutative monoids (semigroup with unit/identity element) in which every element is idempotent.\\
+\begin{thm}
+  Let $(A, \vee, 0)$ be a commutative monoid in which every element is idempotent.
+  Then there exists a unique partial order on $A$ such that $a \wedge b$ is the join of $a$ and $b$, and $0$ is the least element.
+\end{thm}
+\begin{proof}
+  Clearly, if such a partial order exists,
+  \begin{equation}
+    a \le b \Leftrightarrow a \vee b = b.
+  \end{equation}
+  Indeed, it is 
+\end{proof}
+A lattice can also be defined purely algebraically in those terms,
+\begin{dfn}
+  A \itbf{lattice} $(L, \vee, \wedge)$ is an algebra (a set with two binary operations) that satisfy
+  \begin{align*}
+    \label{eq:lattice-def}
+    & (L1) &  & a \wedge a = a && a \vee a = a                       &  & \text{(idempotency)}   \\
+    & (L2) &  & a \wedge b = b \wedge a && a \vee b = b\vee a        &  & \text{(commutativity)} \\
+    & (L3) &  & (a \wedge b) \wedge c = a \wedge (b \wedge c)       &  & (a \vee b) \vee c = a \vee (b\vee c)                 &  & \text{(associativity)} \\
+    & (L4) &  & a \vee (a \wedge b) = a && a \wedge (a \vee  b) =  a &  & \text{(absorption identities)}
+  \end{align*}
+\end{dfn}
+\begin{dfn}[Ideal]
+  An \itbf{ideal} in a bounded distributive lattice $L$ is a subset $J \subseteq L$ such that
+  \begin{eqnarray}
+    \label{eq:ideal}
+    && 0 \in J,\\
+    && a,b \in J \Rightarrow a \vee b \in J,\\
+    && b\le a \;\&\; a \in J \Rightarrow b \in J.
+  \end{eqnarray}
+\end{dfn}
+\begin{dfn}[Filter]
+  A \itbf{filter} in a bounded distributive lattice $L$ is a subset $F \subseteq L$ such that
+  \begin{eqnarray}
+    \label{eq:filter}
+    && 1 \in F,\\
+    && a,b \in F \Rightarrow a \wedge b \in F,\\
+    && b \ge a \;\&\; a \in F \Rightarrow b \in F.
+  \end{eqnarray}
+\end{dfn}
+\section{Stone Spaces}
 \section{Spaces and Lattices of Open Sets}
 We will suppose that all topological spaces that appear here will be $T_0$.
+\subsection{Sober spaces}
+\begin{dfn}[meet-irrducibility]
+  Let $(X,\tau)$ be a top.space. $W\in \tau$ is said to be a \itbf{meet-irreducible} open set if $U,V\in \tau$ and $U \cap V \subseteq W$, then either $U \subseteq W$ or $V \subseteq W$.
+\end{dfn}
+\begin{dfn}[sober space]
+  $X$ is said to be \itbf{sober} if all the meet-irreducible open sets are of the form $X\backslash \overline{\{x\}}$.
+\end{dfn}
+\begin{prop}
+  Each Haudorff space is sober.
+\end{prop}
+\begin{proof}
+  Suppose $W$ is meet-irreducible, for contradiction, there exists $x_1,x_2\notin W$ and $x_i \in U_i, x_j \notin U_i(i \ne j)$.
+  Then $W = (W \cup U_1) \cap (W \cup U_2)$ and $W\cup U_i \nsubseteq W$.
+\end{proof}
+
 % ---REFERENCES---%
 \begin{thebibliography}{10}
 \bibitem{Picado}
