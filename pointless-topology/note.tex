@@ -148,7 +148,7 @@ In a bounded semilattice, $\wedge$ or $\vee$ is a binary operation and satisfies
   & a \wedge 1 = a && a \vee 0 = a.
 \end{align}
 In other words, bounded semilattices are commutative monoids (semigroup with unit/identity element) in which every element is idempotent.\\
-\begin{thm}
+\begin{thm} \label{thm:comm-monoid-is-lattice}
   Let $(A, \vee, 0)$ be a commutative monoid in which every element is idempotent.
   Then there exists a unique partial order on $A$ such that $a \wedge b$ is the join of $a$ and $b$, and $0$ is the least element.
 \end{thm}
@@ -321,6 +321,7 @@ Next, we sketch the equivalence between Boolean algebras and Boolean rings. In a
   a + b = (a\wedge \neg b) \vee (b \wedge \neg a).
 \end{equation}
 \begin{lemma}
+  \label{lemma:B-alg-distributivity}
   The distributive law $a \wedge (b+c) = (a\wedge b) + (a \wedge c)$
 \end{lemma}
 \begin{proof}
@@ -363,6 +364,69 @@ Now for any $a$, we have
   a + 0 = (a \wedge 1) \vee (0 \wedge \neg a) = a \vee 0 = a.
 \end{equation}
 So $(A, +, 0)$ is a commutative group, and $(A, +, \wedge, 0, 1)$ is a commutative ring with $1$.
+\begin{dfn}
+  A Boolean ring $A$ is a ring with $1$ in which every element satisfies $a^2 = a$.
+\end{dfn}
+\begin{lemma}
+  Let $A$ be a Boolean ring, then
+  \begin{enumerate}
+  \item $A$ is commutative.
+  \item Every $a \in A$ satisfies $a+a=0$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{align*}
+    a + b &= (a+b)^2 \\
+          &= a^a + ab + ba + b^2 \\
+          &= a + ab + ba + b.
+  \end{align*}
+  So $ab + ba = 0$. Putting $a=b$, we get $a+a=0$; hence $ab=-ba=ba$.
+\end{proof}
+So the multiplicative structure $(A, \cdot,1)$ is a semilattice, with partial order defined by $a \le b$ iff $ab=a$ (c.f. 定理 \ref{thm:comm-monoid-is-lattice}).
+Note that $0$ is the least element of $A$ for this order.\\
+Now consider $a+b+ab$. We have
+\begin{equation}
+  a(a+b+ab)=a+ab+ab=a
+\end{equation}
+and
+\begin{equation}
+  b(a+b+ab)=ba+b+ab=b
+\end{equation}
+so $a+b+ab$ is an upper bound for $\{a,b\}$. But if $c$ is an upper bound for $\{a,b\}$, then
+\begin{equation}
+  (a+b+ab)c=ac+bc+abc=a+b+ab,
+\end{equation}
+so $a+b+ab$ is the least upper bound. Dnote $a+b+ab$ by $a\vee b$, we thus havea lattice structure $(A, \vee, \cdot, 0, 1)$.
+Moreover, by an argument like that of Lemma \ref{lemma:B-alg-distributivity}, we may verify that $\cdot$ is distributive over $\vee$;
+and it is also easy to verify that $1+a$ is a complement for $a$. So $A$ is a Boolean algebra.
+\begin{align*}
+  ab \vee ac &= (ab+ac+abac) \\
+               &= ab + ac + abc \\
+               &= a(b \vee c) &\text{\qed}
+\end{align*}
+\begin{align*}
+  &a(a+1) = a+a=0 & a \vee (1+a) = a + (1+a) + a(1+a) = 1. &\text{\qed}
+\end{align*}
+What is the symmetric difference operation in this Boolean algebra?
+\begin{align*}
+  (a \wedge \neg b) \vee (b \wedge \neg a) &= (a (1+b)) \vee (b (1+a)) \\
+                                           &= (a+ab) \vee (b+ab) \\
+                                           &= (a+ab) + (b+ab) + (a+ab)(b+ab) \\
+                                           &= a + b + ab + ab + ab + ab \\
+                                           &= a + b.
+\end{align*}
+Thus if we start from a Boolean ring and turn it into a Boolean algebra by the definitions
+\begin{align*}
+  a \vee b &:= a + b +ab \\
+  \neg a &:= 1 + a \\
+  a \overline{+} b &:= a + b
+\end{align*}
+then back into a Boolean ring by defining the addition $+$ as the symmetric difference, we recover the original ring.
+Similarly if start from a Boolean algebra and go round the other way.
+Moreover, it is clear from the nature of the constructions that any Boolean algebra homomorphism is also a Boolean ring homomorphism, conversely; so we have proved
+\begin{thm}
+  The category of Boolean algebras is isomorphic to the category of Boolean rings.
+\end{thm}
 %---Example---%
 \begin{example}[Poset]
   (\cite{Gratzer} Chap.1 Exercise 4)
