@@ -427,6 +427,58 @@ Moreover, it is clear from the nature of the constructions that any Boolean alge
 \begin{thm}
   The category of Boolean algebras is isomorphic to the category of Boolean rings.
 \end{thm}
+\subsection{Heyting Algebras ヘイティング代数}
+Let $a$ and $b$ be elements of a Boolean algebra, and consider the element $\neg a \vee b$.
+We have
+\begin{align*}
+  c \le \neg a \vee b \Rightarrow c \wedge a &\le a \wedge (\neg a \vee b) \\
+                                             &=(a \wedge \neg a) \vee (a \wedge b) \\
+                                             &=0 \vee (a \wedge b) = a \wedge b \\
+                                             &\le b;
+\end{align*}
+and conversely
+\begin{align*}
+  c \wedge a \le b \Rightarrow \neg a \vee b &\ge \neg a \vee (a \wedge c) \\
+                                             &=(\neg a \vee a) \wedge (\neg a \vee c) \\
+                                             &=1 \wedge (\neg a \vee c) = \neg a \vee c \\
+                                             &\ge c.
+\end{align*}
+Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge z \le b$. A lattice $A$ is said to be a \itbf{Heyting algebra} if, for each pair of elements $(a,b)$, there exists an element $(a \rightarrow b)$ such that $c\le(a\rightarrow b)$ iff $c \wedge a \le b$.
+\begin{lemma}
+  Let $A$ be a lattice, $\rightarrow$ a binary operation on $A$. Then $\rightarrow$ makes $A$ into a Heyting algebra iff the equations
+  \begin{align*}
+    &\text{(i) } a \rightarrow a =1 \\
+    &\text{(ii) } a \wedge (a \rightarrow b) = a \wedge b \\
+    &\text{(iii) } b \wedge (a \rightarrow b) = b \\
+    &\text{(iv) } a \rightarrow (b \wedge c) = (a \rightarrow b) \wedge (a \rightarrow c)
+  \end{align*}
+  hold for all $a,b,c$ in $A$.
+\end{lemma}
+\begin{proof}
+  Suppose that $A$ is a Heyting algebra. Then, $(a \rightarrow a)$ is the largest element $c$ such that $c \wedge a \le a$ holds, that is $1$. So (i) is true.\\
+  For (ii), $a \wedge c \le b$ implies $a \wedge (a \wedge c) = a \wedge c \le a \wedge b$. So (ii) is true.\\
+  For (iii), $a \wedge b \le b$ implies $b \le (a \rightarrow b)$, so $b \le b \wedge (a \rightarrow b) \le b$.\\
+  For (iv), $a \wedge f \le (b \wedge c) \le b \text{ and } c$ so $a \rightarrow (b \wedge c) \le (a \rightarrow b) \wedge (a \rightarrow c)$.\\
+  Then $a \wedge (a \rightarrow b) \wedge (a \rightarrow c) = a \wedge (a \rightarrow b) \wedge a \wedge (a \rightarrow c) \le b \wedge c$, so it's true.\\
+  For the converse, suppose the equations hold. Then if $c \le (a \rightarrow b)$, we have
+  \begin{align*}
+    a \wedge c \le a \wedge (a \rightarrow b) \le a \wedge b \le b
+  \end{align*}
+  conversely, if $c \wedge a \le b$ then
+  \begin{align*}
+    c &= c \wedge (a \rightarrow c) & \text{by (iii)} \\
+      &\le(a \rightarrow a) \wedge (a \rightarrow c) & \text{by (i)} \\
+      &=a \rightarrow (a \wedge c) & \text{by (iv)} \\
+      &\le a \rightarrow b
+  \end{align*}
+  since $a \rightarrow (-)$ is order-preserving;\\
+  $\because$ if $b \le c$ then $b = b \wedge c$
+  \begin{align*}
+    a \rightarrow b &= a \rightarrow (b \wedge c) \\
+                    &= (a \rightarrow b) \wedge (a \rightarrow c)
+  \end{align*}
+  Hence, $a \rightarrow b \le a \rightarrow c$.
+\end{proof}
 %---Example---%
 \begin{example}[Poset]
   (\cite{Gratzer} Chap.1 Exercise 4)

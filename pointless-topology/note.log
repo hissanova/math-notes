@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.6.13)  28 JUN 2024 19:46
+This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.6.13)  3 JUL 2024 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -779,91 +779,98 @@ LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
  [6]
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 427.
-LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 431.
-LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 434.
  [7]
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 440.
+(Font)              No change on input line 446.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 448.
+(Font)              No change on input line 447.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 458.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 483.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 486.
+ [8]
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 492.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 500.
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 491--492
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 543--544
 [][] 
  []
 
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 495.
+(Font)              No change on input line 547.
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 574--575
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 626--627
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 585--586
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 637--638
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 596--597
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 648--649
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 608--609
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 660--661
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 620--621
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 672--673
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 631--632
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 683--684
 [][] 
  []
 
 
-Overfull \hbox (1.13905pt too wide) in paragraph at lines 642--643
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 694--695
 [][] 
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 497--665
+Underfull \hbox (badness 2165) in paragraph at lines 549--717
 [][]$[]$[] []$[]$[] []$[]$[] []$[]$[] []$[]$[] []$[]$[] []$[]$[] []$[]$[]
  []
 
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 668.
+(Font)              No change on input line 720.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 669.
+(Font)              No change on input line 721.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 677.
+(Font)              No change on input line 729.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 678.
-[8]
+(Font)              No change on input line 730.
+[9]
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 690.
+(Font)              No change on input line 742.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 691.
+(Font)              No change on input line 743.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 693.
+(Font)              No change on input line 745.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 694.
+(Font)              No change on input line 746.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 696.
+(Font)              No change on input line 748.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 700.
- [9] (./note.aux) ) 
+(Font)              No change on input line 752.
+ [10] (./note.aux) ) 
 Here is how much of TeX's memory you used:
  15479 strings out of 479850
  307069 string characters out of 5887378
- 634848 words of memory out of 5000000
+ 633850 words of memory out of 5000000
  33536 multiletter control sequences out of 15000+600000
  489803 words of font info for 113 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 84i,13n,89p,415b,914s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,13n,89p,415b,916s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on note.dvi (9 pages, 71040 bytes).
+Output written on note.dvi (10 pages, 74772 bytes).
