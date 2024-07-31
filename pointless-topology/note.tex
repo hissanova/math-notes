@@ -443,7 +443,7 @@ and conversely
                                              &=1 \wedge (\neg a \vee c) = \neg a \vee c \\
                                              &\ge c.
 \end{align*}
-Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge z \le b$. A lattice $A$ is said to be a \itbf{Heyting algebra} if, for each pair of elements $(a,b)$, there exists an element $(a \rightarrow b)$ such that $c\le(a\rightarrow b)$ iff $c \wedge a \le b$.
+Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge a \le b$. A lattice $A$ is said to be a \itbf{Heyting algebra} if, for each pair of elements $(a,b)$, there exists an element $(a \rightarrow b)$ such that $c\le(a\rightarrow b)$ iff $c \wedge a \le b$.
 \begin{lemma}
   Let $A$ be a lattice, $\rightarrow$ a binary operation on $A$. Then $\rightarrow$ makes $A$ into a Heyting algebra iff the equations
   \begin{align*}
@@ -478,6 +478,41 @@ Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge z \l
                     &= (a \rightarrow b) \wedge (a \rightarrow c)
   \end{align*}
   Hence, $a \rightarrow b \le a \rightarrow c$.
+\end{proof}
+(\cite{Stone} Sec. 1.11) In a Boolean algebra $A$, we can recover the unary operation $\neg$ from the binary operation $\rightarrow$, since $\neg a = (a \rightarrow 0)$.\\
+$\because$ for $(\neg a) \wedge a =0$
+\begin{align*}
+  &(a \rightarrow 0) \wedge a = a \wedge 0 = 0,
+\end{align*}
+for $(\neg a) \vee a = 1$, we have, from the definition of $\rightarrow$,
+\begin{align*}
+  &c \le (a \rightarrow 0) \text{ iff } c \wedge a = 0
+\end{align*}
+and
+\begin{align*}
+  1 \ge (\neg a) \vee a &\ge (a \rightarrow 0) \vee a \\
+  \neg a &\ge (a \rightarrow 0)
+\end{align*}
+but we also have $\neg a \le (a \rightarrow 0)$ since $(\neg a) \wedge a = 0$. Therefore, $\neg a = (a \rightarrow 0)$. $\qed$\\
+In a general Heyting algebra, we take this as the definition of $\neg$, and call $\neg a$ the \itbf{negation} (or the \itbf{peudocomplement}) of $a$.
+It is clear that $a \wedge \neg a = 0$ (in fact $\neg a$ is the largest element of $A$ with this property), but in general we do not have $a \vee \neg a = 1$.
+\begin{lemma}
+  \begin{enumerate}
+  \item A Heyting algebra is distributive.
+  \item A Heyting algebra $A$ is a Boolean algebra iff $\neg \neg a = a$ for all $a \in A$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  (i) Since $a \wedge (-)$ is order-preserving, we have $(a \wedge b) \vee  (a \wedge c) \le a \wedge (b \vee c)$. But
+  \begin{align*}
+    a \rightarrow ((a \wedge b) \vee (a \wedge c)) & \ge  (a \rightarrow (a \wedge b)) \vee (a \rightarrow (a \wedge c)) \\
+                                                   & \ge  b \vee c,
+  \end{align*}
+  hence $(a \wedge b) \vee  (a \wedge c) \ge a \wedge (b \vee c)$. \\
+  (ii) If $A$ is a Boolean algebra, then the identity $\neg \neg = a$ is clear from uniqueness of complements.
+  Conversely, suppose $\neg \neg a = a$ holds in a Heyting algebra $A$; since we know $A$ is distributive, we need only verify the identity $a \vee \neg a = 1$.
+  But the given condition implies that $\neg$ is a bijection $A \rightarrow A$, and it is clearly order-preserving, so the De Morgan's law hold.
+  Thus on negating the equation $a \wedge \neg a =0$, we obtain $\neg a \vee \neg \neg a = \neg a \vee a = 1$.
 \end{proof}
 %---Example---%
 \begin{example}[Poset]
