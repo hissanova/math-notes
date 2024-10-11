@@ -456,9 +456,9 @@ Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge a \l
 \end{lemma}
 \begin{proof}
   Suppose that $A$ is a Heyting algebra. Then, $(a \rightarrow a)$ is the largest element $c$ such that $c \wedge a \le a$ holds, that is $1$. So (i) is true.\\
-  For (ii), $a \wedge c \le b$ implies $a \wedge (a \wedge c) = a \wedge c \le a \wedge b$. So (ii) is true.\\
+  For (ii), $a \wedge c \le b$ implies $a \wedge (a \wedge c) = a \wedge c \le a \wedge b$. Hence, $a \wedge (a \rightarrow b) \le a \wedge b$. Also, since $(a \wedge b) \wedge a \le b$, we have $a \wedge b \le a \rightarrow b \; \Rightarrow a \wedge b \le a \wedge (a \rightarrow b)$. So (ii) is true.\\
   For (iii), $a \wedge b \le b$ implies $b \le (a \rightarrow b)$, so $b \le b \wedge (a \rightarrow b) \le b$.\\
-  For (iv), $a \wedge f \le (b \wedge c) \le b \text{ and } c$ so $a \rightarrow (b \wedge c) \le (a \rightarrow b) \wedge (a \rightarrow c)$.\\
+  For (iv), $a \wedge f \le (b \wedge c) \le b, c$ so $a \rightarrow (b \wedge c) \le (a \rightarrow b) \wedge (a \rightarrow c)$.\\
   Then $a \wedge (a \rightarrow b) \wedge (a \rightarrow c) = a \wedge (a \rightarrow b) \wedge a \wedge (a \rightarrow c) \le b \wedge c$, so it's true.\\
   For the converse, suppose the equations hold. Then if $c \le (a \rightarrow b)$, we have
   \begin{align*}
@@ -480,20 +480,16 @@ Thus $\neg a \vee b$ is the unique largest element $c$ satisfying $c \wedge a \l
   Hence, $a \rightarrow b \le a \rightarrow c$.
 \end{proof}
 (\cite{Stone} Sec. 1.11) In a Boolean algebra $A$, we can recover the unary operation $\neg$ from the binary operation $\rightarrow$, since $\neg a = (a \rightarrow 0)$.\\
-$\because$ for $(\neg a) \wedge a =0$
-\begin{align*}
-  &(a \rightarrow 0) \wedge a = a \wedge 0 = 0,
-\end{align*}
-for $(\neg a) \vee a = 1$, we have, from the definition of $\rightarrow$,
+$\because$ In a Boolean algebra, $\neg a$ always exists. From the definition of $\rightarrow$, we have
 \begin{align*}
   &c \le (a \rightarrow 0) \text{ iff } c \wedge a = 0
 \end{align*}
-and
+so $\neg a \le (a \rightarrow 0)$ since $(\neg a) \wedge a = 0$. But we also have,
 \begin{align*}
   1 \ge (\neg a) \vee a &\ge (a \rightarrow 0) \vee a \\
-  \neg a &\ge (a \rightarrow 0)
+  \neg a &\ge (a \rightarrow 0).
 \end{align*}
-but we also have $\neg a \le (a \rightarrow 0)$ since $(\neg a) \wedge a = 0$. Therefore, $\neg a = (a \rightarrow 0)$. $\qed$\\
+Therefore, $\neg a = (a \rightarrow 0)$. $\qed$\\
 In a general Heyting algebra, we take this as the definition of $\neg$, and call $\neg a$ the \itbf{negation} (or the \itbf{peudocomplement}) of $a$.
 It is clear that $a \wedge \neg a = 0$ (in fact $\neg a$ is the largest element of $A$ with this property), but in general we do not have $a \vee \neg a = 1$.
 \begin{lemma}
@@ -509,11 +505,30 @@ It is clear that $a \wedge \neg a = 0$ (in fact $\neg a$ is the largest element 
                                                    & \ge  b \vee c,
   \end{align*}
   hence $(a \wedge b) \vee  (a \wedge c) \ge a \wedge (b \vee c)$. \\
-  (ii) If $A$ is a Boolean algebra, then the identity $\neg \neg = a$ is clear from uniqueness of complements.
+  (ii) If $A$ is a Boolean algebra, then the identity $\neg \neg a = a$ is clear from the uniqueness of complements.
   Conversely, suppose $\neg \neg a = a$ holds in a Heyting algebra $A$; since we know $A$ is distributive, we need only verify the identity $a \vee \neg a = 1$.
   But the given condition implies that $\neg$ is a bijection $A \rightarrow A$, and it is clearly order-preserving, so the De Morgan's law hold.
   Thus on negating the equation $a \wedge \neg a =0$, we obtain $\neg a \vee \neg \neg a = \neg a \vee a = 1$.
 \end{proof}
+%---Exercises--%
+\subsubsection{Exercises}
+\subsubsection{The Strictness of Lattice Inclusions}
+\begin{example}[A Heyting Algebra which is not Boolean]
+  Let $A$ be a total order with least and greatest elements, considered as a lattice.
+  Then $A$ is a Heyting algebra with implication defined by
+  \begin{equation}
+    a \rightarrow b =
+    \begin{cases}
+      & 1 \text{ when } a \le b \\
+      & b \text{ otherwise.}
+    \end{cases}
+  \end{equation}
+  However, $A$ is not Boolean, since $\neg \neg a = 1$ for all $a \ne 0$.
+\end{example}
+\begin{example}[A Distributive Lattice which is not Heyting]
+  Let $X$ be an infinite set, and let $A$ be the subset of the power set $PX$ consisting of all finite subsets of $X$ with $X$ itself.
+  It is easy to see that $A$ is a sublattice of $PX$, and therefore distributive. But $A$ is not Heyting algebra, for if $a$ is a non-empty finite subset of $X$, the set of members of $A$ having empty intersection tiwh $a$ has no largest member.
+\end{example}
 %---Example---%
 \begin{example}[Poset]
   (\cite{Gratzer} Chap.1 Exercise 4)
